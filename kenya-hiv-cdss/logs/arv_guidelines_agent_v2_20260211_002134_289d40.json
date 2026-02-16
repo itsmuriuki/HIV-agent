@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "arv_text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-11T00:21:33.443092+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "What interactions should be considered when prescribing calcium channel blockers for patients on protease inhibitors?",
+          "timestamp": "2026-02-11T00:21:33.443110+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "args": "{\"query\":\"calcium channel blockers protease inhibitors interactions\"}",
+          "tool_call_id": "call_YcNdgfd3LfY3mHfP8NQC5DaN",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 271,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 23,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:21:33+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D7sGzQ1BcajH82wL3l5iuo0ilGEVK",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "content": [
+            " Annexes  \n \n13 - 49 Annex 13 B: Cont.  \nAngiotensin II \nreceptor blockers \n(ARBs): e.g., \nLosartan, \nTelmisartan  Telmisartan, Candesartan:  \nNone  \nLosartan: Potential \ninteractions with all PIs, net \neffect of interaction difficult \nto predict, use with caution  Telmisartan, Candesartan:  None  \nLosartan: Potential interactions \nwith all PIs, net effect of \ninteraction difficult to predict, \nuse with caution  Telmisartan, Candesartan:  None  \nLosartan: Potential interactions \nwith all PIs, net effect of \ninteraction difficult to predict, \nuse with caution  Telmisartan, Candesartan:  \nNone  \nLosartan: Potential \ninteractions with all PIs, net \neffect of interaction difficult to \npredict, use with caution  \nBeta blockers: e.g., \nAtenolol, Carvedilol \nand Propranolol  Potential increase in B -\nblocker effect, careful dose \nadjustment and ECG where \nindicated  Potential increase in B -blocker \neffect, careful dose adjustment \nand ECG where indicated  Potential increase in B -blocker \neffect, careful dose adjustment \nand ECG where indicated  Potential increase in B -blocker \neffect, careful dose adjustment \nand ECG where indicated  \nCalcium channel \nblockers (CCBs): e.g., \nNifedipine, \nAmlodipine and \nFelodipine  Potential interaction with all \nPIs: Metabolism of CCBs \ninhibited, increasing \nantihypertensive effect: \nlower starting dose  of CCB \nmay be required, monitor for \nexcessive reduction in BP  Potential interaction with all \nPIs: Metabolism of CCBs \ninhibited, increasing \nantihypertensive effect: lower \nstarting dose of CCB may be \nrequired, monitor for excessive \nreduction in BP  Potential  interaction with all \nPIs: Metabolism of CCBs \ninhibited, increasing \nantihypertensive effect: lower \nstarting dose of CCB may be \nrequired, monitor for excessive \nreduction in BP  Potential interaction with all \nPIs: Metabolism of CCBs \ninhibited, increasing \nanti hypertensive effect: lower \nstarting dose of CCB may be \nrequired, monitor for excessive \nreduction in BP  \nDiuretics: E.g., HCTZ, \nIndapamide. \nFurosemide and \nSpironolactone  No known interactions  No known interactions  No known interactions  No known interactions  \nOthers: Alpha \nblockers:  \nMethyldopa, \nHydralazine   No known interactions  No known interactions  No known interactions  No known interactions  \n ",
+            " Annexes  \n \n13 - 53 Annex 13 C: Cont.  \nDrugs Affected  Dolutegravir (DTG)  Raltegravir (RAL)  \nAnticonvulsants  \n-Carbamazepine  \n-Phenobarbital  \n-Phenytoin  Avoid use of DTG with carbamazepine, \nphenobarbital, or phenytoin because they \ndecrease DTG plasma levels.  \n \nIf the DTG must be used in combination with any \nof these anticonvulsants than increase DTG dose \nto 50mg BD and monitor viral load.  No interaction  \nMineral \nsupplements and \nantacids \ncontaining cations \n(e.g., calcium, iron, \nzinc, magnesium, \naluminum), \nincluding prenatal \nvitamins  Administer DTG at least 2 hours before or 6 \nhours after taking any of these supplements \n(note: if taking DTG with a meal then it is safe to \ntake at th e same time as prenatal vitamins, \ncalcium, or iron)  \n \nThere are no drug -drug interactions between \nDTG and proton pump inhibitors or H2 blockers \nused for gastritis.  Do not use calcium, \nmagnesium and aluminum \ncontaining antacids with RAL.  \nMethadone  No inter action  No interaction  \n \n \n \n \n \n \n \n \n ",
+            " Annexes  \n \n13 - 43 Annex 13 A: Cont.  \nLIPID -LOWERING AGENTS  \nSimvastatin  \nLovastatin  No data  Levels: Simvastatin AUC    by 58%; EFV unchanged  \nDose: Adjust simvastatin dose according to lipid responses, \nnot to exceed the maximum recommended dose  \nAtorvastatin  No data  Levels: Atorvastatin AUC   43%; EFV unchanged.  \nDose: Adjust atorvastatin dose according to lipid responses, \nnot to exceed the maximum recommended dose  \nPravastatin  No data  No data  \nANTI -HYPERTENSIVES   \nAngiotensin -converting enzyme \ninhibitors (ACEIs): E.g.  - Enalapril, \nLisinopril  No known interactions  No known interactions  \nAngiotensin II receptor blockers \n(ARBs): e.g., Losartan, Telmisartan  Telmisartan, Candesartan: None  \nLosartan: Potential interactions with all NNRTIs, net effect \nof interaction difficult to predict, use with caution  Telmisartan, Candesartan: None  \nLosartan: Potential interactions with all NNRTIs, net effect \nof interaction difficult to predict, use with caution  \nBeta blockers: e.g., Atenolol, \nCarvedilol and Propranolol  No known interactions  No known interactions  \nCalcium channel blockers (CCBs): \ne.g., Nifedipine, Amlodipine and \nFelodipine  Potential interaction with all NNRTIs: Metabolism of CCBs \nis induced by EFV or NVP, blunting antihypertensive \neffect: higher starting dose of CCB may be required  Potential intera ction with all NNRTIs: Metabolism of CCBs \nis induced by EFV or NVP, blunting antihypertensive effect: \nhigher starting dose of CCB may be required  \nDiuretics: E.g., HCTZ, Indapamide. \nFurosemide and Spironolactone  No known interactions  No known interactions  \nOthers: Alpha blockers:  \nMethyldopa, Hydralazine   No known interactions  No known interactions  \n ",
+            " Annexes  \n \n13 - 45 Annex 13 B: Drug -Drug Interactions \u2013 PIs \nDrugs Affected  Atazanavir (ATV)  Ritonavir  \n(RTV)  Darunavir (DRV)  Lopinavir (LPV)  \nANTIRETROVIRALS  \nEFV  Co-administration not \nrecommended because EFV \ndecreases the serum \nconcentration of ATV/r which \nmay lead to resistance and \ntreatment failure  See interaction with specific \nritonavir -boosted PI  Co-administration not \nrecommended because DRV/r \nmay increase the serum \nconcentration of EFV leading to \nincreased risk of toxicity, and EFV \ndecreases the serum \nconcentration of DRV/r which \nmay lead to resistance and \ntreatment failure  AVOID: this combination \nincreased risk of \nprolonged -QT syndrome \nand sudden cardiac death  \nETR  No significant interaction  See interaction with specific \nritonavir -boosted PI  No significant interaction  \n No significant interaction  \nDTG  No significant interaction  See interaction with specific \nritonavir -boosted PI  No significant interaction  No significant interaction  \nRAL  ATV/r may increase RAL levels \nbut interaction in not clinically \nsignificant  See interaction with specific \nritonavir -boosted PI  No sign ificant interaction  No significant interaction  \n \n  ",
+            " Annexes  \n \n13 - 39 Annex 12 C: Use of Protease Inhibitors in Adults  \nDrug name  Dose (in \nadults)  Dietary \nrestrictions  Major side effects  Comments  \nLopinavir/ritonav\nir (LPV/r) \nAvailable as \n200mg  \n+ 50mg RTV  [LPV 400 mg \n+ RTV  \n100 mg] 2 \ntablets BD  Take with food. \nModerate  \nfat increases \nbioavailability.  GI intolerance; \nnausea; vomiting; \ndiarrhoea  Tablets should be \nswallowed whole  \nAtazanavir  \n(ATV)  \n \nAvailable in  \n100mg, 150mg, \n200 mg capsules  \n \nAvailable as FDC  \nwith RTV  ATV 300mg / \nRTV 100mg \nOD Take with food. \nTake 2 hours \nbefore or 1  \nhour after \nantacids and \nbuffered \nmedications \nsuch as buffered \nddI (reduced \nATV \nconcentrations  \nif administered \ntogether)  Jaundice; headache; \nfever; depression; \nnausea; diarrhoea \nand vomiting; \nparaesthesia; \nspontaneous \nbleeding episodes \nin haemop hiliacs.  Indirect \nhyperbilirubinaemia. \nWhen used with TDF \nshould always be given \nwith RTV. Experienced \npatients should also be \ngiven ATV/RTV.  \nRitonavir  \n(RTV)  \n \nAvailable as 100mg \ncapsules  \nCapsules should be \nrefrigerated until \ndispensed; stable \nat room (up to \n25\u00baC) for 30 days  Recommended \nfor use as a \nbooster of \nother PIs  Administration \nwith food \nincreases \nabsorption and \nhelps reduce \ngastrointestinal \nside effects.  Exacerbation of liver \ndisease; fat \nredistribution and \nlipid abnormalities; \ndiarrhoea; \nabdom inal \ndiscomfort; \nheadache; nausea; \nparaesthesia;  \nskin rash; \nspontaneous \nbleeding episodes in \nhaemophiliacs.  Potent CYP450 inhibitor, \nthus its use as a booster \nof other PIs  \nDarunavir (DRV)  DRV 600 \nmg/ RTV \n100 mg BID \nOR \n \nDRV 800 \nmg/ RTV 100 \nmg OD (only \nif PI na\u00efve)  Take with a \nmeal to limit \nADR  GIT upsets, rash, \ndyslipidaemia, \nhepatitis. Caution \nin patients with \nsulphur allergy.  Metabolized by CYP3A \nand is an inhibitor of \nCYP3A. Contains sulphur \nmoiety. Monitor liver \nfunctions especially in \npatients at risk  or with \npre-existing liver  \ndisease.  May cause \nhormonal contraceptive \nfailure.  \n   \n  "
+          ],
+          "tool_call_id": "call_YcNdgfd3LfY3mHfP8NQC5DaN",
+          "metadata": null,
+          "timestamp": "2026-02-11T00:21:34.342315+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "When prescribing calcium channel blockers (CCBs) for patients on protease inhibitors (PIs), it is crucial to be aware of potential interactions. The metabolism of CCBs can be inhibited by PIs, which may lead to an increased antihypertensive effect. Consequently, a lower starting dose of CCBs may be required, and careful monitoring for excessive reduction in blood pressure is recommended.\n\nThis interaction applies to various CCBs, including nifedipine, amlodipine, and felodipine, and is relevant for all PIs [Annex 13 B][49]. \n\nIn summary:\n- **Effect**: Increased antihypertensive effect of CCBs.\n- **Recommendation**: Use a lower starting dose and monitor blood pressure closely.\n\nPlease ensure to adhere to these guidelines for optimal patient safety and efficacy.",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 2917,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 173,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:21:34+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D7sH0i88rASn0OAXrhfx9moo9ndPx",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

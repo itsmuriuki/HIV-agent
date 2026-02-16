@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "kenya-hiv-cdss"
+version = "0.1.0"
+description = "Streamlit RAG app for Kenya HIV Guidelines (2022)"
+authors = ["Gerald Muriuki"]
+readme = "README.md"
+packages = []
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+# App
+streamlit = "^1.31.0"
+python-dotenv = "^1.0.0"
+
+# RAG stack
+langchain = "^0.1.16"
+langchain-community = "^0.0.32"
+langchain-core = "^0.1.53"
+langchain-text-splitters = "^0.0.2"
+langchain-openai = "^0.1.3"
+pydantic-ai = "^1.0"
+
+# PDF + vector store
+pypdf = "^4.0.1"
+lancedb = "^0.4.0"
+
+# Embeddings
+sentence-transformers = "^2.2.2"
+tiktoken = "^0.12.0"
+pypdf2 = "^3.0.1"
+minsearch = "^0.0.9"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.1.0"
+ruff = "^0.3.0"
+jupyter = "^1.0.0"
+nbconvert = "^7.0.0"
+ipykernel = "^6.0.0"

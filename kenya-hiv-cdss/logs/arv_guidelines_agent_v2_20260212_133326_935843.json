@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-12T13:33:24.589491+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": " \"Who is eligible to start ART according to Kenya guidelines?\"",
+          "timestamp": "2026-02-12T13:33:24.589522+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "args": "{\"query\":\"eligibility to start ART\"}",
+          "tool_call_id": "call_IwEBKKYLprWHraWAyWi5qe3c",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 265,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 18,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-12T13:33:25+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D8R6rDVCRm6lWjPucVqEzvzUKgrjn",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "content": [
+            "All individuals with confirmed HIV infection are eligible for ART irrespective of CD4 \ncount, WHO clinical stage, age, pregnancy or breastfeeding status, co -infection status, \nrisk group, or any other cri teria.  \n6.2 Timing of ART Initiation  \nART should be started in all patients as soon as possible, preferably within 2 weeks of \nconfirmation of HIV status, and even on the same day as testing positive for HIV if they are ready.  \nART Readiness Criteria (Table 5.4) can be used to help determine any issues that need to be \naddressed around the time of ART initiation. Same -day ART initiation (on the same day as testing \nHIV-positive) has additional benefits for HIV prevention (e.g., for pregnant and breastfee ding",
+            "ready and wi lling to start ART, as determined using the ART Readiness Assessment Form (Table \n5.4). Each repeat session should begin with a review of what the patient remembers from the \nprevious session as well as any key issues the counsellor documented in the patient \u2019s chart, so the \nsession can be customized to meet their needs. ART preparation should not take more than 1 -2 \nweeks except for special circumstances such as with uncontrolled mental health issues or \nuntreated drug addictions. However, once the patient has initiated ART, continued HIV education, \ncounselling and adherence support must be provided. The counselling sessions should preferably \nbe conducted by the same counsellor, peer educator, social worker, nurse, community health",
+            "HIV education should be a standard component of the enrolment visit. Prior to ART initiation, all \npatients/caregivers must be provided with enough information to make an informed choice about \nART initiation and adherence (Table 5.2), including for patients who initiate ART during the \nenrolment visit. A detailed content guide for HIV education and adherence counselling is provided \nin Annex 8. This information can be provided through group or individual counselling. The ART \nReadiness Assessment an d the management plan should be completed for each patient \nindividually (Table 5.4).",
+            "- Many people report an increase in their energy levels and general sense of well being  \n- People can often return to work or school or care for their families  \n- With ART,  people with HIV can live a long and healthy life if they take it properly  \n \n\u2022 When is ART started:  \n- Everybody with HIV should start ART  \n- Even if your CD4 count is high, the virus is doing damage inside of you and needs to be \ncontrolled  \n- ART should be started as soon as you are ready, preferably within 2 weeks  \n- The longer you wait to start ART, the more time the virus can damage your body, increasing \nyour chances of getting sick or even dying  \n- Sometimes ART is started a few weeks later if you have certain infections, or if you do not \nthink you are ready to take them properly",
+            "Counselling  \u25cf ART is the most important treatment to maintain good health and an \nactive life  \n\u25cf Starting ART soon will decrease risk of developing wasting and other \ninfections  \n\u25cf ART will reduce the risk of transmitting HIV to others  \nFrequency of  \nFollow -up \u25cf Weekly follow -up until ART initiation, and then at week 2 and 4 after \nART initiation, and then monthly until confirmed viral suppression  \n\u25cf Additional visits as required to address any medical or psychosocial \nconcerns  \nAdults, adolescents, and children \u2265 5 years who Present Well: WHO Stage 1 or 2, and CD4 count > \n200 cell/mm3 \nLocation of Services  \u2022 Management at any ART service delivery point; all facility levels   \n\u2022 Initial management and ART initiation by trained and experienced HCW  \nFocus of Treatment"
+          ],
+          "tool_call_id": "call_IwEBKKYLprWHraWAyWi5qe3c",
+          "metadata": null,
+          "timestamp": "2026-02-12T13:33:25.803096+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "According to the Kenya ART guidelines, all individuals with confirmed HIV infection are eligible to start Antiretroviral Therapy (ART) regardless of various factors such as CD4 count, WHO clinical stage, age, pregnancy or breastfeeding status, co-infection status, and risk group. \n\nART should ideally be initiated as soon as possible, preferably within 2 weeks of HIV confirmation and can even be started on the same day if the patient is ready. The guidelines emphasize the importance of ART readiness and provide resources to assist healthcare providers in assessing readiness for ART initiation [Kenya ARV Guidelines][page].",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1128,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 120,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-12T13:33:26+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D8R6sLicSzCMUTkGmqaJyk6uUGBTo",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "user"
+}

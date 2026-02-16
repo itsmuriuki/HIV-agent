@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "arv_text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-11T00:21:28.122600+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "Which gastrointestinal side effects might a patient experience when starting PrEP, and how should these be managed?",
+          "timestamp": "2026-02-11T00:21:28.122610+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "args": "{\"query\":\"gastrointestinal side effects PrEP management\"}",
+          "tool_call_id": "call_kCWjOpSXvp5CDz6lpl8W0EqL",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 274,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 23,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:21:28+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D7sGuDyh1c7XVsaVKJ1yXaXT6Z570",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "content": [
+            " Annexes  \n \n13 - 53 Annex 13 C: Cont.  \nDrugs Affected  Dolutegravir (DTG)  Raltegravir (RAL)  \nAnticonvulsants  \n-Carbamazepine  \n-Phenobarbital  \n-Phenytoin  Avoid use of DTG with carbamazepine, \nphenobarbital, or phenytoin because they \ndecrease DTG plasma levels.  \n \nIf the DTG must be used in combination with any \nof these anticonvulsants than increase DTG dose \nto 50mg BD and monitor viral load.  No interaction  \nMineral \nsupplements and \nantacids \ncontaining cations \n(e.g., calcium, iron, \nzinc, magnesium, \naluminum), \nincluding prenatal \nvitamins  Administer DTG at least 2 hours before or 6 \nhours after taking any of these supplements \n(note: if taking DTG with a meal then it is safe to \ntake at th e same time as prenatal vitamins, \ncalcium, or iron)  \n \nThere are no drug -drug interactions between \nDTG and proton pump inhibitors or H2 blockers \nused for gastritis.  Do not use calcium, \nmagnesium and aluminum \ncontaining antacids with RAL.  \nMethadone  No inter action  No interaction  \n \n \n \n \n \n \n \n \n ",
+            "  \nPre-Exposure Prophylaxis (PrEP)  \n11 - 9 Changing between ED PrEP and daily oral PrEP  \nMen can be offered the two dosing options: daily oral PrEP or Event driven PrEP.  \n\u2022 Daily dosing is appropriate for those whose occurrence of sex cannot be predicted and for \nthose whose potential exposures to HIV  are more frequent than 2 times per week, such \nthat ED -PrEP would be taken so frequently that it would effectively resemble daily PrEP.  \n\u2022 If sex continues beyond one day, a user of ED -PrEP can stay protected by taking another \npill each day as long as sex co ntinues and stopping 2 days after the last sex act.  \n\u2022 On the other hand, if an individual starts daily oral PrEP, but then sex becomes infrequent \nand predictable, ED -PrEP can be used instead.  \n \n11.4 Managing Clinical and Laboratory Results on Initial and Fol low -up \nAssessment  \nTable 11.5 Initial & follow up laboratory test  \nLaboratory Test  Guidelines for clients initiating \nPrEP  Guidelines for clients on \nfollow up  \nHIV Rapid Test  Before initiating PrEP as per the National \nHTS algorithm  At Month 1, Month 3, thereafter \nevery 3months  \nCreatinine Test  Test within 1 -3 months of PrEP Initiation  If client >50years \u2013 Screen every \n6-12months  \nClients of any age with renal \ncomorbidity: recommended before  \ninitiating PrEP  Screen every 6 -12months  \nHepatitis B Surface \nAntigen (HBsAg)  Test once within 3 months of initiating PrEP. If negative, offer/refer for \nimmunization   \nHepatitis C Virus \nSerology  Test once within 3months of PrEP \ninitiation  Every 12 months for persons at \nhigh risk of Hepatitis C infection  \n \n  ",
+            "  \nPre-Exposure Prophylaxis (PrEP)  \n11 - 1  \n11. Pre-Exposure Prophylaxis (PrEP)  \n \nPre-exposure prophylaxis (PrEP) is the use of antiretroviral medication to prevent the acquisition \nof HIV infection by an uninfected person at ongoing risk of acquiring HIV infection.  \nPrEP is recommended for use as follows:  \n\u2022 Daily Oral PrEP for all indivi duals, irrespective of gender or sexual orientation who are at risk \nof HIV infection.  \n\u2022 Event -Driven (ED) PrEP is currently recommended for all people born male who are not \ntaking exogenous estradiol -based gender affirming hormones  \n11.1 Indications for PrEP and Criteria for Eligibility   \n11.1.1 Indications for PrEP  \nPrEP is indicated for;  \n\u25cf HIV uninfected persons at ongoing risk of HIV acquisition  \n\u25cf Some risk situations that place one at ongoing risk include individuals or sexual partner/s \nwho is/are:  \no HIV positive and: not on ART, or on ART < 6 months, on ART with viral non -suppression, \nor on ART with suspected poor adherence  \no In sero -discordant relat ionships trying to conceive  \no Of unknown HIV status and at high -risk of HIV infection  \no Engaging in transactional sex or sex work  \no With history of recent or current sexually transmitted infections  \no With recurrent use of Post -Exposure Prophylaxis  \no With a history of sex whilst under the influence of alcohol or recreational drugs  \no Inconsistent or no condom use or unable to negotiate condom use during intercourse \nwith persons of unknown HIV status  \no Using injection drugs where needles and/or syringes are  shared  \n11.1.2 HIV Risk Assessment  \nClients accessing health services should be screened for HIV risk and additionally provided with \ninformation on HIV prevention options available including the availability of PrEP. This is in \naddition to the use of HIV testing services (HTS), as clients ar e assessed for HIV risk before testing.  \nThe risk assessment questions are enquiry of behavioural practices that may expose an individual \nto HIV (Table 11.2).  \n A simple Risk Assessment Tool (RAST) is provided to guide the provider in generating a \nconversat ion about HIV risk. Screening for HIV risk should be integrated within other service \ndelivery points. HIV negative individuals who answer \u201cyes\u201d to any of the screening questions \nshould be engaged in a discussion about the risks and benefits of PrEP. The cl ient then is evaluated \nfor eligibility to receive PrEP.  ",
+            "  \nPre-Exposure Prophylaxis (PrEP)  \n11 - 7 11.3.1 Schema for follow up for daily oral PrEP  \nInitial Visit/First Contact\nPerform a risk assessment to determine if PrEP is indicated:\n\u2022 Discuss effective PrEP use and Clarify misinformation\n\u2022 Perform Initial clinical and laboratory assessment:\no Baseline HIV test and rule out symptoms of Acute \nHIV infection.\no Screen for STIs and risk of renal disease/Hepatitis \nB/C infectionIf HIV Negative and meets eligibility for PrEP\n\u2022 Offer adherence counselling and support. \n\u2022 Prescribe 30 -day supply of PrEP (TDF 300 mg/FTC \n200 mg OD) \n\u2022 Discuss combination prevention and risk reduction.\n\u2022 Offer other HIV prevention services e.g., condoms as \nappropriate.\n30 Day review\n\u2022 Assess for adherence and offer adherence counselling and support.\n\u2022 Ask about any side effects. Find out how the client is coping with the side effects if any. Reassure if minor.\n\u2022 Assess for STIs, risk of acute HIV infection, and perform pregnancy test in women. \n\u2022 Assess for risk of kidney disease, if available, obtain serum creatinine and calculate creatinine clearance \n\u2022 Discuss risk reduction and provide condoms.\n\u2022 Perform a repeat HIV test. (Discontinue PrEP for those who test positive and link to care for ART initiation) \nGive a 60-day PrEP prescription for drug refill of PrEP. Schedule the 3 -month return visit.\n3 monthly reviews \n\u2022 Assess for adherence and offer adherence counselling and support. \n\u2022 Ask about any side effects\n\u2022 Assess for STIs, (and pregnancy in women) and acute HIV infection. \n\u2022 Perform HIV test every 3 months (HIV self -test may be used followed by a \nconfirmatory test in health facilities for those testing positive) \n\u2022 Discuss risk reduction and provide condoms.\nDo serum creatinine and calculate creatinine clearance within 3 months after initiation \nand thereafter annually as recommended.\n \nFigure 11.2: Schema for Follow -up for Daily Oral PrEP  \n \n11.3.2 EVENT DRIVEN PrEP (ON DEMAND PrEP or 2+1+1 PrEP)  \nWhat is event driven?  \nAn \u201cEvent\u201d refers to a sexual act. Event driven PrEP is where oral PrEP is to be used when an  \nisolated sexual act is anticipated.   \nEvent -Driven PrEP is recommended for all people assigned male at birth not taking exogenous \nestradiol -based gender affirming hormones  ",
+            "  \nPre-Exposure Prophylaxis (PrEP)  \n11 - 5 11.2.2 Pre -initiation client education  \nThe following components should be discussed prior to PrEP initiation:  \nTable 11.3: Client Education Checklist  \nTopic  Check  \n\u2714 Explain how PrEP works as part of combination HIV prevention  \u2714  \n\u2714 Explain the need for baseline and follow -up tests including regular HIV testing  \u2714  \n\u2714 Explain PrEP use: include the following: (refer to the different types of PrEP \navailable for details)  \no The medications used (show the client the pills or other PrEP options  \no How the medications are used (frequency of dosing for the various options)  \no Number of doses required to achieve efficacy (7 doses for daily oral PrEP, \nloading dose for event driven oral PrEP)  \no What to do when doses are missed (continue for daily doses)  \no Discontinuation of PrEP, how and when it can be discontinued.  \no Side effects and what to do in case these are experienced (including when to \nconsult the clinician)   \u2714  \n\u2714 Discuss what to do in case client experiences symptoms of seroconversion (acute \nHIV infect ion)   \n\u2714 Discuss the Limitations of PrEP  \no PrEP reduces but does not eliminate the risk of acquiring HIV.  \no PrEP does not prevent pregnancies and STIs.   \u2714  \n\u2714 Risk reduction counselling and support education  \no Managing mental health needs  \no Couple counselling  \no Access to, and consistent use of condoms and lubricants  \no Access to and need for frequent HIV testing.  \no Early access to ART  \no VMMC  \no STI screening and treatment  \no Harm reduction for PWID  \u2714  \n \n11.3 Recommended ARVs for PrEP  \nThe preferred ARV regimen is Tenofovir 300mg/ Emtricitabine 200mg (TDF/FTC) given as one \nfixed dose combination (FDC) tablet orally daily.  \n  "
+          ],
+          "tool_call_id": "call_kCWjOpSXvp5CDz6lpl8W0EqL",
+          "metadata": null,
+          "timestamp": "2026-02-11T00:21:29.430907+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "When starting Pre-Exposure Prophylaxis (PrEP), particularly with the recommended regimen of Tenofovir (TDF) and Emtricitabine (FTC), patients may experience gastrointestinal side effects. Common gastrointestinal issues include:\n\n1. **Nausea**\n2. **Diarrhea**\n3. **Abdominal pain**\n4. **Loss of appetite**\n\n### Management of Gastrointestinal Side Effects:\n\n- **Monitoring**: Regular follow-up assessments are crucial, particularly during the first month after initiating PrEP. During these visits, healthcare providers should inquire about any side effects the patient may be experiencing.\n  \n- **Reassurance**: Many mild gastrointestinal side effects tend to improve over time as the body adjusts to the medication. Patients should be reassured if they report minor GI symptoms.\n\n- **Supportive Care**: For more severe symptoms, supportive measures can include dietary adjustments (like eating smaller, more frequent meals) and hydration support. \n\n- **Further Evaluation**: If symptoms persist or are severe, further evaluation may be necessary to rule out other causes or consider switching medications.\n\nPatients should be informed about potential side effects before starting PrEP, and they should know when to seek clinical advice if they experience bothersome symptoms. \n\nOverall, effective communication and supportive management can help patients adhere to PrEP while minimizing discomfort from gastrointestinal side effects [Pre-Exposure Prophylaxis (PrEP)][11-5].",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 2737,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 289,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:21:29+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D7sGvbVE7yO2kcjTvFZ5slLjPnctM",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

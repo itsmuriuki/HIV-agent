@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "arv_text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-11T00:21:12.528111+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "What are the essential guidelines for treating drug-susceptible TB in children and adolescents?",
+          "timestamp": "2026-02-11T00:21:12.528126+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "args": "{\"query\":\"treating drug-susceptible TB in children and adolescents\"}",
+          "tool_call_id": "call_RkC0KVq7foFcS7aMC4xcmMns",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 272,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 28,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:21:12+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D7sGehzcLDue3aOLQN71TQYlnKw8v",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "content": [
+            " \nTB/HIV Co -infection, Prevention and Management  \n \n8 - 7 \n Table 8.2: Drug Susceptible TB Treatment Regimen for Children, Adolescents and Adults  \nTB disease category  Recommended regimen  \nIntensive phase        Continuation phase  \nAll forms of TB except TB meningitis, bone \nand joint TB (osteoarticular TB)  2 RHZE  4 RH  \nTB meningitis   \nOsteoarticular TB  2 RHZE  10 RH  \nDrug resistant TB  Refer to a DRTB Clinical Team  \n\u25cf Follow up smears should be done for all bacteriologically confirmed pulmonary TB cases at end of \nmonth 2, 5 and 6 of TB treatment using smear microscopy  \n\u25cf Follow up of RR TB and DR TB should be done as per PMDT guidelines  \n\u25cf Patients taking isoniazid containing regimen should also be given Pyridoxine (Vitamin B6) daily for \nthe duration of treatment to reduce the risk of developing peripheral neuropathy (see Annex 10 for \npyridoxine dosing)  \nOnce TB treatment is started it should be completed; unless another definitive diagnosis (like lung \ncancer) is established and TB is ruled out.  \n \n \n \n ",
+            "  \nTB/HIV Co -infection, Prevention and Management  \n \n8 - 17 Table 8.8 Cont.  \n1. For patients on 2nd line ART, subsequent regimens, drug intolerance, or nonstandard drugs who require \nregimen change because of TB treatment, consult the Regional or National HIV Clinical TWG (Uliza Hotline \n0726 460 000; https://nhcsc.nascop.org/clinicalform ) \n2. Contact  the Regional or National HIV Clinical TWG (Uliza Hotline 0726 460 000; \nhttps://nhcsc.nascop.org/clinicalform ) for guidance on urgent collection of DRT samples  \n3. Use \u201csuper -boosted\u201d LPV/r by adding additional ritonavir to manage the drug interaction between LPV/r \nand rifampicin (see Annex 10 for dosing recommendations). Two weeks after TB treatment is completed \nthe child should go back to standard LPV/r dosing.  \n ",
+            "  \nTB/HIV Co -infection, Prevention and Management  \n \n9 - 3 B. Recommended first -line ART in HIV/HBV co -infection  \nThe recommended first -line ART in adolescents and adults with HIV/HBV co -infection \nis TDF + 3TC + DTG, including for women and adolescent girls of childbearing potential  \n \nTreatment with both TDF (or TAF) and 3TC is recommended as 3TC without TDF or TAF will \nresult in rapid emergence of resistance. In case of renal impairment (as assessed by creatinine \nclearance), the dose of TDF and 3TC should be adjusted (Table 9.3).  \nTable 9.2: Summary of Initial Clinical and Labora tory Evaluation in HIV/HBV Co -infection  \n Findings  Action  \nHistory  Alcohol use, cigarette \nsmoking, intravenous drug \nuse, risky sexual practices, \nanorexia, right upper \nquadrant pain, jaundice, early \nsatiety, haematemesis, dark \nstool, bleeding, pruritus  Assess, counsel and support to stop taking \nalcohol; counsel and support smoking \ncessation; counsel and provide or refer for \nharm reduction interventions  \ndiscuss or refer to a consultant for additional \nevaluation and management  \nPhysical \nexamination  Enlarged liver, enlarged \nspleen, ascites, scratch marks  Evidence of established chronic liver disease, \ncloser follow -up due to increased risk of \nhepatotoxicity.  \ndiscuss or refer to a consultant for additional \nevaluation and management  \nALT  If elevated, may point to \nactive liver disease. Exclude \nother causes of elevation of \nliver enzymes  Every effort should be made to assess for \nother liver function (albumin and INR), \nespecially in symptomatic patients. However, \nthis should not delay initiation of ART  \nCreatinine  Calculate creatinine clearance  In HIV/HBV co -infection, TDF is indicated \neven in patients with CrCl < 50 ml/min. In \nsuch patients, avoid FDCs. Instead administer \nthe ART as single drugs to allow for dosage \nadjustment as shown in Table 9.3  \nComorbidities  HCV antibody, random blood \nsugar, lipid profile, alcoholic \nand non -alcoholic liver \ndisease, hepatocellular \ncarcinoma (family history)  Consult/Refer the patient for additional \ninvestigations where these are suspected  \n \n  ",
+            "  \nKenya HIV Prevention and Treatment Guidelines, 2022  \n 8 - 6 Table 8.1: TB Diagnosis in Children <10 Years Old  \nALGORITHM FOR PULMONARY TB DIAGNOSIS IN CHILDREN  \nHistory of \npresenting \nillness  For all children presenting to a health facility ask for the following suggestive \nsymptoms  \n\u25cf Cough  \n\u25cf Fever  \n\u25cf Poor weight gain  \n\u25cf Lethargy or reduced playfulness  \nSuspect TB if the child has two or more of these suggestive symptoms  \nAsk for history of contact with adult/adolescent with chronic cough or TB within the \nlast 2 years  \nClinical \nevaluation  Examine the child and check for:  \n\u25cf Temperature > 37.5o (fever)  \n\u25cf Weight (to confirm poor weight gain, weight loss) \u2013 check growth monitoring \ncurve)  \n\u25cf Respiratory rate (fast breathing)  \n\u25cf Respiratory system examination \u2013 any abnormal findings  \nExamine other systems for abnormal signs suggestive of extra -pulmonary TB#  \nInvesti gation\ns Obtain specimen\u2019 for Xpert MTB/RIF (and culture when indicated**)  \nDo a chest Xray (where available)  \nDo a Mantoux test** (where available)  \nDo a HIV test  \nDo other tests to diagnose extra -pulmonary TB where suspected#  \nDiagnosis  Bacteriologically  \nConfirmed TB:  \nDiagnosis if \nspecimen is \npositive for MTB  Clinical Diagnosis of PTB:  \nChild has two or more of the following suggestive symptoms  \n\u25cf Persistent cough, fever, poor weight gain, lethargy  \nPLUS, two or more of the following:  \n\u25cf Positive contact, abnormal respiratory signs, abnormal, \npositive Mantoux  \nNote: If the child has clinical signs suggestive of EPTB, refer to \nEPTB diagnostic table*  \nTreatment  Treat for TB as follows:  \n\u25cf All children with bacteriologically confirmed TB \n\u25cf All children with a clinical diagnosis of TB  \nNB: In children who do not have an Xpert result, or their Xpert results is negative, but \nthey have clinical signs and symptoms suggestive of TB they should be treated for TB  \nAll forms of TB (Except TB meningitis, bone and joint TB) Treat for 6 months (2 RH ZE/ \n4 RH)  \nTB meningitis, bone and joint TB: Treat for 12 months ( 2 RHZE/ 10 RH)  \n*Specimen may include: Expectorated sputum (child > 5 years), induced sputum, nasopharyngeal \naspirate and gastric aspirate. Attempt to obtain specimen in every child  \n**Do a cultu re and DST for the following children:  \n1. Rifampicin resistance detected by the Xpert test  \n2. Refugees and children in contact with anyone who has Drug Resistant TB  \n3. Those not responding to TB treatment  \n4. Those with indeterminate Xpert results  \n***This may include IGRA in facilities where it is available  \n#Use IMCI guidelines to classify severity of disease   \n ",
+            "  \nKenya HIV Prevention and Treatment Guidelines, 2022  \n 8 - 14 \u25cf Patients who are already on ART  \no Start TB treatment immedi ately  \no Continue ART, assessing for treatment failure and making any required \nadjustments to the ART regimen based on drug -drug interactions (Table 8.7)  \no Monitor closely for IRIS (Annex 16)  \n\u25cf Patient being treated concurrently for TB and HIV require close monitoring for \ntoxicity  \n\u25cf MDR TB and HIV co -infection should be managed in settings where close toxicity \nmonitoring and follow up by experienced clinicians or multi -disciplinary team is \npossible       \nPreferred ART regimens for patients with TB/HIV co -infecti on are summarized in Tables 8.6 - 8.8. \nTable 8.6: Preferred ART Regimens for TB/HIV Co -infection for Patients Newly Initiating 1st \nLine ART 1 \nAge  Weight  1st Line ART if TB/HIV Co -infection  \nBirth to 4 \nweeks  Any  Start anti -TB treatment immediately; start ART after 4 weeks \nof age, once tolerating anti -TB drugs (follow the regimen \nrecommendations for children \u2265 4 weeks old)  \n> 4 weeks to < \n15 years  < 30 kg  \u25cf ABC + 3TC + DTG  \n\u25cf Increase DTG dosing frequency to twice daily for duration \nof rifampicin -containing TB treatment and for an additional \n2 weeks after TB treatment is completed, then revert to \nonce daily dosing  \n\u2265 30 kg  \u25cf Give TDF/3TC/DTG FDC morning + DTG 50mg evening for \nduration of rifampicin -containing TB treatment and for an \nadditional 2 weeks after TB treatment is completed, then \nrevert to TDF/3TC/DTG FDC once daily  \n\u2265 15 years  Any  \u25cf Give TDF/3TC/DTG FDC morning + DTG 50mg evening for \nduration of rifampicin -containing TB treatment and for an \nadditional 2 weeks after TB treatmen t is completed, then \nrevert to TDF/3TC/DTG FDC once daily  \n1 Refer to Annex 10 for weight -based ARV dosing  \n \n \n  "
+          ],
+          "tool_call_id": "call_RkC0KVq7foFcS7aMC4xcmMns",
+          "metadata": null,
+          "timestamp": "2026-02-11T00:21:13.753614+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "The essential guidelines for treating drug-susceptible tuberculosis (TB) in children and adolescents are as follows:\n\n### Treatment Regimen\n1. **General Regimen for All Forms of TB (Except TB Meningitis, Osteoarticular TB)**:\n   - **Intensive Phase**: 2 months of RHZE (Rifampicin, Isoniazid, Pyrazinamide, Ethambutol).\n   - **Continuation Phase**: 4 months of RH (Rifampicin and Isoniazid).\n\n2. **Specifically for TB Meningitis and Osteoarticular TB**:\n   - **Intensive Phase**: 2 months of RHZE.\n   - **Continuation Phase**: 10 months of RH.\n\n### Monitoring and Support\n- Follow-up smears should be conducted for all bacteriologically confirmed pulmonary TB cases at the end of months 2, 5, and 6.\n- Patients on isoniazid should receive pyridoxine (Vitamin B6) daily to mitigate the risk of developing peripheral neuropathy.\n- It's crucial to ensure that once TB treatment is initiated, it is completed unless a definitive alternative diagnosis is established.\n\n### Clinical Considerations\n- A clinical diagnosis of TB should be made if a child has suggestive symptoms (e.g., persistent cough, fever, poor weight gain) along with positive exposure history or abnormal respiratory signs.\n- In the absence of clear diagnostic results, clinical judgment can lead to TB treatment if symptoms align.\n\nThese guidelines are critical in managing TB in the pediatric population effectively, ensuring that treatment is both appropriate and carried out under monitored conditions to avoid complications.\n\nFor the detailed guidelines, see:\n- [TB/HIV Co-infection, Prevention and Management][8 - 7]\n- [TB/HIV Co-infection, Prevention and Management][8 - 6]",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 2669,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 382,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:21:14+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D7sGglHvjdOaEvbNpheMZFtiI2gac",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

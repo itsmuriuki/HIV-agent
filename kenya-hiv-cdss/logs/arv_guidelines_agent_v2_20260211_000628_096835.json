@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "arv_text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-11T00:06:26.931555+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "What should be included in the review of an adherence plan during a session focused on advanced adherence strategies?",
+          "timestamp": "2026-02-11T00:06:26.931583+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "args": "{\"query\":\"adherence plan review advanced adherence strategies\"}",
+          "tool_call_id": "call_Bx0GvFKqpO6ZDRWuLqUeOEz1",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 274,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 22,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:06:27+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D7s2NfqZzMjaXws4NsNVGSJVCaodo",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "content": [
+            "  \nAdherence Preparation, Monitoring and Support  \n5 - 21 Table 5.10: Adherence Monitoring Strategies  \nAdher ence \nMonitoring \nStrategy  Technique  Frequency  \nSubjective (self -reported adherence)  \nMorisky \nMedication \nAdherence Scale -4 Use Table 5.11 to assess adherence using a \nstandardized questionnaire, and take action \nas required  Every patient, every visit  \nMorisky \nMedication \nAdherence Scale -8 Use Table 5.12 to assess adherence using a \nstandardized questionnaire, and take action \nas required  Any time a healthcare worker \nsuspects adherence problems \n(e.g., patients with suspected or \nconfirmed treatment failure; \npatient who misses an \nappointment)  \nAdherence \nMonitoring \nStrategy  Technique  Frequency  \nObjective  \n \n \n \nPill counts  Ask the patient to bring all their pills with \nthem to follow -up visits. Calculate how many \npills should be remaining based on the \nprevious prescription date and amount \nprescribed, and compare to how many pills \nare actually remaining. Excess pills are \nassumed to be missed doses. Use Table 5.13 to \ncalculate adherence rate and take action as \nrequired  \u25cf At every visit until confirmed \nviral suppression  \n\u25cf Any time a healthcare worker \nsuspects adherence problems  \n \nPharmacy refill \nrecords  Compare drug pick -up date with expected \ndate of pick -up (based on number of pills \ndispensed at last visit). If drug pick -up date is \nlater than expected, it is assumed the patient \nis missing doses equivalent to the number of \ndays late  \u25cf At every drug pick -up \n\u25cf Any time a healthcare worker \nsuspects adherence problems  \nViral load  Follow the viral load monitoring algorithm \n(Figure 6.6). Undetectable VL is the best \nconfirmation of adequate adherence  \u25cf Age 0 -24 years: at 3 months after \nART initiation and then every 6 \nmonths  \n\u25cf Age \u2265 25 years: at month 3 after \nART initiation and month 12 \nthen annually  \n\u25cf For pregnant and breastfeeding \nwomen: at fir st ANC visit if \nalready on ART, or 3 months \nafter ART initiation if starting \nART during pregnancy, and then \nevery 6 months  ",
+            "  \nAdherence Preparation, Monitoring and Support  \n5 - 25 Table 5.13: Adherence Rate Based on Pill Counts  \nMissed Doses per Month  % Of \nMedications \nTaken  Adherence  \nRating  Action Required (see Table 5.10 for \nmore details)  For once -\ndaily \nregimen  For BD  \nregimen  \n1 dose  1-3 doses  \u2265 95%  Good  Continue with routine monitoring, \ncounselling and support  \n2-4 doses  4-8 doses  85-94%  Inadequate  \u25cf Discuss as an MDT  \n\u25cf Assign a case manager  \n\u25cf Assess for and address barriers to \nadherence (Table 5.15)  \n\u25cf Engage treatment supporter in \nadherence counselling sessions  \n\u25cf Follow up in 2 -4 weeks  \n\u2265 5 doses  \u2265 9 doses  < 85%  Poor  \u25cf Discuss as an MDT  \n\u25cf Assign a case manager  \n\u25cf Assess for and address barriers to \nadherence (Table 5.15)  \n\u25cf Engage treatment supporter in \nadherence counselling sessions  \n\u25cf Implement DOTs  \n\u25cf Follow up in 1 -2 weeks  \n \n5.3.2 Adherence Counselling and Support During the First 3 Months of ART  \nAll patients recently initiated on ART need careful adherence monitoring and support to \nensure they achieve virological suppression.  This is particularly important in the context of \nrapid ART initiation. The intensity of counselling and support are dependent on the patients\u2019 level \nof adherence as assessed by the methods described i n section 5.2.1.  \nTable 5.14 summarizes adherence counselling and support for patients from the time of ART \ninitiation until the 3 -month viral load results are available. For patients who have inadequate or \npoor adherence, Table 5.15 describes the assessmen t for barriers to adherence.  \n  ",
+            "  \nAdherence Preparation, Monitoring and Support  \n5 - 23 Table 5.11: Morisky Medication Adherence Scale (MMAS -4) \nMMAS -4: Ask the patient each question below. Circle the corresponding score for each response. \nAfter completion of all questions, add up all the points that you have circle d for the total score.  \nQuestion  Yes No \n1. Do you ever forget to take your medicine?  1 0 \n2. Are you careless at times about taking your medicine?  1 0 \n3. Sometimes if you feel worse when you take the medicine, do you stop taking it?  1 0 \n4. When you feel better do you sometimes stop taking your medicine?  1  0 \nTotal Score (sum of all items)   \nInterpretation of MMAS -4 Score  \nMMAS -4 \nScore  Adherence \nRating  Action Required  \n0 Good  Continue with routine monitoring, counselling and support  \n \n \n1-2  \n \nInadequate  \u25cf Discuss as an MDT  \n\u25cf Assign a case manager  \n\u25cf Assess for and address barriers to adherence (Table 5.15)  \n\u25cf Engage treatment supporter in adherence counselling sessions  \n\u25cf Follow up in 2 -4 weeks  \n \n \n3-4  \n \nPoor  \u25cf Discuss as an MDT  \n\u25cf Assign a case manager  \n\u25cf Assess for and address barriers to adherence (Table 5.15)  \n\u25cf Engage treatment supporter in adherence counselling sessions  \n\u25cf Implement DOTs  \n\u25cf Follow up in 1 -2 weeks  \n \n  ",
+            "  \nAnnexes  \n \n13 - 23 Annex 9 B: Cont.  \nAdherence and Treatment Failure Evaluation  \nParameters of Evaluation  Findings  \n\u25cf Number and findings of adherence counseling/assessment \nsessions done in the last 3 -6 months including the following:  \no Findings from MMAS -8 \no Adherence barriers identified  \no Recommendations   \nNumber of home visits conducted in last 3 -6 months, and findings   \nDescribe support structures (e.g., treatment buddy, support group \nattendance, caregivers) in place for this patient   \nEvidence of adherence concerns (e.g., missed appointments, pill counts)   \nDescribe daily witnessed ingestion done in last 3 -6 months (Who performed \nit, which tool was used, how long was session done etc.)   \nDescribe likely root cause/s of poor adherence for this patie nt (e.g., stigma, \ndisclosure, side effects, alcohol or other drugs, mental health issues, \ncaregiver changes, religious beliefs, inadequate preparation, etc.)   \nEvaluation for other causes of treatment failure, e.g.:  \n\u25cf Inadequate dosing/dose adjustments (particularly for children)  \n\u25cf Drug -drug interactions  \n\u25cf Drug -food interactions  \n\u25cf Impaired absorption (e.g., chronic severe diarrhea)   \nOther Relevant ART History  \nComment on treatment interruptions, if any   \nHas Drug Resistance Testing been done for this patient? If yes, state date \ndone and attach the detailed results   \nHas facility multidisciplinary team discussed the patient\u2019s case? If yes, \ncomment on date, deliberations and recommendations (indicate how \ntreatment failure was established and con firmed, proposed regimen and \ndosage, current source of drugs if patient already on 3rd line)   \nMDT members who participated in the case discussion (names and titles)   \n \n \n  ",
+            "  \nAdherence Preparation, Monitoring and Support  \n5 - 11 Table 5.3: Adherence Support and Retention Intervention s \nStandard Adherence Support Interventions  \nStructural \ninterventions  \u25cf Conduct a baseline psychosocial assessment to explore the various aspects of \nthe client\u2019s life that may influence their adherence to treatment and \nprevention, and their general well -being. This teases out issues that need to \nbe explored in detail during the counselling session e.g., disclosure, family \nplanning, living circumstances etc.  \n\u25cf Use a multidisciplinary team approach to develop and implement treatment \nplans for each patien t \n\u25cf Engage peer educators to lead HIV education and support services  \n\u25cf Adequately prepare and assess the patient\u2019s readiness to initiate and continue \nwith ART  \n\u25cf Implement a system for identifying and taking action when patients miss an \nappointment  \n\u25cf Formalize a sy stem for providing health talks and treatment literacy classes \nfor patients  \n\u25cf Formalize a system for linking patients to community -based resources, \nincluding: community support groups, religious groups, CBOs, groups \nsupporting income -generating activities, o rganizations providing food \nsupport, NEPHAK, child welfare societies, community health volunteers/units, \nschools, children\u2019s homes etc.  \n \nHIV \neducation \nand \ncounselling  \u25cf Remind the patient about HIV disease, how ART works, the importance of \nhigh -level adherence and the consequences of non -adherence  \no Risk of ill health caused by HIV  \no Role of ART in restoring and maintaining good health  \no Link between adherence and viral load, CD4 and health  \no Side effects of medications and how to avoid, recognize and manage them. \nManage side effects aggressively  \no Address misconceptions and beliefs about HIV and ART  \n\u25cf Discuss and agree on a treatment plan with the patient. Gain commitment \nfrom the patient to follow through  \n\u25cf Discuss use of alcohol and drugs and  how to prevent these from affecting the \ntreatment plan  \n\u25cf It is important to maintain a non -judgmental attitude, establish trust with \nparents/caregivers, and involve the child as they mature  \n  "
+          ],
+          "tool_call_id": "call_Bx0GvFKqpO6ZDRWuLqUeOEz1",
+          "metadata": null,
+          "timestamp": "2026-02-11T00:06:28.242121+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "During a session focused on advanced adherence strategies, the review of an adherence plan should include the following key components:\n\n1. **Adherence Monitoring**: Employ tools such as the Morisky Medication Adherence Scale (MMAS) for self-reported adherence assessment. This should be done during every visit, as needed, to guide adherence discussions and interventions. Adherence can be categorized as good, inadequate, or poor based on the score, and appropriate actions should be taken based on these categories [5 - 23].\n\n2. **Objective Measures**:\n   - **Pill Counts**: Patients should bring all pills to follow-up visits. Compare the expected number of remaining pills with the actual count to assess missed doses. This should be done at every visit until the patient\u2019s viral load is confirmed as suppressed [5 - 21].\n   - **Pharmacy Refill Records**: Track drug pick-up dates against expected refill schedules, identifying potential missed doses via late pickups [5 - 21].\n\n3. **Viral Load Monitoring**: Use viral load results as an objective measure of adherence. An undetectable viral load is indicative of good adherence. The schedule for viral load testing should follow specified guidelines according to the patient's age and circumstances (e.g., pregnant or breastfeeding women) [5 - 21].\n\n4. **Barriers to Adherence**: Identify and assess any barriers that could affect adherence during these sessions. This could include psychosocial factors, side effects of treatment, or other health-related issues. A multidisciplinary team approach should be utilized when discussing and addressing these barriers [5 - 11, 5 - 25].\n\n5. **Counseling and Support Interventions**: Evaluate the effectiveness of counseling and support interventions previously provided, noting any changes or needs for further support. This includes reviewing the involvement of treatment supporters and any home visits conducted for adherence monitoring [5 - 25].\n\n6. **Progress and Engagement Strategies**: Discuss the patient's engagement with their treatment plan, support systems in place, and their participation in any HIV education or support groups. This assessment helps identify what additional support might be needed to enhance adherence [5 - 11].\n\nAddressing these components during the review will provide a comprehensive understanding of the patient\u2019s adherence status and allow for tailored interventions to improve their treatment outcomes. \n\nReferences:\n- [Adherence Preparation, Monitoring and Support][5 - 21]\n- [Adherence Preparation, Monitoring and Support][5 - 23]\n- [Adherence Preparation, Monitoring and Support][5 - 11]\n- [Adherence Preparation, Monitoring and Support][5 - 25]",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 2614,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 530,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:06:28+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D7s2OpU9Mpmrlje7JWPY2PIZW8SOm",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

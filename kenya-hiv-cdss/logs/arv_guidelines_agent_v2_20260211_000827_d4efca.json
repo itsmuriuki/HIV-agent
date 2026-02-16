@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "arv_text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-11T00:08:25.275251+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "What key components should be included in the initial clinical evaluation of people living with HIV (PLHIV)?",
+          "timestamp": "2026-02-11T00:08:25.275260+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "args": "{\"query\":\"initial clinical evaluation of HIV\"}",
+          "tool_call_id": "call_GtoCJlHQMU3U8La56NOwPNMH",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 275,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 20,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:08:25+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D7s4HjgmlboNO9Y4aZZPU1ibBhrSu",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "content": [
+            "  \nKenya HIV Prevention and Treatment Guidelines, 2022  \n2 - 20  \nEducation/counselling  for patients who are on ART and present with a new negative HIV antibody test\n\u2022 The new HIV antibody test may be a  false negative    the patient may still be HIV -infected but their antibody \nlevels may be suppressed as a result of effective ART. This is more common for patients who start ART very \nsoon after HIV infection\n\u2022 Those with prior history of detectable viral loads, positive DNA PCR results, or low CD4 counts are almost \nalways truly HIV positive\n\u2022 Continue their ART until a special test is performed (a new sample for DNA PCR) at the National HIV \nReference Laboratory (NHRL)\n\u2022 Stopping ART before HIV status is confirmed could result in a rapid rise in viral load, decline in CD4, and \nincreased risk of developing an opportunistic infection or dying\n\u2022 Draw a sample for DNA PCR  and send to the NHRL  (preferably a whole blood EDTA sample following \ncold -chain protocols within 24 hours of collection; DBS is acceptable if EDTA is not possible)\n\u2022 Specify that this is a sample for confirming HIV status  of a patient who is on ART, and provide the dates \nand results for all prior antibody tests, DNA PCR tests, and RNA viral load tests in the request form\nIf HIV DNA PCR sample is positive\n\u2022 This confirms the patient is HIV positive\n\u2022 Provide additional counseling on the \nreasons why the antibody test may have \nbeen falsely negative and discourage the \npatient from any repeat antibody testing\n\u2022 Emphasize that the patient  s ART is \nworking and the need for continued \nexcellent adherenceIf HIV DNA PCR sample is negative\n\u2022 The patient may be HIV negative, or it could be that the \npatient is  HIV positive but the HIV DNA levels have been \nsuppressed below the testing limit (this is more common if \na DBS sample was used)\n\u2022 Inform the patient that they may still be HIV positive and \nneed to be monitored closely for an additional 6 months \nbefore confirming they are HIV negative\n\u2022 Inform the patient that ART should be stopped immediately\n\u2022 They should return for HIV viral load performed at 1 \nmonth, 3 months, and 6 months after stopping ART \n(samples for HIV viral load should be sent to the designated \nVL/EID network laboratory assigned to the requesting \nfacility with all past details) \nFigure 2.5: Managing Patients on ART Who Present with a New Negative HIV Antibody Test",
+            "  \nSummary of Key Recommendations  \n1 - 1   \n1. Summary of Key Recommendations  \n \n1.1 HIV Testing Services (HTS) and Linkage to Treatment and Prevention  \n\u2022 HIV testing should be voluntary and conducted ethically in an environment where \nConsent, Confidentiality, Counselling, Correct results, Connection (linkage) and Creating \nan enabling environment can be assured  \n\u2022 To optimize access to testing services, HIV testing can be conducted in 2 different settings:  \n\u25aa Facility -based  \n\u25aa Community -based  \n\u2022 Targeted HIV testing is recommended which involves index client listing of contacts, HIV \nself-testing and use of HTS screening tool to identify people at risk of HIV infection as \neligible for testing  \n\u2022 Serial testing, using ap proved rapid HIV antibody testing kits, is used to diagnose HIV \ninfection in children older than 18 months, adolescents, and adults. An HIV -positive \ndiagnosis will be made using three consecutive reactive assays  \n \n1.2 Initial Evaluation and Follow -up for PLHIV  \n\u25cf Initial clinical evaluation of PLHIV entails CD4 monitoring, which is recommended for:  \n\u25aa Baseline investigation for all PLHIV  \n\u25aa Any patient with suspected treatment failure  \n\u25aa Any patient returning to care after interrupting treatment for > 3 months  \n\u25aa Any patient on fluconazole maintenance therapy or on dapsone as prophylaxis, to \ndetermine when prophylaxis can be discontinued  \n\u25cf Advanced HIV Disease is defined as:  \n\u25aa Adults, adolescents, and children five years and older as having a CD4 cell count of \nless than 200 cells/mm3 or \n\u25aa WHO clinical stage 3 or 4 disease  \n\u25aa All children younger than five years  \n\u25cf All PLHIV presenting with Advanced HIV Disease (AHD) should be offered a package of \ncare that includes timely initiation of ART, screening, diagnosis, prophyl axis, and \nmanagement  of opportunistic infections.  \n\u25cf Frequency of routine VL monitoring:  \n\u25aa For PCR positive HEIs: at baseline (at the time of ART initiation)  \n\u25aa Age 0 -24 years old: 3 months after ART initiation, and then every 6 months  \n\u25aa Age \u2265 25 years old: 3 months after ART initiation, then at month 12, and then annually  ",
+            "  \nKenya HIV Prevention and Treatment Guidelines, 2022  \n2 - 10  Presumptive Diagnosis of Severe HIV Disease in Children under 18 Months  \nOccasionally, children less than 18 months of age present to hospital with severe illness; and a rapid \nHIV antibody test confirm s HIV exposure. Lack of immediate availability of HIV DNA PCR results \nfor confirmation of HIV could result in undue delay in starting life -saving ART. In such children, a \npresumptive diagnosis of HIV infection can be made using the criteria in Table 2.3. A RT can be \ninitiated while awaiting HIV DNA PCR results to confirm HIV infection.  \nTable 2.3: Presumptive Diagnosis of HIV in children <18 months while awaiting DNA PCR \nResults  \nHIV antibody test positive AND symptomatic with;  \n 2 or more of the following:  \n\u25cf Oral candidiasis/thrush  \n\u25cf Severe pneumonia  \n\u25cf Severe sepsis  \nOR any of the of following:  \n\u25cf Any WHO Clinical Stage 4 condition  \n\u25cf Recent maternal death (if likely to have been HIV -related) or advanced HIV disease in \nmother  \n\u25cf Child\u2019s CD4% < 2 5% \n \n2.4.1.2  Birth Testing  \nBirth testing is defined as HIV testing (with DNA PCR) at birth or around birth for infants born to \nHIV-positive mothers. Birth testing has the potential to improve survival for infants who are \ninfected during pregnancy, around labour and delivery by ident ifying them early for rapid ART \ninitiation. Do not use cord blood for birth testing as this could result in false positive results.  \nA DNA PCR test can be offered at birth or around birth where feasible.  \nALL children initially tested at birth should be rete sted at 6 weeks of age and the EID \nalgorithm followed (Figure 2.2.)  \nConsiderations for providing birth testing:  \nBirth testing may be prioritized for newborns who are at high risk of HIV acquisition including \nthose born to:  \n\u25cf Mothers who seroconvert during p regnancy.  \n\u25cf Mothers who have unsuppressed or unknown viral loads during delivery.  \n\u25cf Mothers who received a HIV positive diagnosis for the first time at or after 28 weeks \ngestation or during labour and delivery  \n\u25cf Mother on ART for less than 12 weeks prior to delivery  \nBirth testing should be offered where this is feasible:  \n\u25cf DNA PCR results can be returned the same  day e.g., where on site point of care is available.  \n\u25cf ART regimens recommended for neonates as per national guidelines are available and can \nbe initiated immed iately.  \n\u25cf Follow -up of the newborn is done to ensure no lost to follow -up. ",
+            "  \nKenya HIV Prevention and Treatment Guidelines, 2022  \n5 - 6 5.1.4 How patients can discuss U=U with others  \n\u25cf Counsel patients to share information about the research on U=U as follows:  \no In recent research studies that involved thousands of couples, no one who was on \nHIV treatment and whose HIV was durably undetectable passed HIV to their HIV -\nnegative sex partner  \n\u25cf Advise patients that they can share the following personal information with current or \npotential sex partners:  \no When they last had a viral load test and if their viral load was undetectable  \n\u25cf Individuals should tell their partner(s) that their HIV is undetectable only if they have \ntaken HIV medicines consistently since their last test with an undetectable viral load  \n5.1.5 Counselling patients about other preven tion combination interventions  \n\u25cf PrEP:  PrEP is a safe and effective daily pill that prevents HIV infection. The partner without \nHIV may decide to take PrEP if they:  \no Are unsure that their partner\u2019s HIV viral load is undetectable, especially if their \npartner has only recently started ART  \no Have mo re than 1 sexual partner  \no Feel more secure with the added perception of protection provided by PrEP  \n\u25cf PEP:  After a possible HIV exposure (e.g., Occupational exposure or if a sex partner with HIV \nhas not consistently taken ART and is not virally suppressed), t he immediate initiation of \nemergency PEP can prevent HIV infection  \n\u25cf Condom use:  Condoms protect against other STIs, such as gonorrhea, chlamydia, and \nsyphilis, and help prevent pregnancy.  \nCounsel patients to find a prevention strategy that works for them:  \n\u25cf If an individual who does not have HIV is unsure if their partner has an undetectable level of \nvirus or is anxious about acquiring HIV, care providers should encourage that person to \nchoose a prevention strategy that works for them, whether that is use of P rEP, emergency \nPEP, condoms, or a combination of these strategies  \nNote: Care providers should emphasize that no one should ever be compelled to have \nsex without condoms  \n5.1.6 Application of U=U in other settings  \n\u25cf Breastfeeding:  Studies demonstrate that ART greatly reduces the risk of transmission \nthrough breast milk. However, research has not established that people whose HIV is \nundetectable do not transmit virus during breastfeeding. Prophylaxis should be provided \nto HIV expose d infants during the breastfeeding period as per the guidelines regardless \nof the viral load status  \n\u25cf Injection drug use:  Studies demonstrate that ART greatly reduces the risk of \ntransmission through sharing of injection drug use. However, research has not \nestablished that people whose HIV is undetectable do not transmit virus through needle \nsharing. All people who inject drugs should only use their own needles and not share \nneedles or other paraphernalia with others  \n\u25cf Needle stick injuries:  Research has not es tablished that people with undetectable viral \nload do not transmit HIV to people who are stuck by needles containing their blood. HIV \nPEP should be provided as per the guidelines  ",
+            "  \nHIV Testing Services and Linkage to Treatment and Prevention  \n2 - 3  Table 2.1: HTS R ecommendations for Different Populations and Settings  \nPopulation  Recommendation  \nBirth testing of \ninfants born to \nknown HIV - \npositive mothers \n(Figure 2.2)  \u25cf Birth testing (HIV testing of infants at birth or at first contact within 2 weeks after \nbirth) can be conducted where feasible and in settings wher e return of results is \nfeasible within 24 hours and ART  can be initiated immediately*). Infants tested at \nbirth must be tested at the 6 weeks immunization visit regardless of the results of \nthe initial test at birth.  \n\u25cf Infants with an initial positive HIV D NA PCR result should be presumed to be HIV \ninfected and started on ART in line with national guidelines, with a new sample for \nconfirmatory HIV DNA PCR and baseline viral load taken at the time of ART \ninitiation (ART initiation is based on the initial HIV DNA PCR result)  \nInfants and \nchildren aged less \nthan 18 months \n(Figure 2.1)  \u25cf HIV exposure status of all infants should be established at first contact.  \n\u25cf To establish HIV exposure status of a child less than 18 months of age, conduct HIV \nantibody testing for mothers with unknown status or who previously tested \nnegative during antenatal care at the 6 -week immunization visit or first contact. If \nthe mother declines to be tested or is not available for testing, then conduct a rapid \nHIV antibo dy test for the child to determine exposure (if antibody test is positive \nthis confirms HIV exposure)  \n\u25cf When HIV exposure is confirmed, ARV prophylaxis should be started immediately.  \n\u25cf All HEIs should have DNA PCR testing at the 6 -week immunization visit or fi rst \ncontact thereafter.  \n\u25cf Infants with an initial positive HIV DNA PCR result should be presumed to be HIV \ninfected and started on ART in line with national guidelines, with a new sample for \nconfirmatory HIV DNA PCR and baseline viral load taken at the time of ART \ninitiation (ART initiation is based on the initial HIV DNA PCR result)  \n\u25cf All HEI with initial HIV negative results should continue infant ARV prophylaxis \nand be followed as HEIs, including additional PCR testing at 6 months and 12 \nmonths, and antibody  testing at 18 months and every 6 months during \nbreastfeeding, and at 6 weeks after complete cessation of breastfeeding  \nChildren older \nthan 18 months \ntill age 9 years \n(Figure 2.3)  \u25cf Conduct HIV testing and counselling for all children of adults living with HIV as \nsoon as possible after confirming the HIV positive status of the adult. Within health \nfacilities, testing should be conducted at in -patient wards, nutrition clinics, and all \nhigh HIV burden settings.  \nAdolescents and \nyoung people  \n(10 - 24 years) \n(Figure 2.3)  \u25cf Targeted HIV testing services should be offered to adolescents and young people \nwho are screened and found eligible for HIV test. HIV prevention services should \nbe offered to clients who test negative while those who test positive should be \nlinked to HIV care.  \n\u25cf Adolescents aged above 10 years, should be tested with the written consent of a \nparent or guardian, and are also required to give assent.  \n\u25cf Adolescents who are e mancipated minors irrespective of age, can give their own \nconsent.  \n\u25cf All adolescents should be counselled on the potential benefits and risks of \ndisclosure of their HIV status and empowered and supported to determine if, \nwhen, how and to whom to disclose.  \n\u25cf For sexually active adolescents, HIV testing and counselling should be offered to \ntheir partners and children where appropriate.  \n\u25cf All uncircumcised adolescent males who test HIV negative should be counselled \nabout the prevention benefits of VMMC and linked t o VMMC services if they agree  \n "
+          ],
+          "tool_call_id": "call_GtoCJlHQMU3U8La56NOwPNMH",
+          "metadata": null,
+          "timestamp": "2026-02-11T00:08:26.581389+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "The initial clinical evaluation of people living with HIV (PLHIV) includes several key components to ensure proper management and care. According to the Kenya HIV Prevention and Treatment Guidelines, the essential components are:\n\n1. **CD4 Cell Count Monitoring**: This is crucial for baseline evaluation for all PLHIV and for any patients suspected of treatment failure, or those returning to care after a treatment interruption of more than three months. It also applies to patients on maintenance therapy with fluconazole or dapsone, to determine when prophylaxis can be discontinued.\n\n2. **Assessment of Advanced HIV Disease**: Individuals should be classified as having advanced HIV disease if they have a CD4 count of less than 200 cells/mm\u00b3 or meet the criteria for WHO clinical stage 3 or 4 disease.\n\n3. **Package of Care**: All PLHIV diagnosed with advanced HIV disease should be offered a comprehensive package of care. This includes timely initiation of antiretroviral therapy (ART), screening, diagnosis, prophylaxis, and management of opportunistic infections.\n\n4. **Routine Viral Load Monitoring**: It is recommended to monitor viral loads at baseline for patients starting ART. Subsequently, children aged 0\u201324 years should be checked three months after ART initiation and then every six months. For adults aged 25 and above, monitoring should occur three months after ART initiation, at month twelve, and then annually.\n\nThese components aim to establish the health status of individuals, guide treatment decisions, and ensure effective management of HIV to enhance outcomes for patients [Kenya HIV Prevention and Treatment Guidelines, 2022, pages 1-1, 2-10].",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 3661,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 335,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:08:27+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D7s4JsLh4U4rjDx8MGwxBGVYkIqEY",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

@@ -1,0 +1,62 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "arv_text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-11T00:18:07.004085+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "How does the CAGE-AID screening tool assist in identifying substance use disorders?",
+          "timestamp": "2026-02-11T00:18:07.004101+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "The CAGE-AID screening tool is an adaptation of the original CAGE questionnaire, specifically designed to identify potential substance use disorders (SUD) among individuals, including those with HIV. Here\u2019s how it functions:\n\n1. **Four Questions**: The CAGE-AID includes four straightforward questions that cover various aspects of substance use, focusing on personal feelings and behaviors related to alcohol and drug use.\n\n2. **Focus on Behavior**: The questions encourage self-reflection about one\u2019s drinking or drug use habits, including any feelings of guilt or regret about these habits.\n\n3. **Cut-off Point**: A response of \u201cyes\u201d to two or more of the four questions indicates a potential problem with substance use and suggests the need for further evaluation or intervention.\n\n4. **Simplicity and Efficiency**: The tool is brief and can be administered easily in a clinical setting, making it practical for healthcare providers to use during routine screenings.\n\n5. **Broad Applicability**: While it traditionally focuses on alcohol use, the CAGE-AID version broadens its applicability to include various substances, making it a versatile screening tool.\n\nOverall, the CAGE-AID is a quick, effective way to identify individuals who may need more comprehensive assessments or treatment for substance use disorders, particularly in populations such as those living with HIV where substance use can complicate care.\n\nFor reference, further details on screening tools may be found in relevant clinical guidelines, but specific details on CAGE-AID are generally standardized across many resources.",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 270,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 305,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:18:07+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D7sDfzvGDLmlcdzzI7dh860EFB4vf",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

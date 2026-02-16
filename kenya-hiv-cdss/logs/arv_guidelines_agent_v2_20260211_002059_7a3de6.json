@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "arv_text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-11T00:20:56.396395+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "What are some of the provider-related factors that can affect adherence to ART in HIV patients?",
+          "timestamp": "2026-02-11T00:20:56.396403+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "args": "{\"query\":\"provider-related factors adherence to ART\"}",
+          "tool_call_id": "call_0XCvEBryNeHre4TNd5eAvNHI",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 272,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 21,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:20:56+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D7sGOcc6TtM5XlqVJwbBddooZdihH",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "content": [
+            "  \nAdherence Preparation, Monitoring and Support  \n5 - 1  \n5. Adherence Preparation, Monitoring and \nSupport  \n \nThe individual and population benefits of ART are dependent on high levels of adherence to the \nprescribed medication, the accompanying medical advice and the follow -up plans. Adherence -\nenhancing strategies should be implemented beginning at the point of HIV di agnosis (as part of \npost -test counselling and linkage), continued during initial evaluation, and thereafter during the \nentire follow -up period for ART.  \n \nTo avoid treatment failure and the need to switch patients to 2nd or 3rd line ART, it is key to have \nan adherence support strategy in place before ART initiation, anticipating common and individual \nbarriers to good adherence. Prevention of treatment failure starts at the time of HIV diagnosis. \nThis is particularly important with the current recommendation t hat all PLHIV qualify for ART, \nand ART should be initiated within 2 weeks of diagnosis. Adherence preparation must begin at \ntime of HIV testing, and close follow -up is required after ART initiation.  \n \nThe adherence preparation, monitoring, and support that a patient requires should be tailored to \ntheir level of adherence, the stage of ART initiation, and the follow -up stage that they are at (Figure \n5.1).  \n \nWhenever possible, follow -up should be provided by the same care provider or team of care \nproviders (e.g ., same clinician and same counsellor) at each visit. This is particularly important \nduring the first few months of HIV care.  \n  ",
+            "  \nAdherence Preparation, Monitoring and Support  \n5 - 9 Table 5.1 Cont.  \nOngoing Support at Subsequent Visits  \n\u25cf Review the patient\u2019s HIV knowledge  \n\u25cf Review the patient\u2019s motivation to take ART  \n\u25cf Elicit any concerns the patient may have about their ART, side effects, visit schedule, or health  \n\u25cf Review the ART dosing schedule and ask about any missed pills  \n\u25cf Explore barriers to adherence that were previously identified or new ones that have developed  \n\u25cf Explore any recent or expected changes in their life or daily routine  \n\u25cf Discuss their individualized adherence plan and if any changes are required  \n \nHIV Education and Counselling  \nHIV education should be a standard component of the enrolment visit. Prior to ART initiation, all \npatients/caregivers must be provided with enough information to make an informed choice about \nART initiation and adherence (Table 5.2), including for patients who initiate ART during the \nenrolment visit. A detailed content guide for HIV education and adherence counselling is provided \nin Annex 8. This information can be provided through group or individual counselling. The ART \nReadiness Assessment an d the management plan should be completed for each patient \nindividually (Table 5.4).  \n  ",
+            "  \nAdherence Preparation, Monitoring and Support  \n5 - 3 Adherence is most difficult during the first few months of treatment: the patient is not yet in the \nhabit of taking their medications every day, they are not familiar with common side -effects, and \nthey have more challenges with disclosure and stigma,  all of which can interfere with adherence. \nPoor adherence within the first few months of therapy is also the most risky period for \ndevelopment of resistance mutations, when the viral load is still high.  \n \nFor these reasons, adherence preparation, monitorin g and support must be emphasized \nduring the first few months of ART until the patient achieves full virological suppression,  \nafter which adherence monitoring and support can continue at lower intensity.  \n \nPatient preparation and counselling should be a coll aborative process between the provider and \nthe patient or caregiver, to enable the patient to initiate and continue lifelong treatment. This is \nbest done when the same adherence counsellor follows an individual patient throughout the \npreparation, initiatio n, and early ART period.  \n \nART can be initiated concurrently with the first adherence counselling session, even during \nthe enrolment visit, especially for infants and for pregnant women. This may also apply to \npatients with a good understanding of HIV and A RT and strong motivation for immediate \nART initiation.  \n \nEach member of the multidisciplinary team should have the requisite training to provide \ntreatment education and offer appropriate support to address potential barriers to adherence. \nTreatment preparat ion and support can be offered at triage, consultation, pharmacy or any other \nclinic station where confidentiality and privacy are assured and providers are adequately trained. \nIt should also be incorporated into health talks, peer support group activities , and group \ncounselling sessions.  \n \nBefore commencement of a counseling session, the counselor should ensure that adequate space is available \nto conduct the counseling, that confidentiality can be maintained, and that tools such as psychosocial \nassessment f orms, treatment literacy flip charts, PHDP flip charts, and tools to document the counseling \nsessions are available.  \n \n  ",
+            "  \nAnnexes  \n \n13 - 13 Annex 8: Cont.  \n- Distance: choosing an HIV clinic that is far away from your home can make it difficult to come to \nappointments and pick drugs regularly  \n- HIV knowledge: when people do not understand what HIV is, and why ART is important, they \nmay not take their drugs properly. This also applies to children and adolescents, if they have \nnot been told they have HIV and taught what it means  \n- Mental health disorders: depression and other mental illnesses can make it difficult to t ake ART \ncorrectly  \n- Religious beliefs: some people stop taking ART after faith -healing, although there has never \nbeen a case of someone being cured of HIV this way  \n\u2022 What might make it difficult for you individually to take your ART as prescribed  \n- Ask the patie nt: \u201cBased on what you have learned so far, what challenges do you think you will \nhave taken  ART correctly, every day, for the rest of your life?\u201d  \n- Discuss strategies to manage any expected barriers to adherence  \n\u2022 What can help you take ART as prescribed  \n- Disclosure: It is easier to take your ART properly when the people close to you know your HIV \nstatus, so you do not have to try and hide your ART or miss doses to avoid being seen. Family \nand friends can also provide additional support once they  are aware you have HIV and \nunderstand more about it. We can help you disclose your HIV status to important family \nmembers or friends when you are ready  \n- Treatment supporter: Having a \u201ctreatment buddy\u201d can help you take your ART correctly; ask a \nfriend, par tner, or family member to remind you to take your ART. If possible, invite that \nperson with you to some of your clinic appointments and counselling sessions so they can learn \nabout ART, the importance of good adherence, side effects, etc.  \n- SMS reminder syst em (if SMS reminder system in place at the facility): Receiving a regular SMS, \ne.g., every week, can help you take your ART correctly. We enroll all our patients into this \nservice for SMS reminders at our clinic, unless you do not want to receive them. The  messages \nsimply ask how you are doing, and do not mention HIV, ART, the clinic, or anything else that \nmay reveal your HIV status to others  \n- Support group: Joining a support group will help you learn from other people how they \novercome challenges in living with HIV and taking ART correctly. Some support groups also \nhave economic activities to help increase your income. We have support groups based at the \nhealth facility, and there are also support groups in the community  \n- Other reminders:  \n- Set a specific time of day to take your ART  \n- Associate your ART with a specific event/s in your daily schedule (e.g., when you eat \nbreakfast and dinner)  \n- Set an alarm on your phone or watch  \n\u2022 What happens if you miss an appointment?  \n\u2022 The healthcare team will be concerned about you, and will try to contact you by phone  \n- Confirm patient phone number and consent to call if misses an appointment or any urgent \nlab results  \n\u2022 If we cannot contact you by phone, we will try to call your treatment buddy  \n- Confirm treatment buddy name and phone number, and consent to call if needed  \n\u2022 If we cannot reach you or your treatment buddy, we may try and visit you at home, if we have \nyour permission  \n- Confirm locator information and consent to perform home visits if needed  \n\u2022 Once you are back in care, we will work with you to figure out what caused you to miss an \nappointment and how it can be prevented in the future  \n\u2022 You will not be punished for missing an appointment  ",
+            "  \nAdherence Preparation, Monitoring and Support  \n5 - 13 5.2.3 Age -Specific Treatment Preparation and Support  \nTreatment preparation must be customized to the patient\u2019s age, gender, needs and clinical status: \nfor patients who present with advanced/symptomatic disease, the focus is on getting better; for \npatients who present clinically well, the focus is on staying healthy. Specific needs for children, \nadolescents, caregivers, pregnant and breastfeeding women and men should also be taken into \nconsideration.  \nThe HIV education and counselling sessions should be provided at every visit until the patient is \nready and wi lling to start ART, as determined using the ART Readiness Assessment Form (Table \n5.4). Each repeat session should begin with a review of what the patient remembers from the \nprevious session as well as any key issues the counsellor documented in the patient \u2019s chart, so the \nsession can be customized to meet their needs. ART preparation should not take more than 1 -2 \nweeks except for special circumstances such as with uncontrolled mental health issues or \nuntreated drug addictions. However, once the patient has initiated ART, continued HIV education, \ncounselling and adherence support must be provided. The counselling sessions should preferably \nbe conducted by the same counsellor, peer educator, social worker, nurse, community health \nvolunteer, and/or clinician wh o is professionally certified to counsel based on a certified \ncurriculum, and they possess the requisite competencies to provide quality counselling. In order \nto prepare children and adolescents for ART, the counsellor should be trained in providing \npsycho social support to this age group.  \nTable 5.4: ART Readiness Assessment Form  \nCriteria  Y N* \nA. Psychosocial/Knowledge Criteria (applies to patients and caregivers)  \n1. Understands the nature of HIV infection and benefits of ART?    \n2. Has screened negative for alcohol or other drug use disorder, or is stable on \ntreatment (see Section 4.6)    \n3. Has screened negative for depression or other psychiatric illness, or is stable on \ntreatment (see Section 4.6)    \n4. Is willing to disclose/has disclosed HIV status, ideally to a family member or close \nfriend?    \n5. Has received demonstration of how to take/administer ART and other prescribed \nmedication?    \n6. Has received information on predictable side effects of ART and understands what \nsteps to take in case of these side effects?    \n7. For patients dependent on a caregiver: is the caregiver committed to long -term \nsupport of the patient, daily administration of ART, and meets the criteria above?    \n8. Other likely barriers to adherence have been identified and there is a plan in place \nto address them (e.g., frequent travel for work, plan to deal with unexpected travel, \ndistance from clinic, etc.)?    \n9. Has the Patient/caregiver provided accurate locator information and contact details?    \n10. Patient/caregiver feels ready to start ART today?    \n  "
+          ],
+          "tool_call_id": "call_0XCvEBryNeHre4TNd5eAvNHI",
+          "metadata": null,
+          "timestamp": "2026-02-11T00:20:59.001450+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "Provider-related factors that can impact adherence to antiretroviral therapy (ART) in HIV patients include:\n\n1. **Consistency of Care**: Regular follow-ups by the same provider or team can enhance adherence, particularly during the initial months of treatment. This consistency helps in building trust and making patients feel more comfortable discussing concerns and barriers related to their treatment.\n\n2. **Tailored Support**: Adherence support should be customized to the patient's specific needs, stage of ART initiation, and their individual circumstances. This includes assessing their level of understanding about HIV and ART, motivation, and any barriers they may face.\n\n3. **Effective Education and Counseling**: Providers must ensure that patients receive comprehensive education about HIV, the importance of ART, and how to manage treatment effectively. This education should start at the time of diagnosis and continue throughout the treatment period.\n\n4. **Collaboration in Counseling**: The counseling process should be collaborative, allowing patients to express their concerns and preferences. This approach fosters a sense of ownership over their treatment and improves adherence.\n\n5. **Monitoring for Barriers**: Ongoing evaluations should be conducted to identify any emerging challenges to adherence. Providers should regularly review patients' concerns, possible side effects, and any changes in their daily routine that could affect their ability to adhere to their treatment plan.\n\n6. **Training and Competence of Providers**: All members of the healthcare team should be adequately trained in providing adherence support and education to address the varied needs of patients, including psychological, social, and logistical support.\n\nFor optimal adherence, these factors must be actively considered and managed by the healthcare team throughout the treatment journey of HIV patients [Adherence Preparation, Monitoring and Support][5 - 1] and [5 - 3].",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 2953,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 352,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:20:59+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D7sGRFIZePs3Ya5Qrl1JKFyUjXyTD",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

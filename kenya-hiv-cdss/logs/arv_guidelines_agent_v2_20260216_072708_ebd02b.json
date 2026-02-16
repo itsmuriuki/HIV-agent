@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-16T07:27:06.575655+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "What steps should be taken to improve adherence to PrEP among patients?",
+          "timestamp": "2026-02-16T07:27:06.575665+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "args": "{\"query\":\"PrEP adherence improvement strategies\"}",
+          "tool_call_id": "call_iTKO5NKw2XiZeQnZANspmDAa",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 267,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 18,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:27:07+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D9nIZmTYEtuUZzpeftS9G6nNCgPlG",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "content": [
+            "Pre-Exposure Prophylaxis (PrEP)  \n11 - 13 11.8 Improving adherence to PrEP  \nApproaches to improve adherence include:  \n\u25cf Encourage ring users to keep ring in place continuously through the 28 -day period from \ninitial insertion  \n\u25cf Disclosure of PrEP use to a partner or trusted person  \n\u25cf Use of reminder de vices like a cell phone alarm.  \n\u25cf SMS reminders where available and feasible  \n\u25cf Exploring and mitigation of other barriers to adherence  \n\u25cf Peer support  \n11.9 Monitoring Sero -conversion among PrEP users  \nPrEP substantially reduce the risk of HIV acquisition.  The effi cacy of PrEP is correlated with \nadherence.  Sero -conversion during use of PrEP should be monitored critically as it is increasing",
+            "Adherence Preparation, Monitoring and Support  \n5 - 11 Table 5.3: Adherence Support and Retention Intervention s \nStandard Adherence Support Interventions  \nStructural \ninterventions  \u25cf Conduct a baseline psychosocial assessment to explore the various aspects of \nthe client\u2019s life that may influence their adherence to treatment and \nprevention, and their general well -being. This teases out issues that need to \nbe explored in detail during the counselling session e.g., disclosure, family \nplanning, living circumstances etc.  \n\u25cf Use a multidisciplinary team approach to develop and implement treatment \nplans for each patien t \n\u25cf Engage peer educators to lead HIV education and support services  \n\u25cf Adequately prepare and assess the patient\u2019s readiness to initiate and continue \nwith ART",
+            "o Document reasons for missed doses and manage obstacles to perfect adherence. Review \nand reinforce adherence support systems  \n \n\u25cf Clinical Assessment  \no Take history and conduct physical examination  \no Complete Clinical Encounter Form and MOH 257 (blue card)  \no Manage any co -infections and co -morbidities  \no Evaluate for potential drug interactions  \no Evaluate for and manage any drug side effects and adverse events  \no Conduct adherence assessment and review adherence  support systems  \no Reinforce patient education messages on new regimen  \n\u25aa Review and address knowledge gaps on ART regimen  \n\u25aa Need for perfect adherence (>95%)  \n\u25aa Dosing schedule and timing  \n\u25aa Potential side effects and what the patient should do  \no Prescribe 3rd line ARVs",
+            "Adherence Preparation, Monitoring and Support  \n5 - 1  \n5. Adherence Preparation, Monitoring and \nSupport  \n \nThe individual and population benefits of ART are dependent on high levels of adherence to the \nprescribed medication, the accompanying medical advice and the follow -up plans. Adherence -\nenhancing strategies should be implemented beginning at the point of HIV di agnosis (as part of \npost -test counselling and linkage), continued during initial evaluation, and thereafter during the \nentire follow -up period for ART.  \n \nTo avoid treatment failure and the need to switch patients to 2nd or 3rd line ART, it is key to have \nan adherence support strategy in place before ART initiation, anticipating common and individual",
+            "Adherence Preparation, Monitoring and Support  \n5 - 21 Table 5.10: Adherence Monitoring Strategies  \nAdher ence \nMonitoring \nStrategy  Technique  Frequency  \nSubjective (self -reported adherence)  \nMorisky \nMedication \nAdherence Scale -4 Use Table 5.11 to assess adherence using a \nstandardized questionnaire, and take action \nas required  Every patient, every visit  \nMorisky \nMedication \nAdherence Scale -8 Use Table 5.12 to assess adherence using a \nstandardized questionnaire, and take action \nas required  Any time a healthcare worker \nsuspects adherence problems \n(e.g., patients with suspected or \nconfirmed treatment failure; \npatient who misses an \nappointment)  \nAdherence \nMonitoring \nStrategy  Technique  Frequency  \nObjective"
+          ],
+          "tool_call_id": "call_iTKO5NKw2XiZeQnZANspmDAa",
+          "metadata": null,
+          "timestamp": "2026-02-16T07:27:07.687996+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "To improve adherence to Pre-Exposure Prophylaxis (PrEP) among patients, several strategies recommended in the guidelines include:\n\n1. **Encourage Continuous Use**: For those using PrEP, emphasizing the importance of keeping the device (such as a ring) in place throughout its recommended period can help maintain adherence.\n\n2. **Disclose PrEP Use**: Encouraging patients to disclose their PrEP use to a partner or a trusted person can provide social support and accountability.\n\n3. **Utilize Reminders**:\n   - **Reminder Devices**: Suggest the use of cell phone alarms or similar devices to remind them about taking their medication.\n   - **SMS Reminders**: Where feasible, SMS reminders can be an effective tool to prompt adherence.\n\n4. **Address Barriers**: Explore and work to mitigate any other barriers that may be hindering adherence, such as psychosocial issues or logistical challenges.\n\n5. **Peer Support**: Integrating peer support groups where individuals can share experiences and encouragement can enhance adherence.\n\n6. **Baseline Psychosocial Assessment**: Conduct a detailed assessment to identify factors that affect adherence, such as family dynamics, housing situation, or mental health status.\n\n7. **Multidisciplinary Team Approach**: Involve a team of healthcare professionals to collaboratively develop and implement tailored treatment plans for each patient.\n\n8. **Monitoring and Follow-up**: Regularly assess adherence during clinical encounters and reinforce educational messages about the importance of consistent medication intake.\n\n9. **Document and Address Missed Doses**: Understanding the reasons behind missed doses and managing these obstacles is essential for improving adherence rates.\n\nThese strategies aim to create a supportive environment that fosters optimal adherence for individuals on PrEP and helps to prevent HIV acquisition effectively [Pre-Exposure Prophylaxis (PrEP)][11-13] [Adherence Preparation, Monitoring and Support][5-11].",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1177,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 383,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:27:08+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D9nIak65DwSPRlZxRpenw9o6fkzND",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

@@ -1,0 +1,172 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[TABLE TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-16T09:32:20.357090+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "\"what screening modalities are required for different demographic populations\"",
+          "timestamp": "2026-02-16T09:32:20.357124+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "args": "{\"query\":\"screening modalities demographics\"}",
+          "tool_call_id": "call_UqS5lE7y75FZbBFzKiBNwdCX",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 264,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 17,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T09:32:21+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D9pFlYDO8uY4VrSQlIMhcCz0TXQoT",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "content": [
+            "to determine the renal/liver function and extent of disease.  \nOther important factors  for screening  \n1. Gender based violence (GBV) screening:  All clients accessing PrEP must be screened for \ngender -based violence, especially intimate partner violence (IPV), and appropriate \nintervention offered or client linked to appropriate.  \n2. Mental Status Assessment:  Psychological issues that may influence adherence should be \nassessed and addressed. It is important to carry out basic mental health evaluation and \noffer appropriate referral as necessary.",
+            "23 Dennis Osiemo  USAID  83 Maureen Syowai  ICAP at Columbia \nUniversity  \n24 Diana Marangu  UoN  84 Mike Ekisa  Kakamega County  \n25 Dinah Mamai   CHS  85 Muthoni Karanja  DOD  \n26 Dorcus Abuya  UNICEF  86 Nancy Bowen  MOH NHRL  \n27 Doreen Muriithi  JHPIEGO  87 Nandita Sugandhi  ICAP at Columbia \nUniversity  \n28 Dorothy Mwagae  MOH NASCOP  88 Natella Rakhmanina  EGPAF  \n29 Douglas Gaitho  AKUH  89 Nelson Otwoma  NEPHAK  \n30 Dunstan Achwoka  USAID  90 Newton Omale  MOH NASCOP  \n31 Edith Apondi  AMPATH Plus  91 Odylia Muhenje  CDC  \n32 Elaine Abrams   ICAP at Columbia \nUniversity  92 Pacific Akinyi  MOH NASCOP  \n33 Elizabeth Irungu  JHPIEGO  93 Patricia Oluoch  USAID  \n34 Elizabeth Katiku  CDC  94 Patricia Ongwen  JHPIEGO",
+            "5 If Risk noted or clinical assessment suggest HIV, eligible for testing  \n6. If No risk noted and assessment does not suggest, not eligible  \nName  Institutions  \n \n  \n M\nM\nM  F",
+            "Trauma results from exposure to an incident or series of events that are emotionally disturbing \nor life -threatening with lasting adverse effects on the individual\u2019s functioning and mental, \nphysical, social, emotional, and/or spiritual well -being. Past traumatic experiences in PLHIV must \nbe addressed for their wellbeing.  \nAssessi ng for Trauma - Primary Care PTSD Screen for DSM -5 (PC -PTSD -5) \nThe Primary Care PTSD Screen for DSM -5 (PC -PTSD -5) is a screening tool designed to identify \npersons with probable PTSD. Results of the screening should be considered \"positive\" if the \nrespondent  answers \"yes\" to any 3 items in the questions listed below. Those screening positive \nshould have further assessment with a structured interview for PTSD, preferably performed by a",
+            "Kenya HIV Prevention and Treatment Guidelines, 2022  \n2 - 2  2.1.2 Community \u2013based t esting  \nTargeted community based HTS offers additional opportunities to identify and link people to HIV \ntreatment and prevention. This setting is especially important for testing children and partners of \nindex clients through index testing , as well as  outreach to key and priority populations, orphans, \nand vulnerable children (OVCs), adolescents, youth and targeted testing in workplaces.  \n2.2 HTS strategies  \nThe major HTS strategies to identify people living with HIV but unaware of their status are:  \n2.2.1 HIV Self -Testing (HIVST)  \n\u25cf HIVST allows individuals to collect their own specimen, perform the test, and interpret the"
+          ],
+          "tool_call_id": "call_UqS5lE7y75FZbBFzKiBNwdCX",
+          "metadata": null,
+          "timestamp": "2026-02-16T09:32:22.270933+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "args": "{\"query\":\"screening requirements diverse populations\"}",
+          "tool_call_id": "call_aZcF2FxCpVVIqHeMtPIlOCMb",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1096,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 18,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T09:32:23+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D9pFnaLBuutAekImuDilRfHbiJ98Z",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "content": [
+            "to determine the renal/liver function and extent of disease.  \nOther important factors  for screening  \n1. Gender based violence (GBV) screening:  All clients accessing PrEP must be screened for \ngender -based violence, especially intimate partner violence (IPV), and appropriate \nintervention offered or client linked to appropriate.  \n2. Mental Status Assessment:  Psychological issues that may influence adherence should be \nassessed and addressed. It is important to carry out basic mental health evaluation and \noffer appropriate referral as necessary.",
+            "2.1.1 Facility -based testing  \n\u25cf The HTS screening tool should be used to facilitate prioritization of testing for persons at risk \nof HIV infection; those diagnosed with sexually transmitted infections, with multiple sexual \npartners, key populations, and those with possible or known HIV exposures, such as sexual or \nneedle sharing partner of a person living with HIV or of a person of unknown HIV status  \n\u25cf Providers should undertake a thorough risk assessment using the validated NASCOP screening \ntools (Annex 17) to identify clients at risk and those eligible for a HIV test.  \n\u25cf HTS should be offered only to clients who consent  \n\u25cf Clients who are not eli gible for testing should receive HIV prevention messages and be offered \nservices as appropriate",
+            "5 If Risk noted or clinical assessment suggest HIV, eligible for testing  \n6. If No risk noted and assessment does not suggest, not eligible  \nName  Institutions  \n \n  \n M\nM\nM  F",
+            "liver, lung and oral/throat) hence the importance of prioritizing screening and early diagnosis \nprograms in this group.",
+            "4. Reproductive Health Services  \n\u25aa All PLHIV should be screened for STI at every clinic visit  \n\u25aa Pregnancy status should be determined for all women of reproductive age at every \nvisit and their contraception need determined and met  \n\u25aa All HIV p ositive women between the ages of 18 - 65 years should be screened for \ncervical cancer (HPV testing conducted every 2 years or Annually if using VIA -VILI)  \n5. Screening for and Management of Non -Communicable Diseases  \n\u25aa All PLHIV should be screened for hypertension, diabetes mellitus, dyslipidaemia, \nand renal disease annually.  \n\u25aa Routine screening should be provided for early detection of cervical cancer, breast \ncancer, bowel cancer, and prostate cancer  \n6. Mental Health Screening and Management"
+          ],
+          "tool_call_id": "call_aZcF2FxCpVVIqHeMtPIlOCMb",
+          "metadata": null,
+          "timestamp": "2026-02-16T09:32:23.789581+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "Screening for HIV and related health issues varies according to different demographic populations based on specific needs and risks. Here are the key screening modalities recommended by the Kenya HIV Prevention and Treatment Guidelines:\n\n1. **General Populations and Vulnerable Groups:**\n   - All individuals accessing HIV services should undergo risk assessments to determine their eligibility for HIV testing. This includes identifying individuals with multiple sexual partners or known HIV exposures, such as sexual or needle-sharing partners of people living with HIV [Kenya HIV Prevention and Treatment Guidelines, 2022][2].\n\n2. **Gender-Based Screening:**\n   - Clients accessing pre-exposure prophylaxis (PrEP) should be screened for gender-based violence (GBV), particularly intimate partner violence (IPV), with appropriate interventions offered if needed [Kenya HIV Prevention and Treatment Guidelines, 2022][23].\n\n3. **Mental Health Assessment:**\n   - Psychological assessments should be conducted to address any mental health issues that might affect adherence to treatment. This involves basic evaluations and referrals when necessary [Kenya HIV Prevention and Treatment Guidelines, 2022][23].\n\n4. **Screening for Non-Communicable Diseases (NCDs):**\n   - All people living with HIV (PLHIV) should be screened annually for hypertension, diabetes, dyslipidemia, and renal disease. Routine cancer screenings (for cervical, breast, bowel, and prostate cancers) should also be provided [Kenya HIV Prevention and Treatment Guidelines, 2022][23].\n\n5. **Reproductive Health Services for Women:**\n   - Women of reproductive age should be screened for pregnancy status and contraception needs. Additionally, HIV-positive women aged 18-65 should annually undergo cervical cancer screening using HPV testing or visual inspection with acetic acid (VIA) [Kenya HIV Prevention and Treatment Guidelines, 2022][23].\n\nThese guidelines emphasize tailored screening approaches based on demographic risk factors, highlighting the need for comprehensive and sensitive health assessments in various populations.",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1664,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 1024,
+        "output_tokens": 400,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T09:32:25+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D9pFp69gCDCZOYEP5iK63140b4Cfp",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "user"
+}

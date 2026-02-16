@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "arv_text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-11T00:21:06.700429+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "How should a healthcare provider manage a patient who is taking 2 to 4 doses of ART and exhibiting inadequate adherence?",
+          "timestamp": "2026-02-11T00:21:06.700434+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "args": "{\"query\":\"inadequate adherence management ART\"}",
+          "tool_call_id": "call_lgW2zHzsRSTmlKs5RfhefiuP",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 278,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 21,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:21:07+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D7sGZWSq0iOxzk4726tGUvQUxPwr0",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "content": [
+            "  \nAdherence Preparation, Monitoring and Support  \n5 - 25 Table 5.13: Adherence Rate Based on Pill Counts  \nMissed Doses per Month  % Of \nMedications \nTaken  Adherence  \nRating  Action Required (see Table 5.10 for \nmore details)  For once -\ndaily \nregimen  For BD  \nregimen  \n1 dose  1-3 doses  \u2265 95%  Good  Continue with routine monitoring, \ncounselling and support  \n2-4 doses  4-8 doses  85-94%  Inadequate  \u25cf Discuss as an MDT  \n\u25cf Assign a case manager  \n\u25cf Assess for and address barriers to \nadherence (Table 5.15)  \n\u25cf Engage treatment supporter in \nadherence counselling sessions  \n\u25cf Follow up in 2 -4 weeks  \n\u2265 5 doses  \u2265 9 doses  < 85%  Poor  \u25cf Discuss as an MDT  \n\u25cf Assign a case manager  \n\u25cf Assess for and address barriers to \nadherence (Table 5.15)  \n\u25cf Engage treatment supporter in \nadherence counselling sessions  \n\u25cf Implement DOTs  \n\u25cf Follow up in 1 -2 weeks  \n \n5.3.2 Adherence Counselling and Support During the First 3 Months of ART  \nAll patients recently initiated on ART need careful adherence monitoring and support to \nensure they achieve virological suppression.  This is particularly important in the context of \nrapid ART initiation. The intensity of counselling and support are dependent on the patients\u2019 level \nof adherence as assessed by the methods described i n section 5.2.1.  \nTable 5.14 summarizes adherence counselling and support for patients from the time of ART \ninitiation until the 3 -month viral load results are available. For patients who have inadequate or \npoor adherence, Table 5.15 describes the assessmen t for barriers to adherence.  \n  ",
+            "  \nAdherence Preparation, Monitoring and Support  \n5 - 1  \n5. Adherence Preparation, Monitoring and \nSupport  \n \nThe individual and population benefits of ART are dependent on high levels of adherence to the \nprescribed medication, the accompanying medical advice and the follow -up plans. Adherence -\nenhancing strategies should be implemented beginning at the point of HIV di agnosis (as part of \npost -test counselling and linkage), continued during initial evaluation, and thereafter during the \nentire follow -up period for ART.  \n \nTo avoid treatment failure and the need to switch patients to 2nd or 3rd line ART, it is key to have \nan adherence support strategy in place before ART initiation, anticipating common and individual \nbarriers to good adherence. Prevention of treatment failure starts at the time of HIV diagnosis. \nThis is particularly important with the current recommendation t hat all PLHIV qualify for ART, \nand ART should be initiated within 2 weeks of diagnosis. Adherence preparation must begin at \ntime of HIV testing, and close follow -up is required after ART initiation.  \n \nThe adherence preparation, monitoring, and support that a patient requires should be tailored to \ntheir level of adherence, the stage of ART initiation, and the follow -up stage that they are at (Figure \n5.1).  \n \nWhenever possible, follow -up should be provided by the same care provider or team of care \nproviders (e.g ., same clinician and same counsellor) at each visit. This is particularly important \nduring the first few months of HIV care.  \n  ",
+            "  \nAdherence Preparation, Monitoring and Support  \n5 - 9 Table 5.1 Cont.  \nOngoing Support at Subsequent Visits  \n\u25cf Review the patient\u2019s HIV knowledge  \n\u25cf Review the patient\u2019s motivation to take ART  \n\u25cf Elicit any concerns the patient may have about their ART, side effects, visit schedule, or health  \n\u25cf Review the ART dosing schedule and ask about any missed pills  \n\u25cf Explore barriers to adherence that were previously identified or new ones that have developed  \n\u25cf Explore any recent or expected changes in their life or daily routine  \n\u25cf Discuss their individualized adherence plan and if any changes are required  \n \nHIV Education and Counselling  \nHIV education should be a standard component of the enrolment visit. Prior to ART initiation, all \npatients/caregivers must be provided with enough information to make an informed choice about \nART initiation and adherence (Table 5.2), including for patients who initiate ART during the \nenrolment visit. A detailed content guide for HIV education and adherence counselling is provided \nin Annex 8. This information can be provided through group or individual counselling. The ART \nReadiness Assessment an d the management plan should be completed for each patient \nindividually (Table 5.4).  \n  ",
+            "  \nAdherence Preparation, Monitoring and Support  \n5 - 33 Table 5.1 8 Cont.  \nOther Enhanced Adherence Support Interventions (for patients failing or at high -risk of failing \ntreatment)  \nCase \nmanagement  \u2022 Assign a case manager to all children and adolescents (those not achieving \noptimum treatment outcomes); pregnant women, orphans, patients with alcohol \nand substance abuse, patients with mental illness, patients with suspected or \nconfirmed treatment failure, and any patients who the healthcare team feels has \npoor adheren ce or is at high risk of defaulting from care  \n\u2022 The case manager is the link between the patient and the MDT  \n\u2022 Roles  of the case managers include:  \no Coordinating multidisciplinary management for patients under case \nmanagement  \no Following up on appointment -keeping for their patients  \no Organizing patient reminders (SMS, calling the day before) and other support \nsystems  \no Ensuring appropriate defaulter tracing  \no Coordinating home visits to their patients  \nDirectly \nobserved \ntherapy  \u2022 Patients with suspected treatment failure should have DOTs to ensure good \nadherence before a viral load is repeated to confirm treatment failure  \n\u2022 DOTs involve a healthcare provider, family member, treatment supporter or any \ntrained peer observing the patient ingesting th eir prescribed ART on a daily basis  \n\u2022 DOTs can be tapered off once the patient adopts consistent adherence -enhancing \nbehaviours  and barriers to adherence are overcome  \nHome visits  \u2022 Observe where and how a patient stores and takes their medications, and assess if \nthey have extra medications because of missed doses  \n\u2022 Home visits may also provide a better understanding of a patient\u2019s living situation \nand specific barriers to adherence  \n\u2022 Unscheduled home visits may be more revealing, but should only be conducted if \nthe patient consented to home visits previously (preferably at the time of enrolment  \nor initiation)  \nMonthly \u201chigh \nviral load\u201d \nclinics  \u2022 Patients with suspected treatment failure should be booked for dedicated monthly \nhigh viral load clinics  \n\u2022 Children and adolescents in school who are unable to attend clinic monthly may \nattend dedicated monthly clinics during mid -term and school holidays (at least \nevery 6 weeks)  \n\u2022 Comprehensive clinical and psychosocial evaluation should be conducted at e ach \nvisit, appropriate investigations done and any opportunistic infections treated  \n\u2022 Enhanced adherence counseling sessions should be conducted at each visit  \n\u2022 Support groups for patients with viremia can be timed with \u201chigh viral load\u201d clinic \ndays  \nSpecial \nsupport \ngroups  \u2022 For health facilities with several patients who are failing treatment or who are on \n2nd line ART, special support groups can be established so these patients can work \nthrough their adherence challenges together  \n\u2022 Community support groups can also be engaged and linked to the facility for \nsupporting patients with adherence challenges  ",
+            "  \nAnnexes  \n \n13 - 23 Annex 9 B: Cont.  \nAdherence and Treatment Failure Evaluation  \nParameters of Evaluation  Findings  \n\u25cf Number and findings of adherence counseling/assessment \nsessions done in the last 3 -6 months including the following:  \no Findings from MMAS -8 \no Adherence barriers identified  \no Recommendations   \nNumber of home visits conducted in last 3 -6 months, and findings   \nDescribe support structures (e.g., treatment buddy, support group \nattendance, caregivers) in place for this patient   \nEvidence of adherence concerns (e.g., missed appointments, pill counts)   \nDescribe daily witnessed ingestion done in last 3 -6 months (Who performed \nit, which tool was used, how long was session done etc.)   \nDescribe likely root cause/s of poor adherence for this patie nt (e.g., stigma, \ndisclosure, side effects, alcohol or other drugs, mental health issues, \ncaregiver changes, religious beliefs, inadequate preparation, etc.)   \nEvaluation for other causes of treatment failure, e.g.:  \n\u25cf Inadequate dosing/dose adjustments (particularly for children)  \n\u25cf Drug -drug interactions  \n\u25cf Drug -food interactions  \n\u25cf Impaired absorption (e.g., chronic severe diarrhea)   \nOther Relevant ART History  \nComment on treatment interruptions, if any   \nHas Drug Resistance Testing been done for this patient? If yes, state date \ndone and attach the detailed results   \nHas facility multidisciplinary team discussed the patient\u2019s case? If yes, \ncomment on date, deliberations and recommendations (indicate how \ntreatment failure was established and con firmed, proposed regimen and \ndosage, current source of drugs if patient already on 3rd line)   \nMDT members who participated in the case discussion (names and titles)   \n \n \n  "
+          ],
+          "tool_call_id": "call_lgW2zHzsRSTmlKs5RfhefiuP",
+          "metadata": null,
+          "timestamp": "2026-02-11T00:21:07.651071+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "For a healthcare provider managing a patient on ART who is taking 2 to 4 doses and exhibiting inadequate adherence (defined as an adherence rate of 85-94%), the following strategies should be implemented:\n\n1. **Multidisciplinary Team (MDT) Discussion**: Engage your healthcare team to discuss the patient's adherence challenges and potential solutions.\n\n2. **Case Management**: Assign a case manager to monitor the patient closely. This person will coordinate efforts and ensure consistent follow-up.\n\n3. **Assessment of Barriers**: Conduct a thorough assessment to identify and address specific barriers to adherence. This could involve understanding the patient's living situation, mental health issues, substance use, or other factors.\n\n4. **Engagement of Treatment Supporters**: Involve a treatment supporter in the adherence counseling process to provide additional encouragement and support.\n\n5. **Follow-Up**: Schedule a follow-up appointment within 2 to 4 weeks to reassess the patient\u2019s adherence and implement necessary adjustments to their care plan as needed.\n\nIt's also important to ensure a supportive environment during follow-up visits where the patient\u2019s motivation, knowledge about ART, and any concerns can be explored continuously.\n\nThese approaches align with the Kenya ARV Guidelines, which emphasize the need for structured support in managing adherence issues [Adherence Preparation, Monitoring and Support][5-25].",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 2485,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 269,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:21:07+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D7sGZ8o0VXjyJK09EEIhWT0lJaZMW",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

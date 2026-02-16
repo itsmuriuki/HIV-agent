@@ -1,0 +1,172 @@
+{
+  "agent_name": "hiv_agent",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "\nYou are a clinical decision support assistant for the Kenya National HIV/AIDS treatment guidelines.\n\nBefore answering any clinical question, you MUST search the official ARV guideline materials for relevant information.\n\nIf the initial search does not return sufficient or precise information:\n- Refine the query using clinical synonyms (e.g., regimen names, drug names, WHO stage, pregnancy, TB co-infection, CD4 thresholds).\n- Perform multiple searches if necessary.\n- Combine relevant retrieved sections before forming a response.\n\nWhen relevant guideline content is found:\n- Base your answer strictly and only on the retrieved guideline information.\n- Do NOT introduce external medical knowledge.\n- Provide clear, structured clinical output (e.g., Eligibility, Recommended Regimen, Dosing, Special Populations, Monitoring).\n- Reference the relevant section or source when available.\n\nIf no relevant information is found after multiple searches:\n- Clearly state: \"This information was not found in the Kenya ARV guideline materials.\"\n- Provide general best-practice guidance separately and clearly label it as general information.\n- Avoid making definitive clinical recommendations outside the retrieved guidelines.\n\nSafety Rules:\n- Do not invent regimens, dosages, or thresholds.\n- Do not assume missing patient details.\n- If essential clinical variables are missing (e.g., age, pregnancy status, TB status, viral load, CD4 count), ask for clarification before answering.\n- Clearly state any uncertainty or limitations.\n\nYour role is to support clinicians with guideline-based information, not to replace clinical judgment.\n",
+          "timestamp": "2026-02-16T07:24:15.405901+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": " \"Explain how patients in pregnancy should be tested and treated\"",
+          "timestamp": "2026-02-16T07:24:15.405929+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "args": "{\"query\":\"pregnancy testing treatment guidelines\"}",
+          "tool_call_id": "call_vp8c2PHZUq4qo8hkfDdLyQGQ",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 426,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 18,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:24:16+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D9nFoWvWv16ZXocStcxIiwHxphpmz",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "content": [
+            "For women  \n\u2714 Pregnancy test, pregnancy intention and / or breastfeeding  \n\u2714 Screen for contraception use using appropriate contraceptive screening tool   \n\u2714 Highlight the need for condom use   \nDiscussed plans for continually accessing PrEP   \nAdditional laboratory tests (Availability of these test should not delay initiation of PrEP)  \n\u2714 Serum creatinine and creatinine clearance  \n\u2714 HBsAg  \n\u2714 HCV serology  \nNB:  absence of these tests should not hinder initiation   \nMedication history and potential drug interactions",
+            "negative in the third trimester).  \n\u25cf All breastfeeding mothers (unless known HIV positive) should be counselled \nand tested at the 6 -week infant immunization visit. The HIV  test (if negative) \nshould be repeated every 6 months until complete cessation of breastfeeding.  \n\u25cf For mothers considered to be at high risk of HIV infection, retesting \npostnatally should be done every 3 months; these include mothers \ncategorized as key popul ation; in a HIV discordant relationship, or having \nongoing sexual or injecting behavior that places her at risk, including new or \nmultiple sexual partners.  \n\u25cf Mothers should be counselled on the schedule for repeat HIV testing in \npregnancy and postnatal as p art of routine ANC and postnatal education.",
+            "trimester and, during labour and delivery.  \nBreastfeeding mothers  Re-test 6 weeks after delivery, at 6 months then every 6 \nmonths until complete cessation of breast feeding.  \nFor mothers considered to be at high risk of HIV \ninfection, retesting postnatally should be done every 3 \nmonths  \nPersons who had a most recent \n(e.g., less than one month) high \nrisk exposure to  HIV  Test at initial presentation and re -test at 4 weeks, after \nwhich National testing guidelines apply  \nSTI symptomatic patients or \npatients with symptoms \nsuggestive of acute HIV  Test at initial presentation and re -test at 4 weeks, after \nwhich national te sting guidelines apply  \nIndividuals on Pre -exposure \nprophylaxis (PrEP)  Test at initiation of PrEP; Retest at month one, and then \nevery 3 months",
+            "Prevention of Mother to Child Transmission of HIV/Syphilis/Hepatitis B  \n  7 - 5 7.2. Syphilis elimination for Pregnant and Breastfeed ing Women and Infant \nTreatment  \nThe country has adopted triple elimination of HIV, Syphilis and Hepatitis B among pregnant and \nbreastfeeding women. It is recommended that all pregnant women attending ANC and not aware \nof their HIV status require a dual HIV syphilis test during their first trimester and a second HIV \nSyphilis test in the 3rd trimester if the initial test was negative.   \nAll women who test positive for syphilis at any point during pregnancy and breastfeeding should \nbe treated with the appropria te regimen. (Table 7.3). All babies born of mothers who test positive",
+            "unknown HIV status or that previously tested negative, even if tested during \nthe third trimester  \no All breastfeeding mothers (unless known HIV positive) should be co unselled \nand tested at the 6 -week infant immunization visit. The HIV test (if negative) \nshould be repeated every 6 months until complete cessation of breastfeeding. \nNote:  key population mothers (FSWs and PWIDs) get retested every 3 months \n(Table 2.5)  \no Women should be counselled about the schedule for repeat HIV testing in \npregnancy and postnatally as part of routine ANC and postnatal education  \no All pregnant and breastfeeding women who are not tested, opt -out or decline \nHIV, Syphilis or Hepatitis testing during the first contact should be offered"
+          ],
+          "tool_call_id": "call_vp8c2PHZUq4qo8hkfDdLyQGQ",
+          "metadata": null,
+          "timestamp": "2026-02-16T07:24:16.818665+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "args": "{\"query\":\"HIV treatment in pregnancy guidelines\"}",
+          "tool_call_id": "call_pdcanccOHhLYfCw7ta5PZCNW",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1302,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 19,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:24:17+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D9nFppluvxhPuOexaZbUJ0Mvhqyoe",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "content": [
+            "including PrEP where appropriate, ART for those who are HIV positive, monitoring of \nART and ARV prophylaxis and follow -up for HEIs) and t riple elimination (preventing \nHIV/ syphilis/hepatitis B transmission from mother to child).  \nCounselling  \u25cf Pre-conception \u2013 Women in reproductive age who are known to be HIV positive \nshould have pregnancy intention assessment visit at every visit. If they desire to \nbecome pregnant, pregnancy should be planned i.e., attain viral load suppression, \nimmune reconsti tution and have Iron and Folic Acid Supplementation (IFAS) \nadministered prior to conception.  \n\u25cf Women who are newly diagnosed with HIV and/or newly initiating ART require \nmore intensive adherence counseling and HIV education, which may include a case \nmanager  and/or mentor mother",
+            "who wish to conceive. PrEP in these situations can be prescribed during the pre -\nconception period and throughout pregnancy to reduce risk of sexual HIV \ninfection.",
+            "monitoring  \n\u25aa If the repeat VL is \u2265 1,000 copies/ml (suspected treatment failure), prepare for \nchange to an effective regimen (Figure 5.2 and Table 6.10)  \n\u25aa If the repeat VL is 200 - 999 copies/ml (low level viremia),  reassess adherence \nand other causes of viremia and repeat VL after another 3 months of excellent \nadherence  \n1.6 Pre vention of Mother to Child Transmission of HIV/Syphilis/HBV  \n\u2022 Prevention of mother -to-child transmission (PMTCT) of HIV,  Syphilis and Hepatitis B  \n(triple elimination ) should be offered as part of a comprehensive package of fully \nintegrated, routine antenatal  care interventions  \n\u2022 All pregnant women, unless known positive, should be counseled and tested for HIV,",
+            "Kenya HIV Prevention and Treatment Guidelines, 2022  \n7 - 2 Table 7.1 Cont.  \nCounselling  \u25cf HIV testing services  \no All pregnant women (unless known HIV positive) should be counselled and \ntested for HIV, syphilis and Hepatitis B during their first ANC visit and if \nnegative, repeat HIV and syphilis testing in the third trimester.  \no All pre gnant and breastfeeding mothers with continued HIV risk (Key \npopulations) should be counseled and tested for HIV every 3 months until post -\ncessation of breastfeeding.  \no Pregnant and breastfeeding mothers should be educated and offered a self -test \nkit for th eir sexual partner(s)  \no At Labour and delivery, HIV testing should be done for all women with \nunknown HIV status or that previously tested negative, even if tested during",
+            "Kenya HIV Prevention and Treatment Guidelines, 2022  \n7 - 6 Table 7.3: ARV Prophylaxis for HIV -Exposed Infants  \nInfant Scenario  Infant Prophylaxis  Maternal Scenarios  \nHIV Exposed \nInfant  \u25cf Infant prophylaxis  \no AZT+NVP for 6 weeks, NVP + cotrimoxazole should be \ncontinued until 6 weeks after complete cessation of \nbreastfeeding  \no Infant prophylaxis can be discontinued after a minimum \nof 12 weeks on NVP if the child is not breastfeeding (death \nof mother or separation with mother)  \no The infant prophylaxis regimen applies to all infants \nirrespective of age when identifying HIV exposure (e.g., \nmother diagnosed HIV -positive in the  postpartum  period)  \n\u25cf DBS or whole blood for PCR at 6 weeks or first contact, \nfollowing EID algorithm (Figure 2.1)"
+          ],
+          "tool_call_id": "call_pdcanccOHhLYfCw7ta5PZCNW",
+          "metadata": null,
+          "timestamp": "2026-02-16T07:24:18.072374+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "### Testing and Treatment of HIV in Pregnant Patients\n\n#### Eligibility for Testing\n- All pregnant women who are not already known to be HIV positive should be counselled and tested for:\n  - HIV\n  - Syphilis\n  - Hepatitis B\n- Routine testing should occur during the first antenatal care (ANC) visit, and if the initial test is negative, repeat the HIV and syphilis tests in the third trimester.\n\n#### Follow-Up Testing for High-Risk Groups\n- Pregnant and breastfeeding mothers who are considered at high risk of HIV (e.g., key populations) should be tested every 3 months during pregnancy.\n- Breastfeeding mothers without known HIV should be tested at the 6-week infant immunization visit and subsequently every 6 months until breastfeeding ceases.\n\n#### Treatment Guidelines\n- Women diagnosed with HIV during pregnancy should be initiated on Antiretroviral Therapy (ART) as soon as possible.\n- For those with a positive HIV status prior to pregnancy, it is crucial to ensure that they achieve viral load suppression as early as possible to minimize the risk of mother-to-child transmission.\n- Healthcare providers should counsel about the importance of adherence to treatment and address any potential drug interactions and adherence challenges.\n\n#### Laboratory Tests\n- While there are additional laboratory tests that can be encouraged (such as screening for HBsAg, HCV serology, and renal function tests), initiation of ART or HIV treatment should not be delayed due to the absence of these tests.\n\n#### Special Considerations\n- Pregnant women should receive effective family planning advice and options, including discussions on safe sex practices to prevent HIV transmission.\n- Pre-exposure prophylaxis (PrEP) can be considered for women at high risk of HIV infection during the pre-conception phase, throughout pregnancy, and while breastfeeding.\n\n#### Infant Care\n- For infants born to HIV-infected mothers, prophylaxis using a regimen of AZT and NVP is recommended for the first 6 weeks of life, alongside cotrimoxazole until 6 weeks after the cessation of breastfeeding.\n\n#### Monitoring\n- Continuous monitoring of viral load and treatment adherence throughout the pregnancy, labor, and postnatal period is essential to ensure maternal and infant health.\n\nThese guidelines are based on the Kenya National HIV Prevention and Treatment Guidelines.",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 2154,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 462,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:24:18+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D9nFqGkirXy9XDr2AbqsgiEUONaLk",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "user"
+}

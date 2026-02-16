@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "arv_text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-10T23:48:11.262694+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "What is the recommended first-line ART regimen for adults?",
+          "timestamp": "2026-02-10T23:48:11.262722+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "args": "{\"query\":\"first-line ART regimen for adults\"}",
+          "tool_call_id": "call_fy2B87mSEdoikeBTUdYWtrus",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 265,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 21,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-10T23:48:12+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D7rkiigilhajrLcAAYVej6QkCp3jY",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "content": [
+            "  \nAntiretroviral Therapy in Infants, Children, Adolescents, and Adults  \n6 - 1  \n6. Antiretroviral Therapy in Infants, Children, \nAdolescents, and Adults  \nART, while very effective in managing HIV disease, does not cure HIV infection. The goal of ART is \nto suppress viral replication with the aim of reducing the  patient\u2019s VL to undetectable levels. \nUninterrupted ART with ongoing strict adherence will help maintain undetectable VL levels \nthereby preventing damage to the body\u2019s immune system, reducing AIDS -related morbidity and \nmortality and the risk of sexual and vertical transmission of HIV.  \n6.1 Eligibility for ART  \nAll individuals with confirmed HIV infection are eligible for ART irrespective of CD4 \ncount, WHO clinical stage, age, pregnancy or breastfeeding status, co -infection status, \nrisk group, or any other cri teria.  \n6.2 Timing of ART Initiation  \nART should be started in all patients as soon as possible, preferably within 2 weeks of \nconfirmation of HIV status, and even on the same day as testing positive for HIV if they are ready.  \nART Readiness Criteria (Table 5.4) can be used to help determine any issues that need to be \naddressed around the time of ART initiation. Same -day ART initiation (on the same day as testing \nHIV-positive) has additional benefits for HIV prevention (e.g., for pregnant and breastfee ding \nwomen, and the HIV positive partner in a discordant relationship), and is associated with \nimproved retention, viral suppression, and survival. Special considerations for timing of ART \ninitiation are listed in Table 6.1.  \n  ",
+            "  \nInitial Evaluation and Follow up  \n3 - 9  3.5.1 First 6 months after ART initiation  \nAfter ART initiation, patients need to be monitored closely for development of adverse drug events, \nidentify and address barriers to adherence, and development of IRIS. A reasonable follow -up \nschedule for most patients is 2 weeks and 4 weeks after ART initiation (Table 3. 5 and 3. 6).  \nWhen possi ble, follow -up for a particular patient should be provided by the same care provider or \nteam of care providers (e.g., same clinician and same counsellor) at every visit. This is particularly \nimportant during the first 6 months in care.   \n3.5.2 Differentiat ed Service Delivery for Patients beyond the 1st 6 months of ART  \nFollow up of patients beyond 6 months of ART is described in table 3. 5. It also  provides the criteria \nfor determining if a patient is established on ART.  \nIn summary:  \n\u25cf Patients who are not established on ART require closer follow -up.  \n\u25cf Patients who are established on ART require less frequent facility follow -up, with up \nto six months b etween clinical appointments  \n \nTable 3. 5: Differentiated Follow -up of Patients Beyond the First 6 Months of ART  \nPatients NOT established on ART  \nPatients with any of the following:  \n\u25cf On treatment for < 6 months  \n\u25cf Any active OIs (including TB) in the previous 6 months  \n\u25cf Poor or questionable adherence to scheduled clinic visits in the previous 6 months.  \n\u25cf Most recent VL \u2265 200 copies/ml  \n\u25cf Children < 2 years  \nPackage of \nCare  \u25cf Standard Package of Care  \n\u25cf Case management to address reason/s for not being established on ART  \nFocus of \nCounselling  \u25cf ART is the most important treatment to maintain good health and an active life  \n\u25cf ART will reduce the risk of transmitting HIV to others   \nFrequency of \nFollow -up \u25cf Every 1 -3 months, based on clinical judgment  \n\u25cf Additional visits as required to address any medical or psychosocial concerns  \n\u25cf If VL is detectable at 3 months they will need additional assessments for \nand management of the reason/s for detectable viral load, with close \nfollow -up until viral suppression is achieved (Chapter 5).  \n\u25cf Patients with confirmed viral suppression can be followed up every 3 -6 \nmonths based on patient preference and clinician judgment, with \nadditional unscheduled visits any time the patient has a concern.  \n  ",
+            "  \nAntiretroviral Therapy in Infants, Children, Adolescents, and Adults  \n6 - 7 6.5 Monitoring and Changing ART  \nThe objectives of clinical and laboratory monitoring during ART are to identify and treat inter -\ncurrent illnesses, assess for and manage adverse drug reactions, and evaluate response to \ntreatment. Routine laboratory monitoring recommendations are described in Table 3.5; however, \nadditional investigations should be ordered whenever there is clinical suspicion for which a \nlaboratory test result may alter patient management.  \nIndications for changing ART include optimizing therapy for patients who have undetectable viral \nload, managing adverse drug reactions or toxicity, drug -drug interactions, co -morbidities and \ntreatment failure.  \n6.5.1 Optimizing Therapy for Patients who have suppressed viral load on First Line \nART  \nPatients who are virally suppressed o n first line ART may benefit from regimen optimization even \nif they are currently tolerating their regimen well and have no drug -drug interactions requiring a \nchange. Regimen modifications may be done for age/weight transitions among children and \nadolescen ts <15 years and to simplify a regimen, prevent long -term toxicity and improve cost -\neffectiveness. Dolutegravir has been shown to have superior tolerability and efficacy compared to \nefavirenz and lopinavir and is now preferred as part of first line ART for  children, adolescents and \nadults. While most adults in Kenya have switched over to a DTG -containing regimen, proactive \nswitching of children is now also recommended with the availability of a pediatric dispersible \ndolutegravir tablet.  \nChildren and adolesc ents with suppressed viral load on first line ART and not on the \nrecommended first line regimen as per Table 6.2 should be considered for optimization as \nper Figures 6.1 and 6.2, such as when children grow and enter a new weight band.  This also \nincludes PL HIV who recently initiated non -standard therapy (less than 3 months ago, before the \nfirst VL is due). Decisions on regimen modification should be made following discussion with the \npatient/caregiver.  \nAlways discuss the possibility of new side effects when changing to a new ARV,  particularly \nside effects common to all ARVs (headache, nausea, diarrhea) and any side effects specific to the \nnew ARV. Reassure patients that most side effects resolve with continued use after 1 -2 weeks.  ",
+            "  \nAnnexes  \n \n13 - 13 Annex 8: Cont.  \n- Distance: choosing an HIV clinic that is far away from your home can make it difficult to come to \nappointments and pick drugs regularly  \n- HIV knowledge: when people do not understand what HIV is, and why ART is important, they \nmay not take their drugs properly. This also applies to children and adolescents, if they have \nnot been told they have HIV and taught what it means  \n- Mental health disorders: depression and other mental illnesses can make it difficult to t ake ART \ncorrectly  \n- Religious beliefs: some people stop taking ART after faith -healing, although there has never \nbeen a case of someone being cured of HIV this way  \n\u2022 What might make it difficult for you individually to take your ART as prescribed  \n- Ask the patie nt: \u201cBased on what you have learned so far, what challenges do you think you will \nhave taken  ART correctly, every day, for the rest of your life?\u201d  \n- Discuss strategies to manage any expected barriers to adherence  \n\u2022 What can help you take ART as prescribed  \n- Disclosure: It is easier to take your ART properly when the people close to you know your HIV \nstatus, so you do not have to try and hide your ART or miss doses to avoid being seen. Family \nand friends can also provide additional support once they  are aware you have HIV and \nunderstand more about it. We can help you disclose your HIV status to important family \nmembers or friends when you are ready  \n- Treatment supporter: Having a \u201ctreatment buddy\u201d can help you take your ART correctly; ask a \nfriend, par tner, or family member to remind you to take your ART. If possible, invite that \nperson with you to some of your clinic appointments and counselling sessions so they can learn \nabout ART, the importance of good adherence, side effects, etc.  \n- SMS reminder syst em (if SMS reminder system in place at the facility): Receiving a regular SMS, \ne.g., every week, can help you take your ART correctly. We enroll all our patients into this \nservice for SMS reminders at our clinic, unless you do not want to receive them. The  messages \nsimply ask how you are doing, and do not mention HIV, ART, the clinic, or anything else that \nmay reveal your HIV status to others  \n- Support group: Joining a support group will help you learn from other people how they \novercome challenges in living with HIV and taking ART correctly. Some support groups also \nhave economic activities to help increase your income. We have support groups based at the \nhealth facility, and there are also support groups in the community  \n- Other reminders:  \n- Set a specific time of day to take your ART  \n- Associate your ART with a specific event/s in your daily schedule (e.g., when you eat \nbreakfast and dinner)  \n- Set an alarm on your phone or watch  \n\u2022 What happens if you miss an appointment?  \n\u2022 The healthcare team will be concerned about you, and will try to contact you by phone  \n- Confirm patient phone number and consent to call if misses an appointment or any urgent \nlab results  \n\u2022 If we cannot contact you by phone, we will try to call your treatment buddy  \n- Confirm treatment buddy name and phone number, and consent to call if needed  \n\u2022 If we cannot reach you or your treatment buddy, we may try and visit you at home, if we have \nyour permission  \n- Confirm locator information and consent to perform home visits if needed  \n\u2022 Once you are back in care, we will work with you to figure out what caused you to miss an \nappointment and how it can be prevented in the future  \n\u2022 You will not be punished for missing an appointment  ",
+            "  \nAntiretroviral Therapy in Infants, Children, Adolescents, and Adults  \n6 - 3 6.3 First -Line ART for Infants, Children, Adolescents and Adults (including \nPregnant and Breastfeeding Women)  \nThe recommendations below apply to patients who are starting ART for the first time. Preferred \nand alternative first line regimens are shown in Tables  6.2 and 6.3. ARVs for infant prophylaxis \nare presented in the PMTCT chapter in Tables 7.3 to 7.6.  \nAll patients must have their weight documented at every visit. Children and adolescents \nless than 15 years must have correct weight -based dosing of ARVs conf irmed at every visit.  \nInfants and children depend on their caregivers for adherence to medication. Caregivers should \nbe adequately prepared for their role of administering ARVs to infants and children, including \naddressing anticipated challenges such as dr ug palatability. It can be helpful for more than one \ncaregiver to be informed about a child\u2019s HIV status and receive instruction on administration of \nART.  \nCaregivers should always be shown and then asked to demonstrate how to measure and \nadminister ARVs.  This should be done both at the time of prescribing the ART (by the clinician) \nand at the time of dispensing the ART. Clinicians should ensure that the caregiver accompanying \na child for clinical review is the same caregiver responsible for day -to-day ART a dministration.  \nTable 6.2: Preferred First -line ART Regimens and Dosing for Children, Adolescents and \nAdults 1 \nAge  Weight  Preferred \nRegimen  Dosing2 (correct weight -based dosing must \nbe confirmed at every visit)  \nBirth to 4 \nweeks  Any  AZT + 3TC + NVP3 Refer to Annex 10 for weight -based dosing  \n> 4 weeks to \n< 15 years  < 30 kg  ABC + 3TC + DTG4 Refer to Annex 10 for weight -based dosing  \n\u2265 30 kg  TDF + 3TC + \nDTG5,6 TDF/3TC/DTG (300/300/50mg): 1 tab once \ndaily  \n\u2265 15 years  Any  TDF + 3TC + \nDTG5,6 TDF/3TC/DTG (300/300/50mg): 1 tab once \ndaily  \n1 Patients currently on first -line regimens that are not included in the indicated preferred (Table 6.2) \nor alternative (Table 6.3) regimens should be considered for regimen optimization as per Section \n6.5.1  \n2 See Annex 10 for weight -based dosing of all single -drug and fixed -dose combination formulations  \n3 Infants who initiate ART at less than 4 weeks of age should initiate on AZT+3TC+NVP irrespective of \nprevious ART exposure; metabolism of other ARVs is not well known for this age group. As soon as \nthese infants become 4 weeks old, they should switch to ABC/3TC+DTG (dosing included in Annex \n10). Consult the Regional or National HIV Clinical TWG (Uliza Hotline 0726 460 000, \nulizanascop@gmail.com) in case of pre -term infants  \n4 Once adolescents reach 30 kg, if virally suppressed they should be considered for transition as per \nFigure 6.2  \n5 TAF may become the preferred NRTI once fixed -dose combinations are available  \n6 DTG/3TC dual therapy may be considered for HBV -negative pa tients once fixed -dose combinations \nare available  \n \n  "
+          ],
+          "tool_call_id": "call_fy2B87mSEdoikeBTUdYWtrus",
+          "metadata": null,
+          "timestamp": "2026-02-10T23:48:12.929907+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "The recommended first-line antiretroviral therapy (ART) regimen for adults is:\n\n- **Tenofovir disoproxil fumarate (TDF)** + **Lamivudine (3TC)** + **Dolutegravir (DTG)**\n\nFor adults weighing 30 kg or more, the preferred formulation is a fixed-dose combination of TDF, 3TC, and DTG, taken as one tablet once daily.\n\nThis regimen is recommended for those starting ART for the first time, in line with the Kenya ARV guidelines [Antiretroviral Therapy in Infants, Children, Adolescents, and Adults][6 - 3].",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 3521,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 134,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-10T23:48:13+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D7rkjwvaD6ElQTlOlwIpskstao2uO",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "user"
+}

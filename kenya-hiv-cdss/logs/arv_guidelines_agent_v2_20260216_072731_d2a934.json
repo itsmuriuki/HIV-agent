@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-16T07:27:29.165407+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "What should be done if a patient with HIV/HBV co-infection has persistently elevated ALT levels?",
+          "timestamp": "2026-02-16T07:27:29.165510+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "args": "{\"query\":\"HIV HBV co-infection elevated ALT levels management\"}",
+          "tool_call_id": "call_wklhA6rmlaIrhxaYxHGueytc",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 274,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 24,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:27:29+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D9nIvGzBnfXOkTYOJJhJDi8BJSqHF",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "content": [
+            "there is no evidence of synthetic dysfunction (INR normal,  glucose normal, albumin \nnormal).  \nPatients with persistently elevated ALT levels during follow -up should be referred to a \nspecialist. Subsequent laboratory monitoring after baseline should be conducted every 6 \nmonths. Patients should be counselled and supp orted to abstain from consuming alcohol.  \nD. Stopping treatment, /treatment interruptions  \nTDF -containing ART should not be stopped in a patient with HIV/HBV co -infection as this may \nresult in a flare -up of the hepatitis. If the regimen must be stopped and another alternative for \nsuppressing hepatitis B cannot be found, liver enzymes should be monitored and treatment re -\ninstated as soon as possible.",
+            "TB/HIV Co -infection, Prevention and Management  \n \n9 - 1  \n9. HBV/HIV and HCV/HIV Co -infection \nPrevention and Management  \n9.1 Hepatitis B/HIV Co -infection  \nHIV and Hepatitis -B Virus (HBV) share infection transmission routes.  Acute HBV infection in HIV \npositive people is associated with increased risk of chronicity, reduced chances of spontaneous \nclearance, higher rates of replication and reactivation and therefore increased incidence of \nchronic liver disease, cirrhosis and hep atocellular carcinoma (HCC). Additionally, HIV/HBV co -\ninfection has been associated with rapid HIV disease progression and poorer HIV treatment \noutcomes.  Other complications of HIV/HBV co -infection include increased incidence of drug -",
+            "\u25cf Safer sex practices  \n9.1.3 Treatment  \nA. When to start ART  \nAll HIV infected patients who are co -infected with hepatitis B should be started on ART \nirrespective of CD4 cell count, WHO clinical stage or stage of liver disease  \n \nThe general recommendations for treatment preparation, adherence counselling and support \nand monitoring of therapy for PLHIV apply. However, because HBV positive patients are at higher \nrisk of hepatotoxicity, closer monitoring of liver function (with ALT) is advised. Table 9.2 \nprovides a summary of areas of focus during initial evaluation for HIV/HBV co -infected patients \ninitiating therapy.",
+            "3TC 300mg  Unchanged: 300 mg \nonce daily or 150 mg \nBD  150 mg once \ndaily  150 mg once \ndaily  50 mg first dose,  \n25 mg once daily  \n1 Patients with impaired renal function in whom the benefits of continued use of TDF outweighs the \nrisks (such as in the management of HIV/HBV co -infection) should be managed with input from a \nspecialist in internal/paediatric or renal medicine  \n2 Assuming 3 haemodialysis sessions per week, each of approximately 4 hours duration or after 12 \nhours cumulative haemodialysis  \n \nC. Follow -up/Monitoring  \nFollow -up of HIV/HBV co -infected patients should be as for all other patients on ART. However, \nconsider more frequent monitoring (using ALT) for patients with active liver disease (jaundice,",
+            "ALT  If elevated, may point to \nactive liver disease. Exclude \nother causes of elevation of \nliver enzymes  Every effort should be made to assess for \nother liver function (albumin and INR), \nespecially in symptomatic patients. However, \nthis should not delay initiation of ART  \nCreatinine  Calculate creatinine clearance  In HIV/HBV co -infection, TDF is indicated \neven in patients with CrCl < 50 ml/min. In \nsuch patients, avoid FDCs. Instead administer \nthe ART as single drugs to allow for dosage \nadjustment as shown in Table 9.3  \nComorbidities  HCV antibody, random blood \nsugar, lipid profile, alcoholic \nand non -alcoholic liver \ndisease, hepatocellular \ncarcinoma (family history)  Consult/Refer the patient for additional \ninvestigations where these are suspected"
+          ],
+          "tool_call_id": "call_wklhA6rmlaIrhxaYxHGueytc",
+          "metadata": null,
+          "timestamp": "2026-02-16T07:27:30.505055+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "In case of a patient with HIV/HBV co-infection who has persistently elevated ALT levels, the following steps should be taken:\n\n1. **Referral to a Specialist**: Patients with persistently elevated ALT should be referred to a specialist for further evaluation and management.\n\n2. **Regular Monitoring**: Subsequent laboratory monitoring, including liver function tests (ALT), should be conducted every six months.\n\n3. **Counseling on Alcohol Abstinence**: Patients should be counseled and supported to abstain from alcohol consumption as this can exacerbate liver damage.\n\n4. **Do Not Stop TDF-containing ART**: It is crucial that TDF-containing antiretroviral therapy (ART) is not discontinued in these patients, as stopping it could lead to a flare-up of hepatitis. If there is a need to stop the regimen, appropriate alternatives should be considered, and liver enzymes should be monitored closely. Treatment should be reinstated as soon as possible if necessary.\n\nThese measures are important to manage the risk of liver disease and ensure patient safety in HIV/HBV co-infection [TB/HIV Co-infection, Prevention and Management][9-1].",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1215,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 235,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:27:31+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D9nIxNqf15S72f4ZpgtyKxifTOi8d",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

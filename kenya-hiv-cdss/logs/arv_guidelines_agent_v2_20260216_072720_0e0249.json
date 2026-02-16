@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-16T07:27:19.230921+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "What precautions should be taken when prescribing beta blockers to patients on PIs?",
+          "timestamp": "2026-02-16T07:27:19.230936+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "args": "{\"query\":\"beta blockers protease inhibitors precautions\"}",
+          "tool_call_id": "call_sXI4xNKFpZXBKV9KAdnBsXZf",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 268,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 19,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:27:19+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D9nIlgmjTiYVvmeGS3m3p4rQKVkZe",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "content": [
+            "predict, use with caution  \nBeta blockers: e.g., \nAtenolol, Carvedilol \nand Propranolol  Potential increase in B -\nblocker effect, careful dose \nadjustment and ECG where \nindicated  Potential increase in B -blocker \neffect, careful dose adjustment \nand ECG where indicated  Potential increase in B -blocker \neffect, careful dose adjustment \nand ECG where indicated  Potential increase in B -blocker \neffect, careful dose adjustment \nand ECG where indicated  \nCalcium channel \nblockers (CCBs): e.g., \nNifedipine, \nAmlodipine and \nFelodipine  Potential interaction with all \nPIs: Metabolism of CCBs \ninhibited, increasing \nantihypertensive effect: \nlower starting dose  of CCB \nmay be required, monitor for \nexcessive reduction in BP  Potential interaction with all \nPIs: Metabolism of CCBs",
+            "Annexes  \n \n13 - 39 Annex 12 C: Use of Protease Inhibitors in Adults  \nDrug name  Dose (in \nadults)  Dietary \nrestrictions  Major side effects  Comments  \nLopinavir/ritonav\nir (LPV/r) \nAvailable as \n200mg  \n+ 50mg RTV  [LPV 400 mg \n+ RTV  \n100 mg] 2 \ntablets BD  Take with food. \nModerate  \nfat increases \nbioavailability.  GI intolerance; \nnausea; vomiting; \ndiarrhoea  Tablets should be \nswallowed whole  \nAtazanavir  \n(ATV)  \n \nAvailable in  \n100mg, 150mg, \n200 mg capsules  \n \nAvailable as FDC  \nwith RTV  ATV 300mg / \nRTV 100mg \nOD Take with food. \nTake 2 hours \nbefore or 1  \nhour after \nantacids and \nbuffered \nmedications \nsuch as buffered \nddI (reduced \nATV \nconcentrations  \nif administered \ntogether)  Jaundice; headache; \nfever; depression; \nnausea; diarrhoea \nand vomiting;",
+            "Annex 10 F: Ritonavir Dosing for Super -Boosting LPV/r in Children Taking Rifampicin  ....... 34 \nAnnex 11: Overlapping toxicities between AR Vs ................................ ................................ .......................  35 \nAnnex 12 A: Use of Nucleoside & Nucleotide Reverse Transcriptase Inhibitors in Adults  ..... 36 \nAnnex 12 B: Use of Non -Nucleoside Reverse Transcriptase Inhibitors for Adults  .....................  38 \nAnnex 12 C: Use of Protease Inhibitors in Adults  ................................ ................................ ......................  39 \nAnnex 12 D: Integrase Strand Transfer Inhibitors - INSTIs  ................................ ................................ .. 40",
+            "Others: Alpha \nblockers:  \nMethyldopa, \nHydralazine   No known interactions  No known interactions  No known interactions  No known interactions",
+            "excessive reduction in BP  Potential interaction with all \nPIs: Metabolism of CCBs \ninhibited, increasing \nantihypertensive effect: lower \nstarting dose of CCB may be \nrequired, monitor for excessive \nreduction in BP  Potential  interaction with all \nPIs: Metabolism of CCBs \ninhibited, increasing \nantihypertensive effect: lower \nstarting dose of CCB may be \nrequired, monitor for excessive \nreduction in BP  Potential interaction with all \nPIs: Metabolism of CCBs \ninhibited, increasing \nanti hypertensive effect: lower \nstarting dose of CCB may be \nrequired, monitor for excessive \nreduction in BP  \nDiuretics: E.g., HCTZ, \nIndapamide. \nFurosemide and \nSpironolactone  No known interactions  No known interactions  No known interactions  No known interactions  \nOthers: Alpha \nblockers:"
+          ],
+          "tool_call_id": "call_sXI4xNKFpZXBKV9KAdnBsXZf",
+          "metadata": null,
+          "timestamp": "2026-02-16T07:27:20.203153+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "When prescribing beta blockers to patients on protease inhibitors (PIs), the following precautions should be taken:\n\n1. **Careful Dose Adjustment**: There is a potential for increased beta-blocker effect when combined with PIs. Therefore, careful dose adjustment of the beta blocker may be necessary.\n\n2. **Monitoring**: Regular monitoring, including electrocardiogram (ECG) where indicated, is recommended to observe for any adverse effects.\n\n3. **Patient Education**: Patients should be informed about the signs of beta blocker excess, such as bradycardia or hypotension, and advised to report these symptoms.\n\nThis guidance highlights the need for careful management and monitoring to ensure patient safety while on these medications together [Annex 12 C: Use of Protease Inhibitors in Adults][39].",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1250,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 164,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:27:20+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D9nIm9F7Ps86K8CkQJ9jhchYGY3wB",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

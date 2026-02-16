@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "arv_text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-11T00:21:44.552805+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "Can you explain how Facility-based ART Distribution Groups function and their benefits for people living with HIV?",
+          "timestamp": "2026-02-11T00:21:44.552823+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "args": "{\"query\":\"Facility-based ART Distribution Groups\"}",
+          "tool_call_id": "call_AKv1tYxYW0rEJVVXbtBG9wXa",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 273,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 20,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:21:44+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D7sHASmAX2pbl1qgQuJwAL9WNqCPX",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "content": [
+            "  \nInitial Evaluation and Follow up  \n3 - 15  Facility -based ART Distribution Group  \nFacility -based ART Distribution Groups are a model for ART distribution, whereby a group of \nPLHIVs meet at a designated location within their health facility for drug refills and dispense \ndrugs to their peers within the group while ensuring peer support and treatment literacy.  ART \nrefills are done through the group every 3 months and  each client is required to attend their \nclinical review appointment e very 6 months.   \nThis model may provide clients with psychosocial support if they are not already part of a support \ngroup. This may also be more convenient for clients who are in urban settings and would not wish \nto be enrolled in a community -based group. F acility -based groups can be peer or HCW led.  \nCommunity -based ART Distribution Models  \nClients may receive ART refills through community -based distribution. All clients may also benefit \nfrom home visits such as for adherence monitoring and support, on a case -by-case basis.  \nClients can receive their ART refill through community -based models such as:  \n\u25cf Community -based ART distribution groups  \n\u25cf Community ART distribution points  \n\u25cf Community pharmacy distribution  \nBefore implementing a community -based ART distribution program, a health facility should work \nwith the CHMT to design a program that meets the criteria listed in Annex 14, and the plan \napproved by the County HIV Technical Working Group before implementation. Refer to DSD \noperational manual for det ailed information on community models.  \n \n  ",
+            " Kenya HIV Prevention and Treatment Guidelines, 2022  \n \n13 - 54 Annex 14: Health Facility Assessment to Provide Community ART Distribution  \nHealth Facility Assessment to Provide Community ART Distribution*  \nFacility name:  MFL code:  Date of assessment:  \nHealth system domains for community ART distribution  Yes/No  \nLeadership:  \nHas the facility identified a focal person to oversee community -based ART distribution?   \nFinance:  \nDoes the facility have resources to implement and monitor community -based ART distribution?   \nHuman Resources for Health:  \nHas the facility identified appropriate personnel to distribute ART (peer educators, lay \ncounselors and /or Community Health Volunteers)?   \nDoes the facility have capacity to train ART distributors?   \nService Delivery:  \nHas the facility achieved a routine viral load monitoring uptake of \u2265 90%?   \nHas the facility established a facility -based system for fast -track ART distribution?   \nCommodity Management:  \nDoes the facility have \u2265 three months of ART available on site?   \nHas the facility identified a focal person to pre -pack and label ART for community distribution?   \nHealth Information Systems:  \nDoes the facility have an established system to monitor patient level outcomes, specifically \nretention, loss to follow -up, mortalities an d viral load suppression?   \nIs the facility able to establish recording and reporting systems for community ART?   \nAssessors\u2019 recommendations:  \n \nFinal assessment outcome:  \nFacility can initiate community ART distribution \u25a2  \nFacility to implement assessors\u2019 recommendations and be re -assessed thereafter \u25a2  \nNames of assessors:  Signature of \nassessors:  Name of health facility manager: \nSignature of health facility manager:  \n*None of these criteria are absolute requirements for implementation of community -based ART \ndistribution; implementation can be considered even if some criteria are not met, as long as a plan is in \nplace to address and monitor gaps  \n  ",
+            "  \nPeople Who Inject Drugs (PWID) and HIV  \n12 - 1  \n12. People Who Inject Drugs (PWID) and HIV  \n \n12.1 Introduction  \nThe use of ART for HIV treatment in key populations should follow the same general principles \nand recommendations as for all adults. Individuals within key populations groups may experience \ndiscrimination and marginali zation that can impede their access to health care, including \ntreatment for HIV, and frequently present late for treatment. It is important to ensure that people \nfrom key populations have equitable access to HIV treatment and care.  Programs should ensure \nthat missed opportunities are minimized and every single encounter with key populations is \noptimally used. ART service delivery includes decentralization of HIV care and treatment and \nintegration of ART services into other clinical services such as Medical ly Assisted Therapy and \ndrop -in centers where appropriate capacity exists.  \nPeople who inject drugs (PWID) are at increased risk of HIV infection. In Kenya, the HIV \nprevalence among PWID is up to 4 times that of the general population. PWID also suffer a hi gher \nburden of viral hepatitis (HBV and HCV), TB and sexually transmitted infections irrespective of \ntheir HIV status. Despite this, PWID have limited access to HIV treatment and prevention services.  \nEvery effort should be made to implement evidence -inform ed interventions in the comprehensive \npackage of measures targeting PWID, either in combination or (depending on site capacity) singly, \nwith linkage to comprehensive care (Table 12.1).  \nPackage of care for PWID  \nPWID have complex needs related to drug dependency, psychosocial and medical \ncomplications of injection and other substance use. When they require ART, anti -TB, or any \nother therapy, they are at increased risk of adverse drug reactions, drug -drug interactions and \nnon-adherence.  These patients a re best comprehensively managed by providers who have \nreceived specific training in the management of injection drug users. Once identified, PWID \nshould be counselled and linked to programs with the capacity to offer comprehensive care for \nsuch patients.  \n \n  ",
+            "  \nInitial Evaluation and Follow up  \n3 - 9  3.5.1 First 6 months after ART initiation  \nAfter ART initiation, patients need to be monitored closely for development of adverse drug events, \nidentify and address barriers to adherence, and development of IRIS. A reasonable follow -up \nschedule for most patients is 2 weeks and 4 weeks after ART initiation (Table 3. 5 and 3. 6).  \nWhen possi ble, follow -up for a particular patient should be provided by the same care provider or \nteam of care providers (e.g., same clinician and same counsellor) at every visit. This is particularly \nimportant during the first 6 months in care.   \n3.5.2 Differentiat ed Service Delivery for Patients beyond the 1st 6 months of ART  \nFollow up of patients beyond 6 months of ART is described in table 3. 5. It also  provides the criteria \nfor determining if a patient is established on ART.  \nIn summary:  \n\u25cf Patients who are not established on ART require closer follow -up.  \n\u25cf Patients who are established on ART require less frequent facility follow -up, with up \nto six months b etween clinical appointments  \n \nTable 3. 5: Differentiated Follow -up of Patients Beyond the First 6 Months of ART  \nPatients NOT established on ART  \nPatients with any of the following:  \n\u25cf On treatment for < 6 months  \n\u25cf Any active OIs (including TB) in the previous 6 months  \n\u25cf Poor or questionable adherence to scheduled clinic visits in the previous 6 months.  \n\u25cf Most recent VL \u2265 200 copies/ml  \n\u25cf Children < 2 years  \nPackage of \nCare  \u25cf Standard Package of Care  \n\u25cf Case management to address reason/s for not being established on ART  \nFocus of \nCounselling  \u25cf ART is the most important treatment to maintain good health and an active life  \n\u25cf ART will reduce the risk of transmitting HIV to others   \nFrequency of \nFollow -up \u25cf Every 1 -3 months, based on clinical judgment  \n\u25cf Additional visits as required to address any medical or psychosocial concerns  \n\u25cf If VL is detectable at 3 months they will need additional assessments for \nand management of the reason/s for detectable viral load, with close \nfollow -up until viral suppression is achieved (Chapter 5).  \n\u25cf Patients with confirmed viral suppression can be followed up every 3 -6 \nmonths based on patient preference and clinician judgment, with \nadditional unscheduled visits any time the patient has a concern.  \n  ",
+            "  \nAnnexes  \n \n13 - 13 Annex 8: Cont.  \n- Distance: choosing an HIV clinic that is far away from your home can make it difficult to come to \nappointments and pick drugs regularly  \n- HIV knowledge: when people do not understand what HIV is, and why ART is important, they \nmay not take their drugs properly. This also applies to children and adolescents, if they have \nnot been told they have HIV and taught what it means  \n- Mental health disorders: depression and other mental illnesses can make it difficult to t ake ART \ncorrectly  \n- Religious beliefs: some people stop taking ART after faith -healing, although there has never \nbeen a case of someone being cured of HIV this way  \n\u2022 What might make it difficult for you individually to take your ART as prescribed  \n- Ask the patie nt: \u201cBased on what you have learned so far, what challenges do you think you will \nhave taken  ART correctly, every day, for the rest of your life?\u201d  \n- Discuss strategies to manage any expected barriers to adherence  \n\u2022 What can help you take ART as prescribed  \n- Disclosure: It is easier to take your ART properly when the people close to you know your HIV \nstatus, so you do not have to try and hide your ART or miss doses to avoid being seen. Family \nand friends can also provide additional support once they  are aware you have HIV and \nunderstand more about it. We can help you disclose your HIV status to important family \nmembers or friends when you are ready  \n- Treatment supporter: Having a \u201ctreatment buddy\u201d can help you take your ART correctly; ask a \nfriend, par tner, or family member to remind you to take your ART. If possible, invite that \nperson with you to some of your clinic appointments and counselling sessions so they can learn \nabout ART, the importance of good adherence, side effects, etc.  \n- SMS reminder syst em (if SMS reminder system in place at the facility): Receiving a regular SMS, \ne.g., every week, can help you take your ART correctly. We enroll all our patients into this \nservice for SMS reminders at our clinic, unless you do not want to receive them. The  messages \nsimply ask how you are doing, and do not mention HIV, ART, the clinic, or anything else that \nmay reveal your HIV status to others  \n- Support group: Joining a support group will help you learn from other people how they \novercome challenges in living with HIV and taking ART correctly. Some support groups also \nhave economic activities to help increase your income. We have support groups based at the \nhealth facility, and there are also support groups in the community  \n- Other reminders:  \n- Set a specific time of day to take your ART  \n- Associate your ART with a specific event/s in your daily schedule (e.g., when you eat \nbreakfast and dinner)  \n- Set an alarm on your phone or watch  \n\u2022 What happens if you miss an appointment?  \n\u2022 The healthcare team will be concerned about you, and will try to contact you by phone  \n- Confirm patient phone number and consent to call if misses an appointment or any urgent \nlab results  \n\u2022 If we cannot contact you by phone, we will try to call your treatment buddy  \n- Confirm treatment buddy name and phone number, and consent to call if needed  \n\u2022 If we cannot reach you or your treatment buddy, we may try and visit you at home, if we have \nyour permission  \n- Confirm locator information and consent to perform home visits if needed  \n\u2022 Once you are back in care, we will work with you to figure out what caused you to miss an \nappointment and how it can be prevented in the future  \n\u2022 You will not be punished for missing an appointment  "
+          ],
+          "tool_call_id": "call_AKv1tYxYW0rEJVVXbtBG9wXa",
+          "metadata": null,
+          "timestamp": "2026-02-11T00:21:45.422372+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "Facility-based ART Distribution Groups are a model for distributing antiretroviral therapy (ART) within HIV care facilities in Kenya. In these groups, people living with HIV (PLHIV) meet at designated locations within their health facilities for medication refills. During these meetings, they dispense drugs to their peers while providing mutual support and promoting treatment literacy.\n\n### Functioning of Facility-based ART Distribution Groups:\n1. **Regular Meetings**: Groups meet every three months for drug refills.\n2. **Clinical Appointments**: Each member must attend a clinical review appointment every six months to ensure ongoing health monitoring.\n3. **Peer Support**: These groups often provide psychosocial support, especially beneficial for individuals not part of other support communities.\n4. **Convenience**: This approach is especially advantageous for clients in urban areas who prefer not to join community-based groups.\n5. **Group Type**: The meetings can be led by peers or healthcare workers (HCWs).\n\n### Benefits for People Living with HIV:\n- **Peer Support**: Offers a platform for shared experiences and encouragement, which can enhance adherence to treatment.\n- **Convenience**: Reduces the need for individual visits to healthcare facilities, making it easier for patients to manage their time and commitments.\n- **Improved Treatment Literacy**: Participants can learn more about their health and ART, fostering better understanding and adherence to treatment.\n- **Cost-Effective**: This model can help reduce costs related to healthcare visits and transport, especially in urban settings.\n\nThis model not only aids in the distribution of ART but also emphasizes the importance of community and peer relationships in managing HIV care effectively [Kenya HIV Prevention and Treatment Guidelines, 2022][page 3-15].",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 3039,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 350,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:21:45+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D7sHBGihdHslfMRIoZJN49guAC51T",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

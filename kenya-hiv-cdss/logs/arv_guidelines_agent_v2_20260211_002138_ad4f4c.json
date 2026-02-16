@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "arv_text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-11T00:21:37.412664+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "What screening recommendations are in place for sexually transmitted infections in people living with HIV, particularly during pregnancy?",
+          "timestamp": "2026-02-11T00:21:37.412672+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "args": "{\"query\":\"screening recommendations sexually transmitted infections pregnancy HIV\"}",
+          "tool_call_id": "call_9UqaqYh5BdvaokDEtX9IbIyt",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 274,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 23,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:21:37+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D7sH3kHHZdL8WNtdVQ4tPfi6pnaCh",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "content": [
+            "  \nKenya HIV Prevention and Treatment Guidelines, 2022  \n2 - 4  Table 2.1 Cont.  \nPregnant and \nbreastfeeding \nwomen  \u25cf During the first ANC visit, HIV testing of pregnant women should be done \nusing a dual test for HIV and syphilis, unless the woman is known to be living \nwith HIV.  \n\u25cf Women who test negative for both HIV and Syphilis should be offered a repeat \nHIV-Syphilis dua l test in the third trimester.  \n\u25cf Prevention services should be offered to all pregnant and breastfeeding \nwomen who test HIV negative. They should be screened for eligibility and \nwillingness for PrEP.  \n\u25cf At labor and delivery, HIV testing should be done for all women with \nunknown HIV status and those who previously tested negative (even if tested \nnegative in the third trimester).  \n\u25cf All breastfeeding mothers (unless known HIV positive) should be counselled \nand tested at the 6 -week infant immunization visit. The HIV  test (if negative) \nshould be repeated every 6 months until complete cessation of breastfeeding.  \n\u25cf For mothers considered to be at high risk of HIV infection, retesting \npostnatally should be done every 3 months; these include mothers \ncategorized as key popul ation; in a HIV discordant relationship, or having \nongoing sexual or injecting behavior that places her at risk, including new or \nmultiple sexual partners.  \n\u25cf Mothers should be counselled on the schedule for repeat HIV testing in \npregnancy and postnatal as p art of routine ANC and postnatal education.  \n\u25cf All pregnant and breastfeeding women who are not tested, opt -out or decline \nHIV testing during the first contact should be offered HIV counselling and \ntesting in subsequent visits with appropriate referral and li nkage for \nprevention, care, and support services.  \n\u25cf All HIV positive pregnant and breastfeeding women enrolled into care should \nreceive counselling and support (assisted disclosure), case management and \nfollow -up. It should also include linkage to general ca re for ANC, delivery and \npost -natal care  \n\u25cf All spouses/partners as well as children of pregnant and breastfeeding \nwomen testing HIV positive should be offered HIV testing and counselling.  \nSexual partners & \nchildren of index \nclients (HIV positive \nperson who is newly \ndiagnosed or already \nin HIV care)  \u25cf All PLHIV enrolled into HIV care should receive disclosure counselling and \nbe supported to disclose their HIV status (assisted disclosure)  \n\u25cf HIV testing and counselling (facility -based or community -based) should be \nencouraged for all partners including  sexual partners, needle sharing \npartners, and children of index clients, with appropriate linkage to \ntreatment and prevention services.  \n  ",
+            "  \nKenya HIV Prevention and Treatment Guidelines, 2022  \n7 - 2 Table 7.1 Cont.  \nCounselling  \u25cf HIV testing services  \no All pregnant women (unless known HIV positive) should be counselled and \ntested for HIV, syphilis and Hepatitis B during their first ANC visit and if \nnegative, repeat HIV and syphilis testing in the third trimester.  \no All pre gnant and breastfeeding mothers with continued HIV risk (Key \npopulations) should be counseled and tested for HIV every 3 months until post -\ncessation of breastfeeding.  \no Pregnant and breastfeeding mothers should be educated and offered a self -test \nkit for th eir sexual partner(s)  \no At Labour and delivery, HIV testing should be done for all women with \nunknown HIV status or that previously tested negative, even if tested during \nthe third trimester  \no All breastfeeding mothers (unless known HIV positive) should be co unselled \nand tested at the 6 -week infant immunization visit. The HIV test (if negative) \nshould be repeated every 6 months until complete cessation of breastfeeding. \nNote:  key population mothers (FSWs and PWIDs) get retested every 3 months \n(Table 2.5)  \no Women should be counselled about the schedule for repeat HIV testing in \npregnancy and postnatally as part of routine ANC and postnatal education  \no All pregnant and breastfeeding women who are not tested, opt -out or decline \nHIV, Syphilis or Hepatitis testing during the first contact should be offered \ncounselling and testing in subsequent visits with appropriate linkage and \nreferral for prevention, care and support services. Daily Witnessed Ingestion \n(DWI) is advised to support Viral suppression for newly initi ated clients and \nthose whose regimens are being switched. This is to support viral suppression \namong women with high viral load.  \no All HIV positive pregnant and breastfeeding women enrolled into care should \nreceive counselling and support (including assiste d disclosure), case \nmanagement linkage and follow -up for comprehensive treatment and \nprevention (including lifelong ART)  \no All Syphilis and Hepatitis B positive clients should be given appropriate care as \ndefined in Table 7.3 \u201ctriple elimination\u201d.  \no All partn ers of pregnant and breastfeeding women should be offered HIV \ntesting and counselling and all biological children if the mother is HIV positive  \n\u25cf All pregnant and breastfeeding women should receive information on risk \nreduction, including PrEP where appropri ate \n\u25cf Post -partum contraception: counsel on contraception methods and help patient \ndevelop a plan for effective contraception from 6 -weeks post -partum to avoid \nunplanned pregnancies  \n \n  ",
+            " Annexes  \n \n13 - 59 Annex 17: HTS Adult Screening Tool Enhancement  \n  \nCounty: \u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026. Sub -County Name: \u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026.  \n \nFacility Name:\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026 Facility MFL Code: \u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026  \n1 Today\u2019s Date                                              Gender                                             AGE  \n \n\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026.                            \n2 Have you ever tested for HIV Before?  \nIf yes, what was the HIV result?         Positive                      Negative  \nIf positive, Date of ART initiation. \u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026. (Not eligible for testing)  \nIf Negative, when is the most recent HIV test?   Months              Years  \n \n3 If negative or status unknown, determine  behavioural risk of HIV acquisition  by \nasking the following questions:  \n\u2022 Unprotected sex within the last 3 months  \n\u2022 Unknown status of the sexual partners  \n\u2022 New sexual partner within the last 3 months  \n\u2022 Multiple sexual partners  \n\u2022 intergenerational relationships  \n\u2022 Symptoms of sexually transmitted infection (refer to MoH syndromic \nchart) or history of STI  \n\u2022 Pregnancy for females  \n\u2022 Assessing h istory of recurrent illnesses without resolution of symptoms, \nacute or chronic febrile illness (symptoms \u2265 14 days) and any other \nconditions suggestive of HIV  \n4 Possible Risk exposures:  \n\u2022 Defilement  \n\u2022 Traditional /non -medical procedures e.g., scarification, plastic tooth \nextraction , Circumcision, uvulectomy etc.  \n5 If Risk noted or clinical assessment suggest HIV, eligible for testing  \n6. If No risk noted and assessment does not suggest, not eligible  \nName  Institutions  \n \n  \n M\nM\nM  F \n  \n  ",
+            "  \nKenya HIV Prevention and Treatment Guidelines, 2022  \n2 - 10  Presumptive Diagnosis of Severe HIV Disease in Children under 18 Months  \nOccasionally, children less than 18 months of age present to hospital with severe illness; and a rapid \nHIV antibody test confirm s HIV exposure. Lack of immediate availability of HIV DNA PCR results \nfor confirmation of HIV could result in undue delay in starting life -saving ART. In such children, a \npresumptive diagnosis of HIV infection can be made using the criteria in Table 2.3. A RT can be \ninitiated while awaiting HIV DNA PCR results to confirm HIV infection.  \nTable 2.3: Presumptive Diagnosis of HIV in children <18 months while awaiting DNA PCR \nResults  \nHIV antibody test positive AND symptomatic with;  \n 2 or more of the following:  \n\u25cf Oral candidiasis/thrush  \n\u25cf Severe pneumonia  \n\u25cf Severe sepsis  \nOR any of the of following:  \n\u25cf Any WHO Clinical Stage 4 condition  \n\u25cf Recent maternal death (if likely to have been HIV -related) or advanced HIV disease in \nmother  \n\u25cf Child\u2019s CD4% < 2 5% \n \n2.4.1.2  Birth Testing  \nBirth testing is defined as HIV testing (with DNA PCR) at birth or around birth for infants born to \nHIV-positive mothers. Birth testing has the potential to improve survival for infants who are \ninfected during pregnancy, around labour and delivery by ident ifying them early for rapid ART \ninitiation. Do not use cord blood for birth testing as this could result in false positive results.  \nA DNA PCR test can be offered at birth or around birth where feasible.  \nALL children initially tested at birth should be rete sted at 6 weeks of age and the EID \nalgorithm followed (Figure 2.2.)  \nConsiderations for providing birth testing:  \nBirth testing may be prioritized for newborns who are at high risk of HIV acquisition including \nthose born to:  \n\u25cf Mothers who seroconvert during p regnancy.  \n\u25cf Mothers who have unsuppressed or unknown viral loads during delivery.  \n\u25cf Mothers who received a HIV positive diagnosis for the first time at or after 28 weeks \ngestation or during labour and delivery  \n\u25cf Mother on ART for less than 12 weeks prior to delivery  \nBirth testing should be offered where this is feasible:  \n\u25cf DNA PCR results can be returned the same  day e.g., where on site point of care is available.  \n\u25cf ART regimens recommended for neonates as per national guidelines are available and can \nbe initiated immed iately.  \n\u25cf Follow -up of the newborn is done to ensure no lost to follow -up. ",
+            "  \nKenya HIV Prevention and Treatment Guidelines, 2022  \n2 - 18  Table 2.5: Recommendations for Retesting HIV Negative Clients  \nScenario/population  Recommendation for retesting  \nGeneral population  All general population to be screened every 2 years \nusing the approved NASCOP HTS screening tool and \nthose eligible get tested  \nKey populations (FSW, MsM, TG, \nPWID)  Re-test every 3 months  \nNegative partner in discordant  \n \n Retest HIV negative partner at the initiation of ART for the \nHIV positive partner, at 6months and 12 months once \nviral suppression is achieved.  \nRetest a nnually if the positive partner remains virally \nsuppressed.  \nPregnant women  Test in first trimester or first contact; Re -test in the third \ntrimester and, during labour and delivery.  \nBreastfeeding mothers  Re-test 6 weeks after delivery, at 6 months then every 6 \nmonths until complete cessation of breast feeding.  \nFor mothers considered to be at high risk of HIV \ninfection, retesting postnatally should be done every 3 \nmonths  \nPersons who had a most recent \n(e.g., less than one month) high \nrisk exposure to  HIV  Test at initial presentation and re -test at 4 weeks, after \nwhich National testing guidelines apply  \nSTI symptomatic patients or \npatients with symptoms \nsuggestive of acute HIV  Test at initial presentation and re -test at 4 weeks, after \nwhich national te sting guidelines apply  \nIndividuals on Pre -exposure \nprophylaxis (PrEP)  Test at initiation of PrEP; Retest at month one, and then \nevery 3 months  \n2.6 Inconclusive HIV status  \nAn HIV -inconclusive test status means that individuals had discrepant results on the test (for \nexample, first test reactive, second test nonreactive, third test reactive) and so could not be given \nan HIV -positive or HIV -negative diagnosis.  \nInconclusive results are rare, but they may occur when  \ni) cross -reactivity exists between kits or patient -related factors,  \nii) the tester or test kit makes an error; and/or  \niii) individuals are seroconverting and in the window period, when infection cannot be \ndeterm ined.  \n  "
+          ],
+          "tool_call_id": "call_9UqaqYh5BdvaokDEtX9IbIyt",
+          "metadata": null,
+          "timestamp": "2026-02-11T00:21:38.182061+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "The Kenya HIV Prevention and Treatment Guidelines provide several screening recommendations for sexually transmitted infections (STIs) in people living with HIV, particularly during pregnancy. Here are the key recommendations:\n\n1. **Initial Screening**: During the first antenatal care (ANC) visit, all pregnant women should be tested for HIV and syphilis using a dual test, unless they are already known to be living with HIV.\n\n2. **Follow-up Testing**: \n   - Women who test negative for both HIV and syphilis should be offered a repeat dual test during the third trimester.\n   - At labor and delivery, HIV testing should be conducted for all women with unknown HIV status and those who previously tested negative, even if tested negative in the third trimester.\n\n3. **Postpartum Testing**: \n   - All breastfeeding mothers who are not known to be HIV positive should be counseled and tested at the 6-week infant immunization visit. If the test is negative, it should be repeated every 6 months until cessation of breastfeeding.\n   - For mothers at high risk of HIV infection (e.g., key populations, those in HIV discordant relationships, or having multiple sexual partners), retesting postpartum should occur every 3 months.\n\n4. **Counseling and Education**: Pregnant and breastfeeding women should receive education on the schedule for repeat HIV testing, and those who do not test during initial contact should be offered counseling and testing in subsequent visits.\n\n5. **Support for HIV Positive Women**: All HIV positive pregnant and breastfeeding women enrolled in care should receive comprehensive support, including counseling, case management, and linkage to preventive services for themselves and their partners.\n\n6. **Testing for Partners**: All spouses/partners and children of pregnant and breastfeeding women who test HIV positive should be offered HIV testing and counseling [Kenya HIV Prevention and Treatment Guidelines, 2022][2-4, 7-2].\n\nThese recommendations ensure that pregnant women are adequately screened for both HIV and STIs, with a focus on timely testing and support.",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 3143,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 413,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:21:38+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D7sH4ItoDkYBv3GzFVBvwE5GbMBsd",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

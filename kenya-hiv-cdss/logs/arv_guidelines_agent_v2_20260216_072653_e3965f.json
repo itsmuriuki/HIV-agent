@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-16T07:26:51.454769+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "What is the recommended screening protocol for chronic hepatitis B virus (HBV) before initiating ARV therapy?",
+          "timestamp": "2026-02-16T07:26:51.454779+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "args": "{\"query\":\"chronic hepatitis B virus screening before initiating ARV therapy\"}",
+          "tool_call_id": "call_vKJWF6KsvU9eYNjXeL5p7tsR",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 274,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 24,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:26:52+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D9nIKGUh2CgmN2VQPh5QtSAoVDw54",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "content": [
+            "\u25cf Safer sex practices  \n9.1.3 Treatment  \nA. When to start ART  \nAll HIV infected patients who are co -infected with hepatitis B should be started on ART \nirrespective of CD4 cell count, WHO clinical stage or stage of liver disease  \n \nThe general recommendations for treatment preparation, adherence counselling and support \nand monitoring of therapy for PLHIV apply. However, because HBV positive patients are at higher \nrisk of hepatotoxicity, closer monitoring of liver function (with ALT) is advised. Table 9.2 \nprovides a summary of areas of focus during initial evaluation for HIV/HBV co -infected patients \ninitiating therapy.",
+            "\u25aa Persons who inject drugs (PWID)  \n\u25aa Men who have sex with men  \n\u25aa Sex workers  \n\u25aa Persons with multiple sexual partners  \n\u25aa Prisoners  \n\u25aa Blood donors  \n\u25aa Unvaccinated healthcare providers  \n \nPLHIV on follow -up who presen t with signs of liver disease (jaundice, ascites, abnormal liver on \npalpation, other signs of cirrhosis) or unexplained and persistent ALT elevation should also be \nscreened for HBV as part of their work -up. \n9.1.2 Prevention  \nA. Vaccination : HBV vaccination reduces the risk of new (incident) HBV infection in PLHIV and \nalso reduces the risk of new infections becoming chronic. Therefore;  \n\u25cf HIV positive infants, children, adolescents and adults without evidence of hepatitis B \ninfection (HBsAg negative)  should be vaccinated against hepatitis B (Table 9.1)",
+            "Available in 150mg  \ntablet and as FDC \nwith AZT and \nAZT/NVP, D4T and \nD4T/NVP and with \nTDF and TDF/ EFV  150mg/ \ndose BD \nOR 300 \nmg/dose \nOD No food \nrestrictions  Headache; fatigue; nausea; \ndiarrhoea; skin rash; pancreatitis; \nperipheral neuropathy; \nhepatotoxicity/ hepatitis; lactic \nacidosis and severe hepatomegaly \nwith steatosis (rare fatal cases \nhave been reported).  A well -tolerated drug. \nAdjust dose in renal \nimpairment.  \nAlso active against hepatitis B. \nIdeally, patients should be  \nscreened for hepatitis B virus  \n(HBV) before starting therapy; \nexacerbation of hepatitis B has \nbeen reported in patients on \ndiscontinuation of 3TC.  \nAbacavir (ABC) \nAvailable in 300mg  \ntablets and in \ncombination with  \n3TC and DTG  300mg/  \ndose BD  \n or 600mg \nOD No food",
+            "Regular screening should be done by incorporation of viral hepatitis screening as  part of the ANC \nprofile. This is recommended for Hepatitis B & C which pose a big risk to both the mother and \nfetus.  \nFor pregnant and breastfeeding women who are found to be positive for HBsAg, offer appropriate \ntreatment options of ARVs containing TDF/3TC or FTC containing regimens. This treatment also \nacts as prophylaxis for HBV transmission from mother to child. All pregnant and breastfeeding \nwomen without evidence of hepatitis B infection (HBsAg negative) should be vaccinated against \nhepatitis B. (Chapter 9).  \nHIV positive infants without evidence of infection should be vaccinated against Hepatitis B.  \nInfants born of mothers who test positive for HBsAG should be treated using Hepatitis B",
+            "outcomes.  Other complications of HIV/HBV co -infection include increased incidence of drug -\nrelated hepatotoxicit y, drug -drug interactions and ART -related immune reconstitution hepatitis.  \n9.1.1 Screening  \nAll adolescents and adults living with HIV (plus children who did not complete routine childhood \nimmunizations) should be screened for HBV infection, using HBsAg, as part of initial evaluation. \nTo promote population -wide prevention, hepatitis B prevention should be integrated into \nroutine HIV prevention and care programs. In this setting, other indications for HBsAg screening \ncould include  \n\u25aa Household and sexual contacts of HBsAg positive individuals  \n\u25aa Pregnant women  \n\u25aa Persons who inject drugs (PWID)  \n\u25aa Men who have sex with men  \n\u25aa Sex workers"
+          ],
+          "tool_call_id": "call_vKJWF6KsvU9eYNjXeL5p7tsR",
+          "metadata": null,
+          "timestamp": "2026-02-16T07:26:52.712187+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "The guidelines recommend that all adolescents and adults living with HIV, as well as children who did not complete routine childhood immunizations, should be screened for hepatitis B virus (HBV) infection using HBsAg during the initial evaluation before initiating antiretroviral therapy (ART). This screening is crucial due to the risk of hepatotoxicity associated with certain HIV medications, especially in co-infected patients. \n\nAdditionally, individuals with signs of liver disease, persistent elevated ALT, or belonging to high-risk populations (such as household and sexual contacts of HBsAg-positive individuals, pregnant women, people who inject drugs, and men who have sex with men) should also be screened for HBV as part of their health care management. \n\nThe importance of this screening is underscored by the need to tailor ART regimens for patients who are co-infected with HBV to mitigate complications such as drug-related hepatotoxicity and immune reconstitution hepatitis[DOCUMENT TITLE][PAGE].",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1322,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 195,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:26:53+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D9nILplwQGXlskraMTmoCopXMFdh5",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

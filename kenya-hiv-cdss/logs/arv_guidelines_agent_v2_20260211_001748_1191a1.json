@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "arv_text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-11T00:17:47.497772+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "What contributions did the consultants make during the review process of the ARV guidelines for Kenya?",
+          "timestamp": "2026-02-11T00:17:47.497777+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "args": "{\"query\":\"consultants contributions review process\"}",
+          "tool_call_id": "call_XTa4DN0WoDfU5WQNo9xWPeoI",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 272,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 20,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:17:47+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D7sDLyXKh6uXh7LOaIYb0KGuVe4FE",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "content": [
+            " \n \nii Acknowledgement s \n \nThe 2022 Guidelines on Use of Antiretroviral Drugs for Treating and Preventing HIV Infection in \nKenya has been a long -awaited document as the revision was greatly affected by the COVID -19 \npandemic. The document has been updated through the collaborative effort of multiple \nstakeholders, both individuals and institutions, that contributed to the extensive consultations \nled by NASCOP HIV Care and Treatment Program.  \n \nWith much appreciation, I acknowledge all the institutions, both local and international, \ngovernment ministries and departments whose staff spent long hours, both virtually and in \nperson, in the review, writing and finalization of this document.  \n \nI take th is opportunity to appreciate the efforts of the Ministry of Health officers at NASCOP and \nother institutions who coordinated and provided leadership during the review process. \nCompliments to the guidelines review secretariat and the special task force who worked tirelessly \nto ensure that the team produced a great quality document. Particular appreciation to the \nNASCOP team and numerous TA\u2019s who were instrumental in compiling the evidence review and \ndeveloping the guidelines. Special thanks to the consultant s; Jeremy Penner, Irene Mukui, and \nHerb Harwell for their dedication to this process.  \n \nFinancial support for the review process, printing and launch of this document was provided by \nthe Global Fund, UNITAID through CHAI, the US government through the Cent ers for Disease \nControl and Prevention and ICAP at Columbia University through the USAID -funded RISE -Kenya \nProject, WHO and UNICEF - Kenya.  \n \n \n \nDr. Rose Wafula  \nHead, National AIDS & STI Control Program  \nMinistry of Health\n",
+            "  \nAnnexes  \n \n13 - 15 Annex 8: Cont.  \nSection 13: Management plan  \n\u2022 Which investigations will you have today  \n- See Table 3.2 and Table 3.5 for recommended baseline and follow -up investigations \nrespectively  \n\u2022 Which medications will you start today  \n- May include: ART; CPT; TPT; other  \n\u2022 What else is required as you start or as you prepare to start ART  \n- May include: assisted disclosure; support group referral; engagement of a treatment \nbuddy; drug and alcohol counselling; depression management; referrals; other  \n- For patients not starting ART today, management plan should include specific \nstrategies to address any issues preventing/delaying ART initiation  \n\u2022 When should you return to the clinic  \n- Book appointment date  for next visit, preferably with the same healthcare worker  \n \n  ",
+            "  \nKenya HIV Prevention and Treatment Guidelines, 2022  \n5 - 20 Table 5.9 Cont.  \nTwo weeks \nafter ART \ninitiation  \u25cf Review and reinforce the messages delivered at enrolment; confirm the patient\u2019s \nunderstanding of key messages  \n\u25cf Review ART dosing, timing and reminders  \n\u25cf Explore any barriers to adherence  \n\u25cf Review support systems  \n\u25cf Revisit benefits of disclosure, the disclosure plan and progress in aPNS  \n\u25cf Document the session in the patient\u2019s chart  \nFour weeks \nafter ART \ninitiation, \nand further \nfollow -up \nvisits  \u25cf Review and reinforce the messages delivered in previous sessions; confirm the \npatient\u2019s understanding of key messages  \n\u25cf Review ART dosing, timing and reminders  \n\u25cf Explore any barriers to adherence  \n\u25cf Review support systems  \n\u25cf Revisit benefits of disclosure the disclosure plan,  and progress in aPNS  \n\u25cf Document the session in the patient\u2019s chart  \n \n5.3 Adherence Monitoring, Counselling and Support During the First 3 Months \nof ART  \n5.3.1 Adherence Monitoring  \nOnce ART has been initiated, adherence should be assessed non-judgmentally by a trained \nprovider during each visit (Table 5.10).  The objectives of this assessment are to evaluate and \nreinforce the patient\u2019s adherence to ART, to elicit any barriers to the same, and to develop a plan \nwith the patient/caregiver to address any of the barriers identified. These may include incorrect \nknowledge of HIV infection and ART, unsupportive psychosocial factors, difficult home or school \nenvironment, substance use and poor motivation for taking medication. Patients/caregivers ne ed \nto be counselled on the importance of being honest about their adherence in order for the \nhealthcare team to serve them better.  \nAdherence monitoring requires a combination of interventions. At every clinical visit, the MMAS -\n4 should be administered as w ell as pill counts. MMAS -8 should be administered any time a \nhealthcare worker suspects adherence problem (e.g., patients with suspected or confirmed \ntreatment failure; patient who misses an appointment).  \n  ",
+            "  \nAdherence Preparation, Monitoring and Support  \n5 - 19 Table 5.8 Cont.  \nTwo \nweeks \nafter ART \ninitiation  \u2022 Review and reinforce the messages delivered at enrolment; confirm the adolescent\u2019s \nand/or caregiver\u2019s understanding of key messages  \n\u2022 Review ART dosing, timing and reminders (including having the adolescent and/or \ncaregiver demonstrate how they measure and administer the ART)  \n\u2022 Explore any barriers to adherence, including issues related to the school environment  \n\u2022 Review support systems (including adol escent support group)  \n\u2022 Revisit benefits of disclosure and the individualized age -appropriate disclosure plan  \n\u2022 Review SRH needs  \n\u2022 Identify referral needs and link as appropriate  \n\u2022 Document the session in the patient\u2019s chart  \nFour \nweeks \nafter ART \ninitiation, \nand \nfurther \nfollow -up \nvisits  \n \u2022 Review and reinforce the messages delivered in previous sessions; confirm the \nadolescent\u2019s and/or caregiver\u2019s understanding of key messages  \n\u2022 Review ART dosing, timing and reminders (including having the adolescent a nd/or \ncaregiver demonstrate how they measure and administer the ART)  \n\u2022 Explore any barriers to adherence, including issues related to the school environment  \n\u2022 Review support systems (including adolescent support group)  \n\u2022 Revisit benefits of disclosure and the in dividualized age -appropriate disclosure plan  \n\u2022 Review SRH needs  \n\u2022 Link to psychosocial support group  \n\u2022 Identify referral needs and link as appropriate  \n\u2022 Document the session in the patient\u2019s chart  \nTable 5.9: Treatment Preparation and Support for Adults  \nVisit  Standard of care  \nAt \nenrolment \ninto HIV \ncare  \n Use the 5As (Assess, Assist, Advice, Agree, Arrange)  \n\u25cf Perform a psychosocial assessment to evaluate adherence boosters and barriers e.g., \nmental, emotional and social status assessments; refer for appropriate care if mental \ndisorder diagnosed  \n\u25cf Identify a treatment buddy (family member, friend, peer educator, community health \nvolunteer, etc.) and involve them in HIV education and adherence counselling  \n\u25cf Provide HIV education and counselling to patient  \n\u25cf Identify and establish appropriate adherence support interventions (Table 5.3), \nincluding linkage to a support g roup  \n\u25cf Discuss benefits of disclosure of HIV status to a trusted family member/friend; how to \ndisclose; and establish a disclosure plan  \n\u25cf Discuss importance of child and sexual partner testing as well as assisted partner \nnotification services (aPNS)  \n\u25cf Discus pr evention methods such as condoms, PrEP, PEP, STI screening and treatment  \n\u25cf Conduct an assessment of readiness to initiate ART (Table 5.4); ART should be initiated \nsame day or the date of initiation agreed upon  \n\u25cf Review ART dosing and timing  \n\u25cf Conclude the sessi on by agreeing on a treatment and follow -up plan  \n\u25cf Where ART is initiated, book the patient to return within two weeks. Those unwilling \nto initiate should return weekly for further counselling on barriers to initiation  \n\u25cf Document session in the patient\u2019s cha rt ",
+            "  \nAdherence Preparation, Monitoring and Support  \n5 - 25 Table 5.13: Adherence Rate Based on Pill Counts  \nMissed Doses per Month  % Of \nMedications \nTaken  Adherence  \nRating  Action Required (see Table 5.10 for \nmore details)  For once -\ndaily \nregimen  For BD  \nregimen  \n1 dose  1-3 doses  \u2265 95%  Good  Continue with routine monitoring, \ncounselling and support  \n2-4 doses  4-8 doses  85-94%  Inadequate  \u25cf Discuss as an MDT  \n\u25cf Assign a case manager  \n\u25cf Assess for and address barriers to \nadherence (Table 5.15)  \n\u25cf Engage treatment supporter in \nadherence counselling sessions  \n\u25cf Follow up in 2 -4 weeks  \n\u2265 5 doses  \u2265 9 doses  < 85%  Poor  \u25cf Discuss as an MDT  \n\u25cf Assign a case manager  \n\u25cf Assess for and address barriers to \nadherence (Table 5.15)  \n\u25cf Engage treatment supporter in \nadherence counselling sessions  \n\u25cf Implement DOTs  \n\u25cf Follow up in 1 -2 weeks  \n \n5.3.2 Adherence Counselling and Support During the First 3 Months of ART  \nAll patients recently initiated on ART need careful adherence monitoring and support to \nensure they achieve virological suppression.  This is particularly important in the context of \nrapid ART initiation. The intensity of counselling and support are dependent on the patients\u2019 level \nof adherence as assessed by the methods described i n section 5.2.1.  \nTable 5.14 summarizes adherence counselling and support for patients from the time of ART \ninitiation until the 3 -month viral load results are available. For patients who have inadequate or \npoor adherence, Table 5.15 describes the assessmen t for barriers to adherence.  \n  "
+          ],
+          "tool_call_id": "call_XTa4DN0WoDfU5WQNo9xWPeoI",
+          "metadata": null,
+          "timestamp": "2026-02-11T00:17:48.288256+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "The consultants played a significant role in the review process of the ARV guidelines for Kenya, contributing to the extensive consultations and the overall development of the guidelines. Specifically, they were involved in compiling evidence reviews and assisting in the writing and finalization of the document. Notable consultants, including Jeremy Penner, Irene Mukui, and Herb Harwell, were recognized for their dedication during this process.\n\nThe review was described as a collaborative effort among multiple stakeholders, which included individuals and institutions, emphasizing the importance of their contributions alongside those from the Ministry of Health officers at NASCOP and others. The support and leadership provided by the guidelines review secretariat and task force were also highlighted as crucial to the successful completion of the guidelines document.\n\nOverall, the consultants\u2019 expertise and commitment facilitated the comprehensive and evidence-based updating of the guidelines, which were notably affected by external challenges such as the COVID-19 pandemic [2022 Guidelines on Use of Antiretroviral Drugs for Treating and Preventing HIV Infection in Kenya][1]. \n\n[1]: 2022 Guidelines on Use of Antiretroviral Drugs for Treating and Preventing HIV Infection in Kenya, Acknowledgements section.",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 2573,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 236,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:17:48+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D7sDMZI4ku19awd8864WdydRYHnpn",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

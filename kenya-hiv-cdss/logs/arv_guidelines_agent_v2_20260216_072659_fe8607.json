@@ -1,0 +1,138 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-16T07:26:57.416811+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "How should a hypersensitivity reaction to Abacavir be diagnosed and managed?",
+          "timestamp": "2026-02-16T07:26:57.416830+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "args": "{\"query\": \"Abacavir hypersensitivity reaction diagnosis\"}",
+          "tool_call_id": "call_7cmEtTeqI0kzWgtkHZhWt5sm",
+          "id": null,
+          "part_kind": "tool-call"
+        },
+        {
+          "tool_name": "text_search",
+          "args": "{\"query\": \"Abacavir hypersensitivity reaction management\"}",
+          "tool_call_id": "call_8goJWPjb53jbH7gt1lBDDdIf",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 268,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 56,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:26:57+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D9nIPQybrkDjWWabPECurozopX6VY",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "content": [
+            "Kenya HIV Prevention and Treatment Guidelines, 2022  \n6 - 16 Table 6.9: Diagnosis and Management of Abacavir Hypersensitivity Reaction  \nDiagnosis  \nWithin 3 weeks of initiating an ABC -containing regimen , patient develops any 2 of the following \nsymptom groups concurrently  \n\u2022 Fever  \n\u2022 Erythematous and/or pruritic rash  \n\u2022 Respiratory symptoms (shortness of breath and/or sore throat and/or cough)  \n\u2022 GI symptoms: nausea and/or vomiting and/or diarrhea  \n\u2022 Extreme fatigue and/or body pain preventing normal activities  \nAND: there is not a more likely alternative explanation for the symptoms  \nManagement  \n\u2022 Stop ABC immediately and substitute with an alternative ARV  \n\u2022 Patient must NEVER be re -challenged with ABC \u2013 a single dose could result in a fatal \nhypersensitivity reaction",
+            "Table 6.9: Diagnosis and Management of Abacavir Hypersensitivity Reaction  ................................ ............................  16 \nTable 6.10: Recommended Second -line ART Regimens in Infants, Children, Adolescents and Adults, \nexcluding TB/HIV co -infection 1 ................................ ................................ ................................ ................................ ...........................  19 \nTable 6.11: Possible Third -line ART in Children, Adolescents and Adults  ................................ ................................ ...... 21 \nTable 7.1: Essential Package of Antenatal Care  ................................ ................................ ................................ ...............................  1",
+            "hypersensitivity reaction  \n\u2022 Clearly mark file and educate patient about avoiding ABC in future  \n\u2022 Issue an Adverse Event alert card  \nNote:  \n\u2022 ABC hypersensitivity reaction is rare in our population: always consider other more likely possible \ndiagnoses  \n\u2022 Symptoms generally get worse within hours after each dose of ABC  \n \n \n6.5.3 Changing ARVs Due to Drug -Drug Interactions  \nPatients must be asked about other medications (including non -prescription and herbal \nmedicine) they are taking at every visit. Some common drugs have specific drug -drug interactions \nthat may require dose adjustment or substitution o f the ARV or the other interacting drugs. \nCommon medications that interact with specific ARVs include: rifampicin, rifabutin, antacids,",
+            "tablets and in \ncombination with  \n3TC and DTG  300mg/  \ndose BD  \n or 600mg \nOD No food \nrestrictions. \nAlcohol \nincreases \nABC levels \nby 41%  Hypersensitivity reaction \n(potentially fatal) whose \nsymptoms include fever, \nfatigue, malaise, nausea, \nvomiting, diarrhoea  \nand abdominal pain or \nrespiratory symptoms such as \nshortness of breath, \nlymphadenopathy, ulceration of \nmucous  \nmembranes and skin rash. Patients \nsuspected of having \nhypersensitivity reaction should \nhave ABC stopped and never be \nrestarted. Pancreatitis; lactic \nacidosis with hepatic steatosis is \nrare  Educate patient on \nhypersensitivity reaction. \nOnce hypersensitivity has \noccurred, the patient should \nnever be re -challenged with \nABC.  \n \nAvoid alcohol while on ABC.",
+            "Antiretroviral Therapy in Infants, Children, Adolescents, and Adults  \n6 - 5 Table 6.3 Cont.  \n1 For other scenarios that are not covered in this table, discuss as an MDT and consult the Regional or \nNational HIV Clinical TWG (Uliza Hotline 0726 460 000; https://nhcsc.nascop.org/clinicalform ) \n2 ABC hypersensitivity reaction (AHR) is rare in the Kenyan population. Table 6.9 provides the \ndefinition and management of AHR  \n3 The additional 2 weeks of higher -dose DTG is to counter the ongoing liver enzyme induction effect \nof rifampicin, which continues for a short period after TB treatment is completed  \n4 TAF may become the preferred NRTI once fixed -dose combinations are available  \n5 DTG/3TC dual therapy may be considered for HBV -negative patients once fixed -dose combinations"
+          ],
+          "tool_call_id": "call_7cmEtTeqI0kzWgtkHZhWt5sm",
+          "metadata": null,
+          "timestamp": "2026-02-16T07:26:58.781398+00:00",
+          "part_kind": "tool-return"
+        },
+        {
+          "tool_name": "text_search",
+          "content": [
+            "Kenya HIV Prevention and Treatment Guidelines, 2022  \n6 - 16 Table 6.9: Diagnosis and Management of Abacavir Hypersensitivity Reaction  \nDiagnosis  \nWithin 3 weeks of initiating an ABC -containing regimen , patient develops any 2 of the following \nsymptom groups concurrently  \n\u2022 Fever  \n\u2022 Erythematous and/or pruritic rash  \n\u2022 Respiratory symptoms (shortness of breath and/or sore throat and/or cough)  \n\u2022 GI symptoms: nausea and/or vomiting and/or diarrhea  \n\u2022 Extreme fatigue and/or body pain preventing normal activities  \nAND: there is not a more likely alternative explanation for the symptoms  \nManagement  \n\u2022 Stop ABC immediately and substitute with an alternative ARV  \n\u2022 Patient must NEVER be re -challenged with ABC \u2013 a single dose could result in a fatal \nhypersensitivity reaction",
+            "Table 6.9: Diagnosis and Management of Abacavir Hypersensitivity Reaction  ................................ ............................  16 \nTable 6.10: Recommended Second -line ART Regimens in Infants, Children, Adolescents and Adults, \nexcluding TB/HIV co -infection 1 ................................ ................................ ................................ ................................ ...........................  19 \nTable 6.11: Possible Third -line ART in Children, Adolescents and Adults  ................................ ................................ ...... 21 \nTable 7.1: Essential Package of Antenatal Care  ................................ ................................ ................................ ...............................  1",
+            "hypersensitivity reaction  \n\u2022 Clearly mark file and educate patient about avoiding ABC in future  \n\u2022 Issue an Adverse Event alert card  \nNote:  \n\u2022 ABC hypersensitivity reaction is rare in our population: always consider other more likely possible \ndiagnoses  \n\u2022 Symptoms generally get worse within hours after each dose of ABC  \n \n \n6.5.3 Changing ARVs Due to Drug -Drug Interactions  \nPatients must be asked about other medications (including non -prescription and herbal \nmedicine) they are taking at every visit. Some common drugs have specific drug -drug interactions \nthat may require dose adjustment or substitution o f the ARV or the other interacting drugs. \nCommon medications that interact with specific ARVs include: rifampicin, rifabutin, antacids,",
+            "tablets and in \ncombination with  \n3TC and DTG  300mg/  \ndose BD  \n or 600mg \nOD No food \nrestrictions. \nAlcohol \nincreases \nABC levels \nby 41%  Hypersensitivity reaction \n(potentially fatal) whose \nsymptoms include fever, \nfatigue, malaise, nausea, \nvomiting, diarrhoea  \nand abdominal pain or \nrespiratory symptoms such as \nshortness of breath, \nlymphadenopathy, ulceration of \nmucous  \nmembranes and skin rash. Patients \nsuspected of having \nhypersensitivity reaction should \nhave ABC stopped and never be \nrestarted. Pancreatitis; lactic \nacidosis with hepatic steatosis is \nrare  Educate patient on \nhypersensitivity reaction. \nOnce hypersensitivity has \noccurred, the patient should \nnever be re -challenged with \nABC.  \n \nAvoid alcohol while on ABC.",
+            "Antiretroviral Therapy in Infants, Children, Adolescents, and Adults  \n6 - 5 Table 6.3 Cont.  \n1 For other scenarios that are not covered in this table, discuss as an MDT and consult the Regional or \nNational HIV Clinical TWG (Uliza Hotline 0726 460 000; https://nhcsc.nascop.org/clinicalform ) \n2 ABC hypersensitivity reaction (AHR) is rare in the Kenyan population. Table 6.9 provides the \ndefinition and management of AHR  \n3 The additional 2 weeks of higher -dose DTG is to counter the ongoing liver enzyme induction effect \nof rifampicin, which continues for a short period after TB treatment is completed  \n4 TAF may become the preferred NRTI once fixed -dose combinations are available  \n5 DTG/3TC dual therapy may be considered for HBV -negative patients once fixed -dose combinations"
+          ],
+          "tool_call_id": "call_8goJWPjb53jbH7gt1lBDDdIf",
+          "metadata": null,
+          "timestamp": "2026-02-16T07:26:58.775560+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "The diagnosis and management of hypersensitivity reactions to Abacavir (ABC) are key components of HIV care, especially considering the potential severity of such reactions.\n\n### Diagnosis of Abacavir Hypersensitivity Reaction:\nA hypersensitivity reaction to Abacavir should be suspected in a patient who initiates an ABC-containing regimen and develops **any two** of the following symptoms within **three weeks**:\n\n1. Fever\n2. Erythematous and/or pruritic rash\n3. Respiratory symptoms (such as shortness of breath, sore throat, or cough)\n4. Gastrointestinal symptoms (nausea, vomiting, or diarrhea)\n5. Extreme fatigue or body pain preventing normal activities\n\nIt is crucial that there is **no more likely alternative explanation** for these symptoms for a diagnosis to be made. Symptoms typically worsen within hours after each dose of ABC, and the reaction is considered rare in the Kenyan population, so other diagnoses should always be considered [Kenya HIV Prevention and Treatment Guidelines, 2022][6].\n\n### Management of Abacavir Hypersensitivity Reaction:\nIf a hypersensitivity reaction is suspected or confirmed, the following steps should be taken:\n\n1. **Immediate cessation of Abacavir**: The drug must be stopped immediately to avoid further complications and potential fatality.\n2. **Substitute with an alternative antiretroviral (ARV)**: A different ARV regimen should be initiated without delay.\n3. **Education and Alert**: Clearly inform the patient about the nature of the hypersensitivity reaction and ensure they understand the importance of avoiding ABC in the future. Provide an **Adverse Event alert card** that they can carry.\n4. **Never re-challenge**: The patient must never be re-challenged with Abacavir, as even a single dose could result in a life-threatening hypersensitivity reaction.\n\nIt is essential to document this incident appropriately in the patient's medical file [Kenya HIV Prevention and Treatment Guidelines, 2022][6].\n\nFor ongoing care, the healthcare provider should closely monitor the patient for any other potential drug interactions or complications that may affect their HIV treatment regimen.",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 2289,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 433,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:26:59+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D9nIRxgc0iyrwYVMwYtFqrnWIwXwu",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "arv_text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-11T00:06:12.141086+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "How can we effectively identify patients who default from their HIV care appointments?",
+          "timestamp": "2026-02-11T00:06:12.141098+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "args": "{\"query\":\"defaulting HIV care appointments identification\"}",
+          "tool_call_id": "call_h98yzdJzaNgZ7En02NrojtyQ",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 268,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 21,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:06:12+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D7s28QywGIJ39RP0CigSzpE4HhcOg",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "content": [
+            "  \nKenya HIV Prevention and Treatment Guidelines, 2022  \n1 - 4  1.4 Adherence Preparation, Monitoring and Support  \n\u2022 The adherence preparation, monitoring, and support that a patient requires should be \ntailored to their level of adherence and the stage of ART initiation and follow -up \n\u2022 All patients with durable viral suppression (2 consecutive viral load results with < 50 \ncopies) should be offered messaging on Undetectable=Untrans mittable (U=U).  \n\u2022 Whenever possible, follow -up should be provided by the same care provider or team of \ncare providers (e.g., same clinician and counsellor) at every visit. This is particularly \nimportant during the first 3 months in care  \n\u2022 For all children/adol escents, the level of disclosure should be assessed at the first visit. \nOngoing care should include a plan for age -appropriate disclosure  \n\u2022 All patients are at risk of new or worsening barriers to adherence, so adherence \nmonitoring, counselling and support s hould continue despite viral suppression  \n\u2022 Every service delivery point that is providing ARVs for patients (whether ART, PEP, or \nPrEP) must have a functional system for identifying patients who miss appointments and \nfor taking action within 24 hours of a mi ssed appointment  \n\u2022 In patients failing ART, do not change regimens until the reason/s for treatment failure \nhave been identified and addressed (which should be done urgently using a case -\nmanagement approach)  \n1.5 Antiretroviral Therapy for Infants, Children, Adolescents, and Adults  \n\u2022 The goal of ART is to suppress viral replication with the aim of reducing the patient\u2019s VL \nto undetectable levels (Viral Load <50 copies/LD L) \n\u2022 All individuals with confirmed HIV infection are eligible for ART, irrespective of CD4 \ncount/%, WHO clinical stage, age, pregnancy or breastfeeding status, co -infection status, \nrisk group, or any other criteria, provided that the individual is willing and ready to start \nART  \n\u2022 ART should be started in all patients as soon as possible, even on the  same day as \nconfirming their HIV diagnosis (and preferably within 2 weeks)  \n\u2022 Preferred first -line ART for infants, children, adolescents and adults  \n\u25aa Birth to 4 weeks: AZT + 3TC + NVP  \n\u25aa > 4 weeks to < 15 years old  \n\u25aa < 30 kg: ABC + 3TC + DTG  \n\u25aa \u2265 30 kg: TDF + 3TC + DTG  \n\u25aa \u2265 15 years old: TDF + 3TC + DTG  \n\u2022 Children and adolescents who are virally suppressed but are NOT on the preferred first -\nline ART regimen should be assessed for transition and transitioned to the preferred \nregimen  \n\u2022 Treatment failure is suspected when a pa tient has a VL \u2265 100 0 copies/ml after at least 3 \nmonths of using ART. Treatment failure is only confirmed when VL is \u2265 1,000 copies/ml \nafter assessing for and addressing poor adherence or other reasons for high VL, and then \nrepeating VL after at least 3 mo nths of excellent adherence to allow for viral re -\nsuppression  ",
+            "  \nAdherence Preparation, Monitoring and Support  \n5 - 35 5.7 Identifying, Tracing, and Supporting Patients who Default from Care  \nEvery service delivery point that is providing ARVs for patients (whether ART, PEP, or PrEP) must \nhave a functional system for identifying patients who miss appointments and for taking action \nwithin 24 hours of a missed appointment (Figure 5.3).  \nEnter date of next appointment/TCA for each patient into the \nappointment diary\n\u2022 As patients arrive at the service delivery point their name should be \nchecked off in the appointment diary for that day\n\u2022 All patients who had appointments booked for the day but did not \nattend clinic should be recorded in the patient follow -up register\n\u2022 Patient/caregiver should be called within 24 hours of missed \nappointment\n\u2022 If no response, treatment buddy should be called\n\u2022 Several attempts at phone tracing should be made if no response \ninitially\n\u2022 Update the patient follow -up register with phone call findings\nPatient does not return \nwithin time agreed upon \nduring phone call, but still \nable to reach by phonePatient returns to clinic \nwithin 7 days, or returns \non date agreed during \nphone callUnable to reach by phone, \nand does not return to \nclinic within 7 daysPatient dead, transferred \nout, or declines further \ncontact: update patient \nrecords/ registers with \noutcome\nReturns to clinic\n\u2022 Assess for and address potential barriers to adherence \n(Table 5.14) \n\u2022 Review patient/caregiver HIV knowledge (Table 5.1, \nAnnex 6) and address any gaps\n\u2022 Elicit any concerns the patient/caregiver has about ART, \nother medications, visit schedule, or health. Address any \nconcerns or engage another care team member who can \naddress them\n\u2022 Explore any major recent or expected changes in the \npatient s/caregiver  s life or daily routine that could disrupt \nadherence\n\u2022 Review effectiveness of facility and community support \nsystems the patient already has in place\n\u2022 Encourage introduction of additional standard  and \nenhanced support systems (Table 5.2), including \nsupporting disclosure as needed, assigning a case manager \nand considering DOTs\n\u2022 Review ART Readiness Assessment Form for re -initiation \nof ART\u2022 Prioritized home visit, based on\no Patient type (pregnant and \nbreastfeeding women, child, co -\nmorbidity)\no Proximity to clinic\n\u2022 Complete the home visit form\n\u2022 Update the patient follow -up register with \nhome visit findings\n\u2022 Update appointment diary if agrees to \nreturn to clinic\nUnable to trace or does not return to clinic on \nscheduled appointment date\n\u2022 Discuss as MDT and develop follow -up/ \nmanagement plan\n\u2022 Update patient records/registers with \noutcome\n \nFigure 5.3: Ident ifying, Tracing and Supporting Patients who Default from Care  \n  ",
+            "  \nInitial Evaluation and Follow up  \n3 - 13  Table 3. 6 Cont.  \n1 Recommended investigation should not delay ART initiation.  \n 2This is the recommended appointment schedule. Clinicians and patients should be encouraged to \nschedule additional appointments as needed. Patients should be encouraged to return to the HIV \nclinic for unscheduled appointment whenever  an acute issue arises, instead of seeking care at \nanother facility. Early after initiation of ART, and after any regimen modification , every \nappointment should include:  \n\u2212 Continued adherence counselling and support (started at the initial visit)  \n\u2212 Assessment of adherence and correct storage of medication  \n\u2212  Assessment for and management of early side effects of the drugs, and patient counselling \non the same  \n3 Patients who are adherent and virally suppressed at month 3, may not need subsequent \nmonthly appointments until month 6.  \n4 All PLHIV qualify for ART and should be initiated as soon as possible including same day and \nwithin 2 weeks. For patients who do not  start ART on the same day as enrolment into HIV care, \nthey should be followed up every week until ART initiation to address whatever issues are \ndelaying ART initiation, for ongoing management of acute medical issues and for treatment \npreparation and ART r eadiness assessment.  \n4Refer to table 3.1 for detailed history and physical examinations.  \n5children and adolescents, weight and height should be measured and recorded at every visit, \nwith weight -based dosing of ARVs confirmed at every visit.  \nIn adults, weig ht and height should be measured at the initial visit to determine nutritional status \nand calculate the BMI, and thereafter, weight should be measured at every visit.  \n6The first 2 -4 visits are critical for assessing and supporting adherence to ART, managi ng adverse \ndrug reactions, and treating any acute illnesses including IRIS. Adherence should be assessed at \nevery contact with the clinic. See Chapter 5 for specific adherence preparation, monitoring and \nsupport procedures for each visit  \nRequired laboratory tests are highly recommended for patient monitoring, but are not a pre -\nrequisite for ART initiation.  \nTargeted laboratory tests may be necessary to identify and manage inter -current diseases or \nadverse drug reactions.  \n3.7 Differentiated Care for Children, Adolescents and Pregnant/ breastfeeding \nWomen  \nChildren, adolescents, pregnant and breastfeeding women, and key populations face unique \nchallenges in retention  and viral suppression and  hence may benefit more from different iated \nservice delivery models  adapted to their needs.  \nChildren:  Children\u2019s care is dependent on family and care giver dynamics. Family centered \napproaches to care where clinic visits for parents/caregivers and the child are synchronized, \nshould be used.  A ssessment and categorization to determine establishment on ART should be \nconducted for pairs and follow -up tailored to their situations. Weight -based dose adjustments \nshould be incorporated in both the facility and community models (e.g., by using portable  weighing \nscales if out of the health facility) to determine optimal doses for ARVs at each review.  Aligning \nappointments with school calendar should be considered to avert disruption of treatment and \nlearning of the child.  ",
+            "  \nKenya HIV Prevention and Treatment Guidelines, 2022  \n5 - 22 Table 5:10 Cont.  \n \n \nHome visit  Observe where and how a patient stores and takes \ntheir medications and assess if they have extra \nmedications because of missed doses. Home visits \nmay also provide a better understanding of a \npatient\u2019s living situation and specific barriers to \nadherence. Unscheduled home visits may be more \nrevealing, but should only be conducted if the  patient \nconsente d to home visits previously (preferably at \nthe time of enrolment or initiation)  For patients with suspected or \nconfirmed treatment failure, \npatients who default from care, \nor any time the MDT feels a \nhome visit will contribute to \npatient management  \n \nAccurately assessing adherence requires clinicians to develop a collaborative and non -\njudgmental relationship with patients.  This is best done when one provider follows an \nindividual patient longitudinally. The key to asking patients about their adherence is not in the \nspecifics of the tool used but in taking the time to ask about adherence regularly and doing so in \nan open and truly inquisitive manner. Otherwise, many patients will simply state what they \nbelieve the clinician wants to hear: perfe ct adherence.  \nEvery provider in each ART service delivery point should receive training and gain confidence in \nassessing adherence and providing adherence support and counselling to the majority of patients \nwho do not have significant barriers to adherence . However, patients with significant adherence \nchallenges and multiple barriers to adherence should be referred to providers with additional \ntraining and time to offer dedicated and enhanced adherence support and counselling. Involving \nexperienced colleagu es at the same health facility should be done as soon as a concern is \nidentified, and the patient should be discussed by the MDT to generate as many solutions as \npossible. Consultation with Mental Health Teams or regional or national mentors may be require d \nfor complex situations.  \n  ",
+            "  \nKenya HIV Prevention and Treatment Guidelines, 2022  \n3 - 10  Table 3. 5 Cont.  \nPatients Established on ART  \nPatients established on ART must have achieved ALL the following  \n\u25cf On their current ART regimen for \u2265 6 months  \n\u25cf Currently no active Illness or in the previous 6 months (patients with well controlled chronic \nconditions should not be excluded)  \n\u25cf Adherent to scheduled clinic visits for the previous 6 months  \n\u25cf VL \u2264200 copies/ml (LDL) within the last 6 months  \nNote:  \n\u25cf This definition should be applied to all populations, including those receiving second - \nand third -line regimens, those with controlled comorbidities, children above 2 years *, \nadolescents, pregnant and breastfeeding women, and key populations.  \n\u25cf The client\u2019s category can change at any time so there is a need for a reassessment at each \nvisit. Clients should be categorized at every visit and managed based on their status.  \nPackage of \nCare  \u25cf Standard Package of Care  \n\u25cf Re-assessment of criteria at every clinical visit  \nLocation of  \nServices  \u25cf Clinical review and ART prescription from any ART service delivery point; all \nfacility levels  \n\u25cf Distribution of ART between clinical appointments, which can be facility -based \nor community -based  \nFocus of  \nCounselling  \u25cf Encourage patient to continue with what is working  \n\u25cf Reminders that any significant life event or change in daily routine could \ninterfere with adherence  \nFrequency of  \nFollow -up \u25cf Clinic appointments to be made at 6 months intervals  \n\u25cf ART should be offered as refills lasting 3 months,  (through fast -track pick -up at \nfacility or through community -based distribution). Patients on injectab le \ncontraception should be provided FP through a fast -tracked process between \nclinic follow -up visits; oral contraceptives and condoms should be distributed \nwith ART  \n\u25cf Additional visits as required to address any medical or psychosocial concerns  \n\u25cf Closer follow -up may be arranged based on patient preference  \n*  Children below 2 years are excluded as they require frequent dose adjustment  \n \n  "
+          ],
+          "tool_call_id": "call_h98yzdJzaNgZ7En02NrojtyQ",
+          "metadata": null,
+          "timestamp": "2026-02-11T00:06:13.414365+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "To effectively identify patients who default from their HIV care appointments, the Kenya HIV Prevention and Treatment Guidelines suggest the following systematic approach:\n\n1. **Implementation of Appointment Diaries**: Each service delivery point should maintain an appointment diary where the names of patients scheduled for each day are noted. This allows for easy tracking of attendance.\n\n2. **Patient Follow-Up Register**: All patients who miss their scheduled appointments should be recorded in a patient follow-up register. This register will help in documenting those who did not attend.\n\n3. **Immediate Contact**: Patients who miss an appointment should be contacted within 24 hours. This could involve calling the patient directly, and if there is no response, contacting a treatment buddy or caregiver.\n\n4. **Multiple Follow-Up Attempts**: Several attempts should be made to reach patients by phone, especially if the initial contact is unsuccessful. This ensures that every effort is made to support the patient.\n\n5. **Update Records**: Document the outcomes of these follow-up contacts in the patient follow-up register, which helps in tracking the patient's status.\n\n6. **Assess Barriers to Adherence**: For patients who return, it's important to assess any potential barriers to adherence and provide necessary support. This can involve reviewing the patient's knowledge about HIV care, addressing concerns, and exploring life changes that may impact their adherence.\n\n7. **Home Visits**: In certain cases, particularly for high-risk patients (e.g., pregnant women, children), prioritizing home visits may help in obtaining a deeper understanding of the patient's circumstances and barriers to care.\n\n8. **Multidisciplinary Team (MDT) Discussion**: If patients cannot be traced or do not return to the clinic, the case should be discussed by the MDT to develop a follow-up management plan.\n\nBy implementing such measures, healthcare providers can effectively manage default patients and minimize the risks associated with missed appointments and interruptions in care. \n\nFor the specific recommendation details, please refer to the Kenya HIV Prevention and Treatment Guidelines, 2022 [5 - 35].",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 3365,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 408,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:06:15+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D7s2BsWTD59Yl3hOYHgvNlqq85154",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

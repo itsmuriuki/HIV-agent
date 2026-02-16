@@ -1,0 +1,117 @@
+{
+  "agent_name": "faq_agent",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "arv_text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "\nYou are a helpful assistant for a course.\n\nBefore answering any question, always search the course materials for relevant information.\n\nIf the initial search does not return enough information:\n- Refine the query or try alternative search terms.\n- Perform multiple searches if necessary.\n\nUse the collected search results to provide a complete and accurate answer.\nIf no relevant information is found after searching, clearly state this and offer general guidance instead.\n",
+          "timestamp": "2026-02-11T00:16:55.543149+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "Who is eligible to start ART according to Kenya guidelines",
+          "timestamp": "2026-02-11T00:16:55.543216+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "args": "{\"query\":\"eligibility to start ART\"}",
+          "tool_call_id": "call_1VdZ1UkHpLepa0clxQQ3Xyqt",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 211,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 20,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:16:55+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D7sCVL7qBvAJOPtudaSYa378G6ke1",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "content": [
+            "  \nAntiretroviral Therapy in Infants, Children, Adolescents, and Adults  \n6 - 1  \n6. Antiretroviral Therapy in Infants, Children, \nAdolescents, and Adults  \nART, while very effective in managing HIV disease, does not cure HIV infection. The goal of ART is \nto suppress viral replication with the aim of reducing the  patient\u2019s VL to undetectable levels. \nUninterrupted ART with ongoing strict adherence will help maintain undetectable VL levels \nthereby preventing damage to the body\u2019s immune system, reducing AIDS -related morbidity and \nmortality and the risk of sexual and vertical transmission of HIV.  \n6.1 Eligibility for ART  \nAll individuals with confirmed HIV infection are eligible for ART irrespective of CD4 \ncount, WHO clinical stage, age, pregnancy or breastfeeding status, co -infection status, \nrisk group, or any other cri teria.  \n6.2 Timing of ART Initiation  \nART should be started in all patients as soon as possible, preferably within 2 weeks of \nconfirmation of HIV status, and even on the same day as testing positive for HIV if they are ready.  \nART Readiness Criteria (Table 5.4) can be used to help determine any issues that need to be \naddressed around the time of ART initiation. Same -day ART initiation (on the same day as testing \nHIV-positive) has additional benefits for HIV prevention (e.g., for pregnant and breastfee ding \nwomen, and the HIV positive partner in a discordant relationship), and is associated with \nimproved retention, viral suppression, and survival. Special considerations for timing of ART \ninitiation are listed in Table 6.1.  \n  ",
+            "  \nInitial Evaluation and Follow up  \n3 - 9  3.5.1 First 6 months after ART initiation  \nAfter ART initiation, patients need to be monitored closely for development of adverse drug events, \nidentify and address barriers to adherence, and development of IRIS. A reasonable follow -up \nschedule for most patients is 2 weeks and 4 weeks after ART initiation (Table 3. 5 and 3. 6).  \nWhen possi ble, follow -up for a particular patient should be provided by the same care provider or \nteam of care providers (e.g., same clinician and same counsellor) at every visit. This is particularly \nimportant during the first 6 months in care.   \n3.5.2 Differentiat ed Service Delivery for Patients beyond the 1st 6 months of ART  \nFollow up of patients beyond 6 months of ART is described in table 3. 5. It also  provides the criteria \nfor determining if a patient is established on ART.  \nIn summary:  \n\u25cf Patients who are not established on ART require closer follow -up.  \n\u25cf Patients who are established on ART require less frequent facility follow -up, with up \nto six months b etween clinical appointments  \n \nTable 3. 5: Differentiated Follow -up of Patients Beyond the First 6 Months of ART  \nPatients NOT established on ART  \nPatients with any of the following:  \n\u25cf On treatment for < 6 months  \n\u25cf Any active OIs (including TB) in the previous 6 months  \n\u25cf Poor or questionable adherence to scheduled clinic visits in the previous 6 months.  \n\u25cf Most recent VL \u2265 200 copies/ml  \n\u25cf Children < 2 years  \nPackage of \nCare  \u25cf Standard Package of Care  \n\u25cf Case management to address reason/s for not being established on ART  \nFocus of \nCounselling  \u25cf ART is the most important treatment to maintain good health and an active life  \n\u25cf ART will reduce the risk of transmitting HIV to others   \nFrequency of \nFollow -up \u25cf Every 1 -3 months, based on clinical judgment  \n\u25cf Additional visits as required to address any medical or psychosocial concerns  \n\u25cf If VL is detectable at 3 months they will need additional assessments for \nand management of the reason/s for detectable viral load, with close \nfollow -up until viral suppression is achieved (Chapter 5).  \n\u25cf Patients with confirmed viral suppression can be followed up every 3 -6 \nmonths based on patient preference and clinician judgment, with \nadditional unscheduled visits any time the patient has a concern.  \n  ",
+            "  \nInitial Evaluation and Follow up  \n3 - 13  Table 3. 6 Cont.  \n1 Recommended investigation should not delay ART initiation.  \n 2This is the recommended appointment schedule. Clinicians and patients should be encouraged to \nschedule additional appointments as needed. Patients should be encouraged to return to the HIV \nclinic for unscheduled appointment whenever  an acute issue arises, instead of seeking care at \nanother facility. Early after initiation of ART, and after any regimen modification , every \nappointment should include:  \n\u2212 Continued adherence counselling and support (started at the initial visit)  \n\u2212 Assessment of adherence and correct storage of medication  \n\u2212  Assessment for and management of early side effects of the drugs, and patient counselling \non the same  \n3 Patients who are adherent and virally suppressed at month 3, may not need subsequent \nmonthly appointments until month 6.  \n4 All PLHIV qualify for ART and should be initiated as soon as possible including same day and \nwithin 2 weeks. For patients who do not  start ART on the same day as enrolment into HIV care, \nthey should be followed up every week until ART initiation to address whatever issues are \ndelaying ART initiation, for ongoing management of acute medical issues and for treatment \npreparation and ART r eadiness assessment.  \n4Refer to table 3.1 for detailed history and physical examinations.  \n5children and adolescents, weight and height should be measured and recorded at every visit, \nwith weight -based dosing of ARVs confirmed at every visit.  \nIn adults, weig ht and height should be measured at the initial visit to determine nutritional status \nand calculate the BMI, and thereafter, weight should be measured at every visit.  \n6The first 2 -4 visits are critical for assessing and supporting adherence to ART, managi ng adverse \ndrug reactions, and treating any acute illnesses including IRIS. Adherence should be assessed at \nevery contact with the clinic. See Chapter 5 for specific adherence preparation, monitoring and \nsupport procedures for each visit  \nRequired laboratory tests are highly recommended for patient monitoring, but are not a pre -\nrequisite for ART initiation.  \nTargeted laboratory tests may be necessary to identify and manage inter -current diseases or \nadverse drug reactions.  \n3.7 Differentiated Care for Children, Adolescents and Pregnant/ breastfeeding \nWomen  \nChildren, adolescents, pregnant and breastfeeding women, and key populations face unique \nchallenges in retention  and viral suppression and  hence may benefit more from different iated \nservice delivery models  adapted to their needs.  \nChildren:  Children\u2019s care is dependent on family and care giver dynamics. Family centered \napproaches to care where clinic visits for parents/caregivers and the child are synchronized, \nshould be used.  A ssessment and categorization to determine establishment on ART should be \nconducted for pairs and follow -up tailored to their situations. Weight -based dose adjustments \nshould be incorporated in both the facility and community models (e.g., by using portable  weighing \nscales if out of the health facility) to determine optimal doses for ARVs at each review.  Aligning \nappointments with school calendar should be considered to avert disruption of treatment and \nlearning of the child.  ",
+            "  \nAdherence Preparation, Monitoring and Support  \n5 - 13 5.2.3 Age -Specific Treatment Preparation and Support  \nTreatment preparation must be customized to the patient\u2019s age, gender, needs and clinical status: \nfor patients who present with advanced/symptomatic disease, the focus is on getting better; for \npatients who present clinically well, the focus is on staying healthy. Specific needs for children, \nadolescents, caregivers, pregnant and breastfeeding women and men should also be taken into \nconsideration.  \nThe HIV education and counselling sessions should be provided at every visit until the patient is \nready and wi lling to start ART, as determined using the ART Readiness Assessment Form (Table \n5.4). Each repeat session should begin with a review of what the patient remembers from the \nprevious session as well as any key issues the counsellor documented in the patient \u2019s chart, so the \nsession can be customized to meet their needs. ART preparation should not take more than 1 -2 \nweeks except for special circumstances such as with uncontrolled mental health issues or \nuntreated drug addictions. However, once the patient has initiated ART, continued HIV education, \ncounselling and adherence support must be provided. The counselling sessions should preferably \nbe conducted by the same counsellor, peer educator, social worker, nurse, community health \nvolunteer, and/or clinician wh o is professionally certified to counsel based on a certified \ncurriculum, and they possess the requisite competencies to provide quality counselling. In order \nto prepare children and adolescents for ART, the counsellor should be trained in providing \npsycho social support to this age group.  \nTable 5.4: ART Readiness Assessment Form  \nCriteria  Y N* \nA. Psychosocial/Knowledge Criteria (applies to patients and caregivers)  \n1. Understands the nature of HIV infection and benefits of ART?    \n2. Has screened negative for alcohol or other drug use disorder, or is stable on \ntreatment (see Section 4.6)    \n3. Has screened negative for depression or other psychiatric illness, or is stable on \ntreatment (see Section 4.6)    \n4. Is willing to disclose/has disclosed HIV status, ideally to a family member or close \nfriend?    \n5. Has received demonstration of how to take/administer ART and other prescribed \nmedication?    \n6. Has received information on predictable side effects of ART and understands what \nsteps to take in case of these side effects?    \n7. For patients dependent on a caregiver: is the caregiver committed to long -term \nsupport of the patient, daily administration of ART, and meets the criteria above?    \n8. Other likely barriers to adherence have been identified and there is a plan in place \nto address them (e.g., frequent travel for work, plan to deal with unexpected travel, \ndistance from clinic, etc.)?    \n9. Has the Patient/caregiver provided accurate locator information and contact details?    \n10. Patient/caregiver feels ready to start ART today?    \n  ",
+            "  \nAnnexes  \n \n13 - 15 Annex 8: Cont.  \nSection 13: Management plan  \n\u2022 Which investigations will you have today  \n- See Table 3.2 and Table 3.5 for recommended baseline and follow -up investigations \nrespectively  \n\u2022 Which medications will you start today  \n- May include: ART; CPT; TPT; other  \n\u2022 What else is required as you start or as you prepare to start ART  \n- May include: assisted disclosure; support group referral; engagement of a treatment \nbuddy; drug and alcohol counselling; depression management; referrals; other  \n- For patients not starting ART today, management plan should include specific \nstrategies to address any issues preventing/delaying ART initiation  \n\u2022 When should you return to the clinic  \n- Book appointment date  for next visit, preferably with the same healthcare worker  \n \n  "
+          ],
+          "tool_call_id": "call_1VdZ1UkHpLepa0clxQQ3Xyqt",
+          "metadata": null,
+          "timestamp": "2026-02-11T00:16:56.589462+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "According to the Kenya guidelines on Antiretroviral Therapy (ART), all individuals with confirmed HIV infection are eligible to start ART regardless of:\n\n- CD4 count\n- WHO clinical stage\n- Age\n- Pregnancy or breastfeeding status\n- Co-infection status\n- Risk group\n- Any other criteria\n\nMoreover, it is recommended that ART be initiated as soon as possible, ideally within 2 weeks of confirming HIV status. In fact, same-day ART initiation is encouraged when the patient is ready, as it has been shown to improve outcomes in terms of retention, viral suppression, and overall survival.\n\nThus, the key points regarding eligibility for ART in Kenya are:\n\n1. **Universal Eligibility**: Anyone with confirmed HIV infection can start ART.\n2. **Timing**: ART should begin as soon as possible, preferably within 2 weeks of the HIV diagnosis, with the possibility of initiating on the same day.\n\nThese guidelines aim to ensure that all people living with HIV can receive timely and effective treatment.",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 2846,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 203,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:16:56+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D7sCWai8OvlIMV1upB1aOKWnaPMgL",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "user"
+}

@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-16T07:27:41.375218+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "What are the recommended guidelines for managing a patient with both TB and HIV co-infection?",
+          "timestamp": "2026-02-16T07:27:41.375236+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "args": "{\"query\":\"TB HIV co-infection management\"}",
+          "tool_call_id": "call_yt9egtF6ObmSYkJCD3BdUZYy",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 271,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 19,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:27:41+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D9nJ7UmLNSIvzjp0O6pF0Ld1g64Jg",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "content": [
+            "TB/HIV Co -infection, Prevention and Management  \n \n9 - 1  \n9. HBV/HIV and HCV/HIV Co -infection \nPrevention and Management  \n9.1 Hepatitis B/HIV Co -infection  \nHIV and Hepatitis -B Virus (HBV) share infection transmission routes.  Acute HBV infection in HIV \npositive people is associated with increased risk of chronicity, reduced chances of spontaneous \nclearance, higher rates of replication and reactivation and therefore increased incidence of \nchronic liver disease, cirrhosis and hep atocellular carcinoma (HCC). Additionally, HIV/HBV co -\ninfection has been associated with rapid HIV disease progression and poorer HIV treatment \noutcomes.  Other complications of HIV/HBV co -infection include increased incidence of drug -",
+            "TB/HIV Co -infection, Prevention and Management  \n8 - 1 \n  \n8. TB/HIV Co -infection, Prevention and \nManagement  \n \nTB is a leading cause of morbidity and mortality among people living with HIV. Reducing this \nburden of illness requires identifying TB early, providing pre -emptive and preventive  treatment \nfor TB, and providing optimal treatment for both HIV and TB. Timely initiation of ART in \ncombination with TB Preventive Therapy are effective ways to reduce the burden of TB in PLHIV.  \nAll PLHIV should receive counselling about the risk of acquir ing TB, strategies for reducing \nexposure to TB, recognizing clinical manifestations of TB and seeking care promptly, the risk of \ntransmission of TB to others and TB preventive therapy to prevent TB disease.",
+            "\u2022 TB-LAM can be used as an adjunct rapid point -of-care diagnostic test for PLHIV: with \nadvanced HIV disease (WHO stage 3 or 4 or CD4 count \u2264 200 cells/mm3 (or CD4% \u2264 25% \nfor children \u2264 5 years)) with presumptive TB, or; any danger signs of severe illness, or; \ncurrently admitted to hospital  \n\u2022 Patients diagnosed with TB/HIV co -infection should start anti -TB treatment immediately \nand initiate ART as soon as anti -TB medications are tolerated, preferably within 2 weeks \n(unless they have TB meningitis, in which case ART should be deferred for 4 to 8 weeks)  \n\u2022 Patients with TB/HIV co -infection who are already on ART should start anti -TB treatment \nimmediately and continu e ART, making any required adjustments to the ART regimen",
+            "Kenya HIV Prevention and Treatment Guidelines, 2022  \n 8 - 14 \u25cf Patients who are already on ART  \no Start TB treatment immedi ately  \no Continue ART, assessing for treatment failure and making any required \nadjustments to the ART regimen based on drug -drug interactions (Table 8.7)  \no Monitor closely for IRIS (Annex 16)  \n\u25cf Patient being treated concurrently for TB and HIV require close monitoring for \ntoxicity  \n\u25cf MDR TB and HIV co -infection should be managed in settings where close toxicity \nmonitoring and follow up by experienced clinicians or multi -disciplinary team is \npossible       \nPreferred ART regimens for patients with TB/HIV co -infecti on are summarized in Tables 8.6 - 8.8. \nTable 8.6: Preferred ART Regimens for TB/HIV Co -infection for Patients Newly Initiating 1st",
+            "TB/HIV Co -infection, Prevention and Management  \n \n8 - 11 8.2.4. Follow -up of Patients on TPT  \nPatients on TPT should be followed up on a monthly basis and their return -to-clinic dates \nharmonized with any other routine schedules. During each clinic visit, conduct the following;  \n\u25cf Symptom screening for active TB disease and update status  \n\u25cf Assess and reinforce adherence to treatment  \n\u25cf If a patient screens positive for TB while on TPT, stop TPT and manage according to \nNational TB guidelines  \n\u25cf Assess for any adverse drug reactions at each visit and intervene appropriately  \n\u25cf Provide/update TPT appointment card  \n\u25cf Document and update the relevant recording and reporting tools, e.g., ICF/TPT cards, \nContact Management/TPT register"
+          ],
+          "tool_call_id": "call_yt9egtF6ObmSYkJCD3BdUZYy",
+          "metadata": null,
+          "timestamp": "2026-02-16T07:27:42.631223+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "The management of patients with both TB and HIV co-infection involves several key recommendations aimed at timely treatment and monitoring. Here are the guidelines based on the Kenya ARV Guidelines for managing this co-infection:\n\n1. **Immediate Treatment**: Patients diagnosed with TB/HIV co-infection should start anti-TB treatment immediately upon diagnosis. If the patient is already on ART, they should continue ART and initiate anti-TB treatment simultaneously. If a patient is newly diagnosed with TB, ART should be started as soon as anti-TB medications are tolerated, preferably within 2 weeks. However, for patients with TB meningitis, ART should be deferred for 4 to 8 weeks [TB/HIV Co-infection, Prevention and Management][8-1].\n\n2. **Ongoing ART**: Those who are already on ART should continue their regimen while starting TB treatment. It is essential to assess for treatment failure and make necessary adjustments to the ART regimen based on potential drug-drug interactions [TB/HIV Co-infection, Prevention and Management][8-14].\n\n3. **Monitoring**: Close monitoring for toxicity is necessary during the concurrent treatment of TB and HIV. This includes monitoring for Immune Reconstitution Inflammatory Syndrome (IRIS), particularly as both treatments can lead to interactions and side effects [TB/HIV Co-infection, Prevention and Management][8-14].\n\n4. **TB Preventive Therapy**: All people living with HIV (PLHIV) should receive counseling about the risk of acquiring TB and be offered TB preventive therapy (TPT) to help prevent TB disease [TB/HIV Co-infection, Prevention and Management][8-1].\n\n5. **Special Considerations for MDR-TB**: Patients co-infected with multidrug-resistant TB should be managed in settings equipped for close monitoring and follow-up, typically involving a multidisciplinary team [TB/HIV Co-infection, Prevention and Management][8-14].\n\nIn summary, the essential components of managing a patient with TB and HIV co-infection include immediate initiation of anti-TB treatment, continued ART if already on therapy, close monitoring for toxicities, and preventive measures against TB. For full considerations and specifics on ART regimens, refer to the relevant tables in the guidelines [TB/HIV Co-infection, Prevention and Management][8-1].",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1241,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 471,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:27:43+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D9nJ9Y8AWxQ8Ci5gt2tcSqOhzQbgH",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

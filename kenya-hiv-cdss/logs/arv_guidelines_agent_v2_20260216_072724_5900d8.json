@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-16T07:27:23.003458+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "What are the eligibility criteria for post-exposure prophylaxis (PEP) in HIV prevention?",
+          "timestamp": "2026-02-16T07:27:23.003472+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "args": "{\"query\":\"post-exposure prophylaxis eligibility criteria\"}",
+          "tool_call_id": "call_c5GWmb9aSr7lNqU7GuvJLLVN",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 272,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 20,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:27:23+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D9nIpesEiOZPTlsysJ6GaQ9rdtwF5",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "content": [
+            "Pre-Exposure Prophylaxis (PrEP)  \n11 - 1  \n11. Pre-Exposure Prophylaxis (PrEP)  \n \nPre-exposure prophylaxis (PrEP) is the use of antiretroviral medication to prevent the acquisition \nof HIV infection by an uninfected person at ongoing risk of acquiring HIV infection.  \nPrEP is recommended for use as follows:  \n\u2022 Daily Oral PrEP for all indivi duals, irrespective of gender or sexual orientation who are at risk \nof HIV infection.  \n\u2022 Event -Driven (ED) PrEP is currently recommended for all people born male who are not \ntaking exogenous estradiol -based gender affirming hormones  \n11.1 Indications for PrEP and Criteria for Eligibility   \n11.1.1 Indications for PrEP  \nPrEP is indicated for;  \n\u25cf HIV uninfected persons at ongoing risk of HIV acquisition",
+            "1.9 ARVs for Post -exposure Prophylaxis (PEP)  ................................ ................................ .............................  7 \n1.10 Pre -Exposure Prophylaxis (PrEP)  ................................ ................................ ................................ .............  7 \n1.11 People Who Inject Drugs (PWID) and HIV  ................................ ................................ ............................  8 \n2. HIV Testing Services and Linkage to Treatment and Prevention  ...........................  1 \n2.1 Settings for HIV Testing  ................................ ................................ ................................ ................................ .... 1",
+            "ARVs for Post -exposure Prophylaxis  \n10 - 1  \n10. ARVs for Post -exposure Prophylaxis  \n \n \nAn ARV regimen, with preferably three -drugs, should be offered as post exposure prophylaxis as \nsoon as possible (preferably within 72 hours) after an exposure.  \n  \n10.1 What is PEP?  \nPost -exposure prophylaxis (PEP) is short -term use of antiretroviral treatment to reduce the \nlikelihood of HIV infection after potential exposure.  \nPeople can be accidentally exposed to HIV through healthcare work or due to exposures outside \nhealthcare setting, for example, through unprotected sex or sexual assault among adults and \nchildren. Healthcare workers are at increased risk of exposure to HIV through contact with",
+            "management of HIV/HCV co -infection  \n \n1.9 ARVs for Post -exposure Prophylaxis (PEP)  \n\u2022 PEP should be offered as soon as possible (< 72 hours) after high -risk exposure  \n\u2022 The recommended ARV agents for PEP are  \n\u25aa  <15 years old  \n\u25aa < 30 kg: ABC + 3TC + DTG  \n\u25aa \u2265 30 kg: TDF + 3TC + DTG  \n\u25aa \u2265 15 years old  \n\u25aa TDF + 3TC + DTG  \n \n1.10 Pre -Exposure Prophylaxis (PrEP)  \n\u2022 PrEP should be offered to HIV negative individuals at substantial ongoing risk of HIV \ninfection (including the seronegative partner in a discordant relationship)  \n\u2022  PrEP works if taken as prescribed . However, it does not prevent other STIs or unintended \npregnancies, therefore, additional protection should be of fered.  \n\u2022 PrEP should only be offered to clients  \u226515 years of age who are sexually active after",
+            "ARVs for Post -exposure Prophylaxis  \n10 - 3 Table 10.2: Recommendations for PEP Management and Follow -up \nConsiderations  Recommendation  \nManagement at initial \ncontact  \u25cf Counsel on risks and benefits of PEP and obtain verbal consent for HIV \ntesting.  \n\u25cf Voluntary testing for both exposed and source individuals  \n\u25cf Offer PEP as soon as high -risk exposure is established and the exposed \nindividual tests HIV-negative at baseline (if HIV testing not feasible, \noffer 1 -2 days of PEP to cover until HIV test performed)  \n\u25cf Provide first aid in case of broken skin or other type of wound  \nTime of initiation  As soon as possible after exposure, but no later than after 72 hours  \nDuration of PEP  28 days (dispense all 28 days of treatment at the first visit if tested HIV negative)"
+          ],
+          "tool_call_id": "call_c5GWmb9aSr7lNqU7GuvJLLVN",
+          "metadata": null,
+          "timestamp": "2026-02-16T07:27:23.949672+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "The eligibility criteria for post-exposure prophylaxis (PEP) in HIV prevention include:\n\n1. **Timing**: PEP should be offered as soon as possible and within 72 hours after a potential high-risk exposure to HIV.\n\n2. **Type of Exposure**: \n   - PEP is applicable in cases of accidental exposure to HIV through:\n     - Healthcare work (e.g., needle-stick injuries).\n     - Unprotected sex or sexual assault.\n\n3. **HIV Status**: The individual must test HIV-negative at baseline. If HIV testing is not feasible immediately, PEP may be initiated and provided for 1-2 days until the HIV test can be performed.\n\n4. **Age and Weight Considerations**:\n   - For individuals under 15 years old and weighing less than 30 kg: Preferably treated with Abacavir (ABC) + Lamivudine (3TC) + Dolutegravir (DTG).\n   - For individuals aged 15 years or older and weighing 30 kg or more: Preferably treated with Tenofovir Disoproxil Fumarate (TDF) + Lamivudine (3TC) + Dolutegravir (DTG).\n\n5. **Duration**: The treatment duration for PEP is 28 days.\n\nThese recommendations aim to reduce the likelihood of HIV infection after potential exposure to the virus [ARVs for Post-exposure Prophylaxis][1].",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1266,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 295,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:27:24+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D9nIqWGE1M2SrP0b1OCDN9HJEZYzL",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

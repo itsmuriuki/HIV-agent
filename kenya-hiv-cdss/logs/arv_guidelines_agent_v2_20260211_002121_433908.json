@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "arv_text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-11T00:21:20.105093+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "Why is monitoring and evaluation important in HIV programs and what outcomes should be focused on?",
+          "timestamp": "2026-02-11T00:21:20.105107+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "args": "{\"query\":\"monitoring and evaluation in HIV programs outcomes\"}",
+          "tool_call_id": "call_dsZiLUqpvOSEqpKkAdVEEU8Q",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 271,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 23,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:21:20+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D7sGm3WAca78iODJN6enRvZDFXs2A",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "content": [
+            "  \nSummary of Key Recommendations  \n1 - 1   \n1. Summary of Key Recommendations  \n \n1.1 HIV Testing Services (HTS) and Linkage to Treatment and Prevention  \n\u2022 HIV testing should be voluntary and conducted ethically in an environment where \nConsent, Confidentiality, Counselling, Correct results, Connection (linkage) and Creating \nan enabling environment can be assured  \n\u2022 To optimize access to testing services, HIV testing can be conducted in 2 different settings:  \n\u25aa Facility -based  \n\u25aa Community -based  \n\u2022 Targeted HIV testing is recommended which involves index client listing of contacts, HIV \nself-testing and use of HTS screening tool to identify people at risk of HIV infection as \neligible for testing  \n\u2022 Serial testing, using ap proved rapid HIV antibody testing kits, is used to diagnose HIV \ninfection in children older than 18 months, adolescents, and adults. An HIV -positive \ndiagnosis will be made using three consecutive reactive assays  \n \n1.2 Initial Evaluation and Follow -up for PLHIV  \n\u25cf Initial clinical evaluation of PLHIV entails CD4 monitoring, which is recommended for:  \n\u25aa Baseline investigation for all PLHIV  \n\u25aa Any patient with suspected treatment failure  \n\u25aa Any patient returning to care after interrupting treatment for > 3 months  \n\u25aa Any patient on fluconazole maintenance therapy or on dapsone as prophylaxis, to \ndetermine when prophylaxis can be discontinued  \n\u25cf Advanced HIV Disease is defined as:  \n\u25aa Adults, adolescents, and children five years and older as having a CD4 cell count of \nless than 200 cells/mm3 or \n\u25aa WHO clinical stage 3 or 4 disease  \n\u25aa All children younger than five years  \n\u25cf All PLHIV presenting with Advanced HIV Disease (AHD) should be offered a package of \ncare that includes timely initiation of ART, screening, diagnosis, prophyl axis, and \nmanagement  of opportunistic infections.  \n\u25cf Frequency of routine VL monitoring:  \n\u25aa For PCR positive HEIs: at baseline (at the time of ART initiation)  \n\u25aa Age 0 -24 years old: 3 months after ART initiation, and then every 6 months  \n\u25aa Age \u2265 25 years old: 3 months after ART initiation, then at month 12, and then annually  ",
+            "  \nAdherence Preparation, Monitoring and Support  \n5 - 31 5.5.1 Enhanced Adherence Assessments  \nAs soon as treatment failure is suspected the patient/caregiver should be discussed by the facility \nmulti -disciplinary team to develop a plan for assessing barriers to adherence (includin g \nscheduling a home visit), and assessing other potential causes of treatment failure (e.g., \ninadequate dosing/dose adjustments, drug -drug interactions, drug -food interactions, impaired \nabsorption e.g., chronic severe diarrhoea).  \nAll patients with suspecte d or confirmed treatment failure should have a thorough assessment of \npotential barriers to adherence (Table 5.15).  \nIf the patient has a caregiver, treatment buddy, and/or spouse/partner who is enrolled in HIV \ncare, that person\u2019s file should also be review ed to confirm their most recent viral load results and \nadherence.  \n5.5.2 Enhanced Adherence Counselling  \nAdherence assessment and enhanced adherence counselling should begin as soon as a detectable \nviral load ( \u2265 200 copies/ml) is received, preferably within 2 weeks.  \nThe goal of Enhanced Adherence Counselling is to assess possible barriers to adherence in a non -\njudgmental way and to help the patient construct an adherence plan with concrete objectives. It \nis important not to focus solely on k nowledge of HIV and ART but also to review psychological, \nemotional, and socio -economic factors that may contribute to poor adherence. In addition, \nexploring the patient\u2019s motivation for taking medication often highlights reasons for poor \nadherence.  \nAt lea st three sessions of Enhanced Adherence Counselling, spaced 2 -4 weeks apart, are \nrecommended as the minimum number of sessions, but additional sessions can be added as \nneeded (Table 5.1 8). If the adherence is evaluated as adequate, a repeat viral load is d one after \nthree months of excellent adherence, and another Enhanced Adherence Counselling session is \nconducted to discuss the viral load results. A detailed content guide for Enhanced Adherence \nCounselling is provided in Annex 9.  \nIt is preferable to have t he patient go through all adherence counselling sessions with the same \ncounsellor in order to provide continuity, and that the session is documented to ensure follow -up \nof all issues identified.  \nIf adequate adherence cannot be achieved then consult with a senior clinician, discuss as an MDT, \nor consult the Regional or National TWG.  \n  ",
+            "  \nKenya HIV Prevention and Treatment Guidelines, 2022  \n2 - 6  Table 2.2: Summary of HIV Testing Services Package  \nPre- Test Counselling  \nPre-test counselling may be provided to an individual or a couple presenting for HTS.  Group information \ncan also be offered during pre -test.  \nThe objectives of the pre -test counselling session are to:  \n\u2212 Provide information on the benefits of knowing one\u2019s H IV status, including outcomes for people \non ART and undetectable = Untransmittable  (U=U).  \n\u2212 Provide an explanation for the HIV testing process including time the session will take, \nconfidentiality, and interpretation of test results  \n\u2212 Obtain informed consent for HIV testing.  \n\u2212 Explore the client\u2019s risk of HIV infection.  \n\u2212 Discuss the importance of disclosure to partners and other family members.  \n\u2212 Explain the benefits of couple testing and partner services/index testing.  \nProvide information on available post -test se rvices, including referrals for prevention or HIV care services  \nPerform test.  \nThe goal of HIV testing is to:  \n\u2022 Provide accurate HIV diagnosis as per the nationally approved testing algorithm  \n\u2022 Provide same day HIV test results  \nDuring the 15 minutes as you wait for the test results:  \n\u2212 Discuss Combination Prevention e.g., PrEP, PEP, Risk Reduction, STI treatment, condom \ninformation and demonstration, VMMC, Elimination of Mother to Child Transmission of HIV \n(eMTCT)  \n\u2212 Screen, provide information and referrals for; Intimate Partner Violence (IPV), STI and cancer \nscreening, Tuberculosis (TB), Family planning/c ontraceptive needs, etc.  \n\u2212 Establishing number of sexual contacts and biological children for the purpose of index testing.  \n\u2212 Document in the HTS, Lab, referral and linkage register (MOH 362).  \nDiscuss further on index testing and HIVST as you perform the secon d and the third test, as per the national \nalgorithm, for the clients who test positive with the screening test  \nPost -test counselling  \n\u2212 Check if the client is ready for results and help them to interpret.  \n\u2212 Check what the client understands by the results.  \n\u2212 Allow the client to share his/her initial reactions and verbalize their initial feelings.  \n\u2212 Explore and acknowledge client\u2019s immediate feelings and concerns.  \nOffer necessary support  \n \n  ",
+            "  \nHIV Testing Services and Linkage to Treatment and Prevention  \n2 - 7  Table 2.2 Cont.  \nNEGATIVE RESULT  \n\u2212 Explain test results.  \n\u2212 Review implications of being HIV negative.  \n\u2212 Support clients to develop a risk reduction \nplan (see HTS operational manual)  \n\u2212 Provide information on methods to prevent \nHIV acquisition.  \n\u2212 Provide male and/or female condoms, \nlubricant, and guidance on their use.  \n\u2212 Emphasize on importance of knowing the \nstatus of sexual partners and information \nabout the availability of partner and couples \ntesting services.  \n\u2212 Referral and linkage to relevant HIV \nprevention services  \nExplain the need for repeat testing for people \nwho tes t negative but report risky behavior \nwithin the prior  4 weeks (i.e., unprotected sex \nwith a partner of unknown status or Known HIV \npositive status); if they test HIV negative again \nafter 4 weeks  and are at  ongoing risk of HIV \nacquisition , they should be ad vised to return for \ntesting every 3 months  POSITIVE RESULT  \n\u2212 Review implications of being HIV positive.  \n\u2212 Help the index client to cope with emotions arising \nfrom the diagnosis.  \n\u2212 Discuss immediate concerns and help for the client \nto decide who in his or her social network may be \navailable to provide immediate support.  \n\u2212 Discuss positive living.  \n\u2212 Provide clear information on ART and its benefits \nfor maintaining health and reducing the  risk of HIV \ntransmission, as well as where and how to access \nART  \n\u2212 Refer clients who turn HIV positive to CCC for \nlinkage to treatment.  \n\u2212 Revisit index testing and HIVST to determine \npartner notification plan/approach (refer to HTS \noperational manual and APN S operational Manual).  \n\u2212 Discussion of the risks and benefits of disclosure to \npartners; couples counselling should be offered to \nsupport mutual disclosure.  \nEncourage and offer HIV testing for sexual partners, \ninjecting partners, biological children, and oth er family \nmembers, which can be done through couples testing, \nfamily testing and/or assisted partner notification \nservice.  \nAssessment of other health related conditions  \nAssess risk for sexually transmitted infections (STIs) and opportunistic infections that would also require \nmanagement  \nReferral and linkage to care  \nObtain accurate locator information from the index client (physical location, phone number)  \nPhysically escort the client for re -testing and linkage to ART  \nDocument the outcomes of partner follow up(s)  \nPost -Test Counseling in the Era of Test -and -Treat  \nPost -test counselling should, at a minimum, include three key messages that being the ART treatment \npreparation process for all PLHIV:  \n\u2212 Treatment (called antiretroviral therapy or ART) is available and is recommended for everyone \nwith HIV.  \n\u2212 Starting treatment as soon as possible (preferably within two weeks from testing positive for \nHIV) reduces the chance of your illness getting worse or of passing HIV to others. If  you take your \nART properly and do not miss pills you can expect to live a long and productive life  \n \n  ",
+            "  \nStandard Package of Care for PLHIV  \n4 - 5  4.2 PHDP, GBV/IPV & HIV Education/Counselling  \nPHDP (Positive Health, Dignity and prevention) is a framework that emphasizes the health and \nrights of P LHIV, including reducing risk of onward transmission of HIV.  Within PHDP are 7 core \ndomains of services that should be provided at the health facility to PLHIV and caregivers (Table \n4.2). Complementary community -based PHDP should also be implemented.  \nTabl e 4.2: Domains and Components for PHDP Services  \nPHDP Domain  Components  \nDisclosure of HIV status  \u25cf Assessment of disclosure status, particularly to sexual partners  \n\u25cf Assisted disclosure  \nNote: for children and adolescents, it is also necessary to evaluate for and \nsupport age -appropriate HIV disclosure to the child/adolescent (Annex 5)  \nIndex testing and \nengagement  \u25cf HIV testing of sexual and drug injecting partners  \n\u25cf HIV testing of other family members at risk  \n\u25cf Enrolment of positive partners/family members into HIV care  \n\u25cf Engagement of negative partners and family members in care and \nsupport for index patient, and PrEP as appropriate  \nCondom use  \u25cf Risk reduction counseling  \n\u25cf Correct and consistent condom use  \n\u25cf Provision of condoms at every visit  \nFamily planning  \u25cf Assessment of pregnancy intention  \n\u25cf Pre-conception counselling  \n\u25cf Dual contraception until ready for pregnancy  \n(See Section 4.4.2 for specific clinical guidelines)  \nSexually transmitted \ninfections (STI)  \u25cf Screening for symptoms of STIs  \n\u25cf Prevention of STIs  \n(See Section 4.4.1 for specific clinical guidelines)  \nTreatment adherence  \u25cf Benefits/importance of:  \no Adherence to clinical care  \no Adherence to ART  \n\u25cf Messaging on Undetectable=Untransmissible (U=U)  \n (Chapter 5)  \nPre-exposure prophylaxis  \u25cf Assess HIV -negative sexual partners for PrEP  \n(Chapter 11)  \nAdditional services that should be offered to PLHIV beyond the above components include screening for GBV and IPV \nand HIV education/counseling services.  \n  "
+          ],
+          "tool_call_id": "call_dsZiLUqpvOSEqpKkAdVEEU8Q",
+          "metadata": null,
+          "timestamp": "2026-02-11T00:21:21.167174+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "Monitoring and evaluation (M&E) in HIV programs are essential for several reasons:\n\n1. **Quality Assurance**: M&E provides a framework to assess the effectiveness and efficiency of HIV programs. It ensures that services meet established standards and can lead to improved patient outcomes.\n\n2. **Outcome Measurement**: By tracking specific outcomes, healthcare providers can identify trends and patterns in treatment success, adherence rates, and overall health of persons living with HIV (PLHIV). This is crucial for adjusting strategies and ensuring that interventions are effective.\n\n3. **Resource Allocation**: M&E helps in determining where resources are best invested based on the performance of different programs or strategies. This leads to improved program sustainability and effectiveness.\n\n4. **Identifying Gaps**: Monitoring helps to identify gaps in service delivery and areas where PLHIV may be underserved. It can highlight the need for targeted interventions to improve care.\n\n5. **Policy Formulation**: Evaluation results can guide policymakers in making informed decisions about future health strategies and interventions.\n\nKey outcomes that should be focused on during monitoring and evaluation in HIV programs include:\n\n- **Viral Load Suppression**: Tracking the percentage of patients achieving a suppressed viral load (<200 copies/ml) is critical for assessing treatment efficacy.\n\n- **Adherence Rates**: Monitoring and supporting adherence to the antiretroviral therapy (ART) regimen is vital, as it directly impacts treatment success and viral load suppression.\n\n- **Linkage to Care**: Evaluating the percentage of HIV-positive individuals who are linked to care after diagnosis is essential for ensuring prompt treatment initiation.\n\n- **Retention in Care**: Assessing the retention rates of patients in ongoing care is important to reduce loss to follow-up.\n\n- **Health Outcomes**: Monitoring overall health outcomes such as CD4 counts and incidence of opportunistic infections can provide insight into the effectiveness of the care provided.\n\n- **Behavioral Outcomes**: Evaluation of risk behaviors in PLHIV and their partners can help in refining prevention strategies and educational efforts.\n\nThese monitoring and evaluation efforts allow for continuous improvement in the response to the HIV epidemic in Kenya[KENYA HIV PREVENTION AND TREATMENT GUIDELINES, 2022][PAGE 4-5].",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 3218,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 448,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:21:21+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D7sGnc2FQVecJe5k2h6bsIHPLf6TM",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

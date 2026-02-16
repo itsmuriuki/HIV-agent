@@ -1,0 +1,117 @@
+{
+  "agent_name": "hiv_agent",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "\nYou are a clinical decision support assistant for the Kenya National HIV/AIDS treatment guidelines.\n\nBefore answering any clinical question, you MUST search the official ARV guideline materials for relevant information.\n\nIf the initial search does not return sufficient or precise information:\n- Refine the query using clinical synonyms (e.g., regimen names, drug names, WHO stage, pregnancy, TB co-infection, CD4 thresholds).\n- Perform multiple searches if necessary.\n- Combine relevant retrieved sections before forming a response.\n\nWhen relevant guideline content is found:\n- Base your answer strictly and only on the retrieved guideline information.\n- Do NOT introduce external medical knowledge.\n- Provide clear, structured clinical output (e.g., Eligibility, Recommended Regimen, Dosing, Special Populations, Monitoring).\n- Reference the relevant section or source when available.\n\nIf no relevant information is found after multiple searches:\n- Clearly state: \"This information was not found in the Kenya ARV guideline materials.\"\n- Provide general best-practice guidance separately and clearly label it as general information.\n- Avoid making definitive clinical recommendations outside the retrieved guidelines.\n\nSafety Rules:\n- Do not invent regimens, dosages, or thresholds.\n- Do not assume missing patient details.\n- If essential clinical variables are missing (e.g., age, pregnancy status, TB status, viral load, CD4 count), ask for clarification before answering.\n- Clearly state any uncertainty or limitations.\n\nYour role is to support clinicians with guideline-based information, not to replace clinical judgment.\n",
+          "timestamp": "2026-02-16T07:23:57.809222+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "\"When should ART be initiated after HIV diagnosis?\"",
+          "timestamp": "2026-02-16T07:23:57.809245+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "args": "{\"query\":\"ART initiation timing after HIV diagnosis\"}",
+          "tool_call_id": "call_Y9VRUVoH7ZoI8kpYeDR7iakq",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 423,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 19,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:23:59+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D9nFXGoDoNnk3jLrBeT1GjpCfiJ4C",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "content": [
+            "All individuals with confirmed HIV infection are eligible for ART irrespective of CD4 \ncount, WHO clinical stage, age, pregnancy or breastfeeding status, co -infection status, \nrisk group, or any other cri teria.  \n6.2 Timing of ART Initiation  \nART should be started in all patients as soon as possible, preferably within 2 weeks of \nconfirmation of HIV status, and even on the same day as testing positive for HIV if they are ready.  \nART Readiness Criteria (Table 5.4) can be used to help determine any issues that need to be \naddressed around the time of ART initiation. Same -day ART initiation (on the same day as testing \nHIV-positive) has additional benefits for HIV prevention (e.g., for pregnant and breastfee ding",
+            "- Many people report an increase in their energy levels and general sense of well being  \n- People can often return to work or school or care for their families  \n- With ART,  people with HIV can live a long and healthy life if they take it properly  \n \n\u2022 When is ART started:  \n- Everybody with HIV should start ART  \n- Even if your CD4 count is high, the virus is doing damage inside of you and needs to be \ncontrolled  \n- ART should be started as soon as you are ready, preferably within 2 weeks  \n- The longer you wait to start ART, the more time the virus can damage your body, increasing \nyour chances of getting sick or even dying  \n- Sometimes ART is started a few weeks later if you have certain infections, or if you do not \nthink you are ready to take them properly",
+            "or comorbidities/co -infections. O nce a diagnosis of HIV infection is confirmed, ART should be \ninitiated as soon as possible (preferably within 2 weeks), once patient readiness has been \ndetermined. Other sections of these guidelines deal with initial evaluation and monitoring \n(Chapter 3), patient preparation and adherence support (Chapter 5), and specific recommended \nART regimens (Chapter 6).",
+            "on the same  \n3 Patients who are adherent and virally suppressed at month 3, may not need subsequent \nmonthly appointments until month 6.  \n4 All PLHIV qualify for ART and should be initiated as soon as possible including same day and \nwithin 2 weeks. For patients who do not  start ART on the same day as enrolment into HIV care, \nthey should be followed up every week until ART initiation to address whatever issues are \ndelaying ART initiation, for ongoing management of acute medical issues and for treatment \npreparation and ART r eadiness assessment.  \n4Refer to table 3.1 for detailed history and physical examinations.  \n5children and adolescents, weight and height should be measured and recorded at every visit, \nwith weight -based dosing of ARVs confirmed at every visit.",
+            "testing positive for HIV if they \nare ready  Continued adherence monitoring \nand support is recommended after \nART initiation for all patients"
+          ],
+          "tool_call_id": "call_Y9VRUVoH7ZoI8kpYeDR7iakq",
+          "metadata": null,
+          "timestamp": "2026-02-16T07:23:59.607701+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "**ART Initiation After HIV Diagnosis**\n\n**Eligibility:**\n- All individuals with confirmed HIV infection are eligible for ART, regardless of CD4 count, WHO clinical stage, age, pregnancy status, co-infection status, or any other criteria.\n\n**Recommended Timing for ART Initiation:**\n- ART should be started **as soon as possible**, preferably **within 2 weeks** of confirmation of HIV status.\n- **Same-day ART initiation** is recommended if the patient is ready at the time of diagnosis.\n\n**Patient Readiness:**\n- Before starting ART, patient readiness should be assessed to address any issues that may affect adherence (refer to ART Readiness Criteria in the guidelines).\n\n**Additional Notes:**\n- Delaying ART can allow the virus to cause further damage to the body, increasing the risk of illness or mortality.\n- For patients who do not start ART on the same day of enrollment into HIV care, follow-up should occur weekly to address any barriers to initiation.\n\nThis information is based on the guidelines' section regarding ART initiation timing and patient management.",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1116,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 214,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-16T07:24:00+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D9nFYc5mQ29sDuFCnLAubsiv8bkhI",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "user"
+}

@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "arv_text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-11T00:07:13.886559+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "What are the dosing guidelines for ritonavir when super-boosting LPV/r in children receiving rifampicin?",
+          "timestamp": "2026-02-11T00:07:13.886572+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "args": "{\"query\":\"ritonavir dosing guidelines LPV/r children rifampicin\"}",
+          "tool_call_id": "call_UOcxpUav3GU8C72flOxVsqMN",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 277,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 26,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:07:14+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D7s38wuiPej0Xbryffo5l0wehUB4Y",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "content": [
+            "  \nTB/HIV Co -infection, Prevention and Management  \n \n8 - 17 Table 8.8 Cont.  \n1. For patients on 2nd line ART, subsequent regimens, drug intolerance, or nonstandard drugs who require \nregimen change because of TB treatment, consult the Regional or National HIV Clinical TWG (Uliza Hotline \n0726 460 000; https://nhcsc.nascop.org/clinicalform ) \n2. Contact  the Regional or National HIV Clinical TWG (Uliza Hotline 0726 460 000; \nhttps://nhcsc.nascop.org/clinicalform ) for guidance on urgent collection of DRT samples  \n3. Use \u201csuper -boosted\u201d LPV/r by adding additional ritonavir to manage the drug interaction between LPV/r \nand rifampicin (see Annex 10 for dosing recommendations). Two weeks after TB treatment is completed \nthe child should go back to standard LPV/r dosing.  \n ",
+            "  \nKenya HIV Prevention and Treatment Guidelines, 2022  \n \n13 - 34 Annex 10 F: Ritonavir Dosing for Super -Boosting LPV/r in Children Taking Rifampicin  \nDosing for RTV super -boosting of LPV/r for children receiving rifampicin -containing TB treatment*  \nDrug  Strength of paediatric \ntablets or oral liquid  Number of tablets or MLS by weight -band morning (AM) and evening (PM)  Strength of \nadult tablet  Number of tablets \nby weight band  \n3\u20135.9 kg  6\u20139.9 kg  10\u201313.9 kg  14\u201319.9 kg  20\u201324.9 kg   25\u201334.9 kg  \nAM PM AM PM AM PM AM PM AM PM  AM PM \nFor children able to swallow tablets  \nLPV/rb Tablet 100/25 mg  \u2013 \u2013 \u2013 \u2013 2 1 2 2 2 2 100/25 mg  3 3 \nRTV  Tablet 100 mg  \u2013 \u2013 \u2013 \u2013 1 1 1 2 1 2  \n \n100 mg   \n2  \n2 Tablet 50 mg  \u2013 \u2013 \u2013 \u2013 2 2 3 3 3 3 \nTablet 25 mg  \u2013 \u2013 \u2013 \u2013 4 4 6 6 6 6 \nFor children unable to swallow tablets  \nLPV/r  Oral solution 80/20 mg/ml  1 ml  1 ml  1.5 \nml 1.5 ml  2 ml  2 ml  2.5 \nml 2.5 \nml 3 ml  3 ml  - - - \nPellets 40 mg/10 mg  2 2 3 3 4 4 5 5 6 6 - - - \nGranules 40 mg/10 mg \nsachet  2 2 3 3 4 4 5 5 6 6 - - - \nRTVe Oral solution 80 mg/ml  0.8 ml  0.8 ml  1.2 ml  1.2 ml  1.5 ml  1.5 ml  2 ml  2 ml  2.3 ml  2.3 ml  - - - \nPowder 100 mg/packet  - - 1 1 1 1 1 2 1 2 - - - \na Suggested RT V dose for super -boosting to achieve the same dose as LPV in mg, in a ratio equal or approaching to 1:1. This dosing approach is supported by a study which explored this \napproach in young children receiving LPV/r12. \nb the LPV/r heat -stable t ablet formulation must be swallowed whole and should not be split, chewed, dissolved or crushed. Adult 200 / 50 tablet could be used for patients 14 -24.9kg (1 \ntab am and 1 tab pm) and for patients 25 -34.9kg (2 tab am and 1 tab pm).  \nc LPV/r liquid requires a cold chain during transport and storage.  \nd LPV/r pellets formulation should not be used in infants younger than 3 months. More details on the administration of LPV/r pe llets can be found at \nhttps://www.who.int/hiv/pub/toolkits/iattfactsheet -lopinavir -ritonavir/en/. The dosing schedule provided applies to equivalent solid dosage forms that may become available such as \nLPV/r granules, which are approved by US FDA for use from 2 weeks of life.  \n  e RT V oral solution dosing is ba sed on the dosing tested in the trial that supports the use of super boosting",
+            "  \nTB/HIV Co -infection, Prevention and Management  \n \n8 - 15 Table 8.7: Preferred ART Regimens for Patients who Develop TB while Virally Suppressed on \n1st Line ART 1,2 \nCurrent \nRegimen3  Recommended Substitution  \nPI/r -based4 All ages  \u25cf Switch from PI/r to DTG and continue this regimen even after \ncompleting TB treatment. Follow DTG dosing as below  \n\u25cf If it is not possible to switch to DTG:  \no Children < 30 kg requiring PI/r -based ART should receive \nLPV/r with additional ritonavir super -boosting for the duration \nof rifampicin -based TB therapy, reverting to standard LPV/r \ndosing 2 weeks after completing TB treatment  \no Patients \u2265 30 kg who cannot switch to DTG should be switched \nto EFV -based ART and maintained on EFV -based ART after \ncompletion of TB treatment  \nRAL -based  All ages Switch from RAL to double -dose DTG dosing during TB treatment and \nmaintain on DTG after completion of TB treatment  \nDTG -based  All ages   \nAdminister the double -dose of DTG (i.e., the standard weight -based \ndose of DTG given twice daily) while taking rifampicin containing TB \ntreatment. Two weeks after completion of TB treatment revert to the \nrecommended DTG dose once daily.  \n1 Always assess for HIV treatment failure in patients who develop TB after being on ART for \u2265 6 \nmonths. For patients failing 1st line ART refer to Table 8.8 for recommended 2nd line regimens  \n2 For patients on 2nd line ART, subsequent regimens, or nonstandard drugs who require regimen \nchange because of TB treatment, consult the Regional or National HIV Clinical TWG (Uliza Hotline \n0726  460 000; https://nhcsc.nascop.org/clinicalform ) \n3 NRTIs in the patient\u2019s current regimen do not require any adjustments with anti -TB treatment  \n4 Use \u201csuper -boosted\u201d LPV/r by adding additional ritonavir to manage the drug interaction between \nLPV/r and rifampicin (see Annex 10 for dosing recommendations)  \n \n  ",
+            " Annexes  \n \n13 - 39 Annex 12 C: Use of Protease Inhibitors in Adults  \nDrug name  Dose (in \nadults)  Dietary \nrestrictions  Major side effects  Comments  \nLopinavir/ritonav\nir (LPV/r) \nAvailable as \n200mg  \n+ 50mg RTV  [LPV 400 mg \n+ RTV  \n100 mg] 2 \ntablets BD  Take with food. \nModerate  \nfat increases \nbioavailability.  GI intolerance; \nnausea; vomiting; \ndiarrhoea  Tablets should be \nswallowed whole  \nAtazanavir  \n(ATV)  \n \nAvailable in  \n100mg, 150mg, \n200 mg capsules  \n \nAvailable as FDC  \nwith RTV  ATV 300mg / \nRTV 100mg \nOD Take with food. \nTake 2 hours \nbefore or 1  \nhour after \nantacids and \nbuffered \nmedications \nsuch as buffered \nddI (reduced \nATV \nconcentrations  \nif administered \ntogether)  Jaundice; headache; \nfever; depression; \nnausea; diarrhoea \nand vomiting; \nparaesthesia; \nspontaneous \nbleeding episodes \nin haemop hiliacs.  Indirect \nhyperbilirubinaemia. \nWhen used with TDF \nshould always be given \nwith RTV. Experienced \npatients should also be \ngiven ATV/RTV.  \nRitonavir  \n(RTV)  \n \nAvailable as 100mg \ncapsules  \nCapsules should be \nrefrigerated until \ndispensed; stable \nat room (up to \n25\u00baC) for 30 days  Recommended \nfor use as a \nbooster of \nother PIs  Administration \nwith food \nincreases \nabsorption and \nhelps reduce \ngastrointestinal \nside effects.  Exacerbation of liver \ndisease; fat \nredistribution and \nlipid abnormalities; \ndiarrhoea; \nabdom inal \ndiscomfort; \nheadache; nausea; \nparaesthesia;  \nskin rash; \nspontaneous \nbleeding episodes in \nhaemophiliacs.  Potent CYP450 inhibitor, \nthus its use as a booster \nof other PIs  \nDarunavir (DRV)  DRV 600 \nmg/ RTV \n100 mg BID \nOR \n \nDRV 800 \nmg/ RTV 100 \nmg OD (only \nif PI na\u00efve)  Take with a \nmeal to limit \nADR  GIT upsets, rash, \ndyslipidaemia, \nhepatitis. Caution \nin patients with \nsulphur allergy.  Metabolized by CYP3A \nand is an inhibitor of \nCYP3A. Contains sulphur \nmoiety. Monitor liver \nfunctions especially in \npatients at risk  or with \npre-existing liver  \ndisease.  May cause \nhormonal contraceptive \nfailure.  \n   \n  ",
+            "  \nAntiretroviral Therapy in Infants, Children, Adolescents, and Adults  \n6 - 3 6.3 First -Line ART for Infants, Children, Adolescents and Adults (including \nPregnant and Breastfeeding Women)  \nThe recommendations below apply to patients who are starting ART for the first time. Preferred \nand alternative first line regimens are shown in Tables  6.2 and 6.3. ARVs for infant prophylaxis \nare presented in the PMTCT chapter in Tables 7.3 to 7.6.  \nAll patients must have their weight documented at every visit. Children and adolescents \nless than 15 years must have correct weight -based dosing of ARVs conf irmed at every visit.  \nInfants and children depend on their caregivers for adherence to medication. Caregivers should \nbe adequately prepared for their role of administering ARVs to infants and children, including \naddressing anticipated challenges such as dr ug palatability. It can be helpful for more than one \ncaregiver to be informed about a child\u2019s HIV status and receive instruction on administration of \nART.  \nCaregivers should always be shown and then asked to demonstrate how to measure and \nadminister ARVs.  This should be done both at the time of prescribing the ART (by the clinician) \nand at the time of dispensing the ART. Clinicians should ensure that the caregiver accompanying \na child for clinical review is the same caregiver responsible for day -to-day ART a dministration.  \nTable 6.2: Preferred First -line ART Regimens and Dosing for Children, Adolescents and \nAdults 1 \nAge  Weight  Preferred \nRegimen  Dosing2 (correct weight -based dosing must \nbe confirmed at every visit)  \nBirth to 4 \nweeks  Any  AZT + 3TC + NVP3 Refer to Annex 10 for weight -based dosing  \n> 4 weeks to \n< 15 years  < 30 kg  ABC + 3TC + DTG4 Refer to Annex 10 for weight -based dosing  \n\u2265 30 kg  TDF + 3TC + \nDTG5,6 TDF/3TC/DTG (300/300/50mg): 1 tab once \ndaily  \n\u2265 15 years  Any  TDF + 3TC + \nDTG5,6 TDF/3TC/DTG (300/300/50mg): 1 tab once \ndaily  \n1 Patients currently on first -line regimens that are not included in the indicated preferred (Table 6.2) \nor alternative (Table 6.3) regimens should be considered for regimen optimization as per Section \n6.5.1  \n2 See Annex 10 for weight -based dosing of all single -drug and fixed -dose combination formulations  \n3 Infants who initiate ART at less than 4 weeks of age should initiate on AZT+3TC+NVP irrespective of \nprevious ART exposure; metabolism of other ARVs is not well known for this age group. As soon as \nthese infants become 4 weeks old, they should switch to ABC/3TC+DTG (dosing included in Annex \n10). Consult the Regional or National HIV Clinical TWG (Uliza Hotline 0726 460 000, \nulizanascop@gmail.com) in case of pre -term infants  \n4 Once adolescents reach 30 kg, if virally suppressed they should be considered for transition as per \nFigure 6.2  \n5 TAF may become the preferred NRTI once fixed -dose combinations are available  \n6 DTG/3TC dual therapy may be considered for HBV -negative pa tients once fixed -dose combinations \nare available  \n \n  "
+          ],
+          "tool_call_id": "call_UOcxpUav3GU8C72flOxVsqMN",
+          "metadata": null,
+          "timestamp": "2026-02-11T00:07:15.486972+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "For children receiving rifampicin as part of TB treatment, the dosing guidelines for super-boosting lopinavir/ritonavir (LPV/r) with additional ritonavir (RTV) are as follows:\n\n### Dosing Guidelines for RTV Super-boosting of LPV/r:\n\n#### For Children Able to Swallow Tablets:\n- **Weight 10\u201313.9 kg**: \n  - LPV/r: 2 tablets in the morning and 2 in the evening\n  - RTV (100 mg): 1 tablet in the morning and 1 tablet in the evening\n- **Weight 14\u201319.9 kg**: \n  - LPV/r: 2 tablets in the morning and 2 in the evening\n  - RTV (100 mg): 2 tablets in the morning and 1 tablet in the evening\n- **Weight 20\u201324.9 kg**: \n  - LPV/r: 2 tablets in the morning and 2 in the evening\n  - RTV (100 mg): 1 tablet in the morning and 2 tablets in the evening\n- **Weight 25\u201334.9 kg**: \n  - LPV/r: 2 tablets in the morning and 2 in the evening\n  - RTV (100 mg): 2 tablets in the morning and 2 tablets in the evening\n\n#### For Children Unable to Swallow Tablets:\n- **LPV/r Oral Solution (80/20 mg/ml)**:\n  - Weight 10\u201313.9 kg: 1.5 ml in the morning and 1.5 ml in the evening\n  - Weight 14\u201319.9 kg: 2 ml in the morning and 2 ml in the evening\n  - Weight 20\u201324.9 kg: 2.5 ml in the morning and 2.5 ml in the evening\n  - Weight 25\u201334.9 kg: 3 ml in the morning and 3 ml in the evening\n- **RTV Oral Solution (80 mg/ml)**:\n  - Weight 10\u201313.9 kg: 1.2 ml in the morning and 1.2 ml in the evening\n  - Weight 14\u201319.9 kg: 1.5 ml in the morning and 1.5 ml in the evening\n  - Weight 20\u201324.9 kg: 2 ml in the morning and 2 ml in the evening\n  - Weight 25\u201334.9 kg: 2.3 ml in the morning and 2.3 ml in the evening\n\nThis \"super-boosting\" approach is required to manage the interaction between LPV/r and rifampicin, and after two weeks of completing TB treatment, the child should revert to standard LPV/r dosing. \n\nFor additional details, please refer to the guidelines [Kenya HIV Prevention and Treatment Guidelines, 2022][34].",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 3491,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 604,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:07:15+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D7s39P5obR2NAJDeuIfS6eno3pfns",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}

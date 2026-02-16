@@ -1,0 +1,117 @@
+{
+  "agent_name": "arv_guidelines_agent_v2",
+  "system_prompt": [],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "arv_text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "You are a helpful clinical decision support assistant for HIV care in Kenya.\n\nUse the search tool to find relevant information from the Kenya ARV Guidelines and related clinical documents before answering questions.\n\nIf you find specific guidance through search, use it to provide accurate, guideline-aligned answers.\n\nAlways include references by citing the filename of the source material you used.\nWhen citing the reference, replace the filename with the page\n\nFormat references as:\n[DOCUMENT TITLE][PAGE]\n\nIf the search does not return relevant results, clearly state that the guidelines do not specify this and provide safe, general clinical guidance consistent with standard HIV care principles.\n\nDo not make up recommendations that are not supported by the guidelines.",
+          "timestamp": "2026-02-11T00:17:54.034629+00:00",
+          "dynamic_ref": null,
+          "part_kind": "system-prompt"
+        },
+        {
+          "content": "What are the screening protocols recommended for identifying TB in people living with HIV?",
+          "timestamp": "2026-02-11T00:17:54.034638+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "args": "{\"query\":\"TB screening protocols HIV\"}",
+          "tool_call_id": "call_Y8VGtosRIGFkexUUsoHhLahz",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 269,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 19,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:17:54+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-D7sDSCdorZqBCiTa57hJKnTISvyZc",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "arv_text_search",
+          "content": [
+            "  \nKenya HIV Prevention and Treatment Guidelines, 2022  \n8 - 2      Intensified Case Finding Screening Questions       \n\u25cf  If \u201cYes\u201d to any question, take a detailed history, examine the patient and do sputum examination \n(sputum smear or GeneXpert)  \n\u25cf If \u201cNo\u201d to questions 1 -5 above, consider TPT eligibility and work up for TB Preventive Therapy and \nrepeat screening on subsequent visits  \n\u25cf Questions 5 and 6 do not apply to adults  \nThe following are the intensified case finding screening questions:  \n\u25cf Cough of any duration (Y/N)  \n\u25cf Fever (Y/N)  \n\u25cf Noticeable weight loss/ Failure to thrive/ Poor weight gain (Y/N)  \n\u25cf Night sweats (Y/N)  \n\u25cf Reduced playfulness/ Lethargy/ Irritability (Y/N)  \n\u25cf Contact with a TB case (Y/ N)  ",
+            " \nTB/HIV Co -infection, Prevention and Management  \n8 - 1 \n  \n8. TB/HIV Co -infection, Prevention and \nManagement  \n \nTB is a leading cause of morbidity and mortality among people living with HIV. Reducing this \nburden of illness requires identifying TB early, providing pre -emptive and preventive  treatment \nfor TB, and providing optimal treatment for both HIV and TB. Timely initiation of ART in \ncombination with TB Preventive Therapy are effective ways to reduce the burden of TB in PLHIV.  \nAll PLHIV should receive counselling about the risk of acquir ing TB, strategies for reducing \nexposure to TB, recognizing clinical manifestations of TB and seeking care promptly, the risk of \ntransmission of TB to others and TB preventive therapy to prevent TB disease.  \nHealthcare settings present suitable conditions f or transmission of TB, particularly among \nvulnerable individuals like PLHIV. All healthcare settings should develop and implement TB \ninfection control guidelines to reduce the risk of transmission of TB between patients, visitors \nand staff.  \n8.1 TB Screenin g for PLHIV: Intensified Case Finding (ICF)  \nTB screening and prevention services should be offered at every clinical visit. Symptom -based \nTB screening using the ICF tool MUST be performed at every clinic visit to rule out active TB; \npatients who screen pos itive (presumptive TB cases) must complete definitive diagnostic \npathways (Figure 8.1 and Table 8.1) and patients who screen negative should be evaluated for \nTB preventive therapy (TPT).  \nActive Case Finding (ACF) differs from ICF. ICF refers to TB screenin g among PLHIV, whereas \nActive TB case finding (ACF) refers to special efforts made by the NTP or other partners that go \nbeyond passive TB case finding at health facilities, in which communities or population groups \nthat are underserved or at higher risk of  TB are actively reached for providing access to care, \nincluding screening and testing   ",
+            " \nTB/HIV Co -infection, Prevention and Management  \n \n8 - 5 \n \nFootnotes\n1 Samples for GeneXpert, sputum, CSF, Pleural aspirate, \nPeriloneal fluid, synovial fluid, Gastric Aspirate, \nNasopharyngeal aspirate, FNA, Lymph node biopsy, Pus, \nstool\n2 Indications for use of TB -LAM, as an adjunct test to \nGeneXpert:\n\u2022 PLHIV with advanced disease (WHO stage 3 or 4 or \nCD4 count  200 cells/mm3 (or 25% for children \n 5years old) with presumed TB\n\u2022 PLHIV that have any danger signs of severe illness: \nrespiratory rate \u02c330breaths per minute, \ntemperature \u02c339\u00b0C, heart rate\u02c3120beats per minute, \nunable to walk unaided\n\u2022 Currently admitted to hospital\n3 All CHEST X -rays should be reported and the reports \nreviewed by the clinician for definitive management. \nRefer to the CXR algorithm for TB diagnosis\n4 MTB detected Trace \u2013 Results from sample with few \nbacilli (paucibacillary TB).  Rifampicin resistance status.\nHIV Testing, using the HTS algorithm 1, is \nrecommended during TB screening and diagnosis.\nScreening for diabetes is recommended among all \nadult patients with TB disease\nKey\nCBR - Chest X -ray\nDR TB - Drug Resistant TB\nDS TB - Drug Susceptible TB\nDST - Drug Susceptibility \nTesting\nEPTB   - Extra Pulmonary TB\nFL - First LineLPA Line Probe Assay\nMTB Mycobacteria \nTuberculosis\nNTM Non -Tuberculous \nMycobacteria\nTST Tuberculin Skin test\nSL Second lineDR TB risk classification among \npatients\nHigh risk for DR TB*\n1. All previously treated TB \npatients: treatment failures, \nrelapses, treatment after loss to \nfollow up\n2. Contacts  of Drug Resistant TB \npatients\n3. TB patients with a positive \nsmear result at month 2 or \nmonth 5 of TB treatment\n4. Patient who develops TB \nsymptoms while on IPT or has \nhad previous IPT exposure\n5. Healthcare workers with 18 \nsymptoms\n6. Prisoners with TB symptoms\n7. Refugees with TB symptoms\nLow risk for DR TB\nAll presumptive TB cases who are \nNOT  in the high risk group\n*ALL the high risk patients MUST  \nbe prioritized to receive DST, \nGeneXpert, FL and SL LPA, \nculture and FL and SL DST.DS TB follow up and DR TB surveillance\nPOSITIVE SMEAR \nRESULT ATAction\nMonth 2/3 \u2022 Evaluate for adherence, and other causes of delayed conversion\n\u2022 Request for all the following drug susceptibility tests (DST); GeneXpert, FL, LPA and \nSL, LPA, Culture and FL and SL DST\n\u2022 Continue with RHZE for one more month, or longer if DST results not received by then\n\u2022 Adjust treatment regimen based on DST results\n\u2022 Repeat smear microscopy at end of month 3. If smear positive continue with RHZE and \nreview DST results and inform the SCTLC immediately\n\u2022 Do not proceed to the continuation phase (RH) without a DST result confirming \nsusceptibility to RH (rifampicin and isoniazid)\nMonth 5 or \nMonth 6\u2022 Declare treatment failure and stop anti -TB treatment\n\u2022 Review by the sub county and county TB clinical review teams\n\u2022 Evaluate for adherence, other causes of delayed conversion and treatment failure\n\u2022 Request for GeneXpert, FL LPA and SL LPA, culture and FL and SL DST\n\u2022 Review DST results and re -initiate treatment based on DST results and other clinical \nfindings\nDS TB follow up and DR TB surveillance\nSmear Positive or \nculture positive \nat months 3 or \nlater\u2022 Evaluate for adherence, and  other causes of delay conversion\n\u2022 Request for the following drug susceptibility tests (DSTI) (GeneXpert, Culture and \nFirst Line (FL) and SL DST, FL LPA and SL LPA) depending on the initial resistance \npattern\no Review by the sub county and county clinical review teams\n\u25aa Evaluate for adherence, other causes of reversion and treatment failure\n\u25aa Review the DST results\no Declare failure if at the end of the extended intensive phase  (refer to DR TB \nguidelines)\no Send a case summary to the national clinical team after review by the county clinical \nteam\n\u2022 Do not proceed to the continuation phase (depending on treatment regimen) without a \nDST result\n\u2022 Declare treatment failure\no Review by the sub county and county clinical review teams\n\u25aa Evaluate for adherence, other causes of reversion and treatment failure\n\u25aa Review the DST results\n\u2022 Send a case summary to the national clinical team after review by the county clinical \nteamMOH/DNTLDP/TBSDXALG/01\nSeptember 2020Smear Positive \nsmears and/or \ncultures during \ncontinuation \nphase \nFigure 8.1: TB diagnosis - GeneXpert Ultra algorithm",
+            "  \nKenya HIV Prevention and Treatment Guidelines, 2022  \n1 - 6  \u2022 All HIV exposed infants (HEI) should be tested with DNA PCR within 6 weeks of age or \nfirst contact thereafter; if negative then another DNA PCR at 6 months, and if negative \nthen  repeat DNA PCR at 12 months.  \n\u2022 All HEI should receive infant ARV prophylaxis consisting of 6 weeks of AZT + NVP and \nthereafter NVP should be continued until 6 weeks after complete cessation of \nbreastfeeding  \n\u2022 All infants irrespective of HIV status should be exclusively breastfed for the first 6 months \nof life, with timely introduction of appropriate complementary foods after 6 months, and \ncontinued breastfeeding up to 24 months or beyond  \n \n1.7 TB/HIV Co -infection Prevention and Management  \n\u2022 All healthcare settings should implement TB infection control recommendations to \nreduce the risk of transmission of TB among patients, visitors and staff  \n\u2022 Symptom -based TB screening using the ICF tool MUST be performed for all PLHIV at \nevery clinic visit  \n\u25aa Patien ts who screen negative should be assessed for and provided with TB \npreventive therapy (TPT)  \n\u25aa Patients who screen positive (presumptive TB) must complete definitive diagnostic \npathways  \n\u2022 The GeneXpert Ultra MTB/Rif test is the preferred test for diagnosis of T B and \nrifampicin resistance in all presumptive TB cases  \n\u2022 TB-LAM can be used as an adjunct rapid point -of-care diagnostic test for PLHIV: with \nadvanced HIV disease (WHO stage 3 or 4 or CD4 count \u2264 200 cells/mm3 (or CD4% \u2264 25% \nfor children \u2264 5 years)) with presumptive TB, or; any danger signs of severe illness, or; \ncurrently admitted to hospital  \n\u2022 Patients diagnosed with TB/HIV co -infection should start anti -TB treatment immediately \nand initiate ART as soon as anti -TB medications are tolerated, preferably within 2 weeks \n(unless they have TB meningitis, in which case ART should be deferred for 4 to 8 weeks)  \n\u2022 Patients with TB/HIV co -infection who are already on ART should start anti -TB treatment \nimmediately and continu e ART, making any required adjustments to the ART regimen \nbased on known drug -drug interactions and monitoring toxicity  \n\u2022 Always assess for ART failure in patients who develop TB after being on ART for \u2265 6 \nmonths  \n \n  ",
+            "  \nKenya HIV Prevention and Treatment Guidelines, 2022  \n 8 - 6 Table 8.1: TB Diagnosis in Children <10 Years Old  \nALGORITHM FOR PULMONARY TB DIAGNOSIS IN CHILDREN  \nHistory of \npresenting \nillness  For all children presenting to a health facility ask for the following suggestive \nsymptoms  \n\u25cf Cough  \n\u25cf Fever  \n\u25cf Poor weight gain  \n\u25cf Lethargy or reduced playfulness  \nSuspect TB if the child has two or more of these suggestive symptoms  \nAsk for history of contact with adult/adolescent with chronic cough or TB within the \nlast 2 years  \nClinical \nevaluation  Examine the child and check for:  \n\u25cf Temperature > 37.5o (fever)  \n\u25cf Weight (to confirm poor weight gain, weight loss) \u2013 check growth monitoring \ncurve)  \n\u25cf Respiratory rate (fast breathing)  \n\u25cf Respiratory system examination \u2013 any abnormal findings  \nExamine other systems for abnormal signs suggestive of extra -pulmonary TB#  \nInvesti gation\ns Obtain specimen\u2019 for Xpert MTB/RIF (and culture when indicated**)  \nDo a chest Xray (where available)  \nDo a Mantoux test** (where available)  \nDo a HIV test  \nDo other tests to diagnose extra -pulmonary TB where suspected#  \nDiagnosis  Bacteriologically  \nConfirmed TB:  \nDiagnosis if \nspecimen is \npositive for MTB  Clinical Diagnosis of PTB:  \nChild has two or more of the following suggestive symptoms  \n\u25cf Persistent cough, fever, poor weight gain, lethargy  \nPLUS, two or more of the following:  \n\u25cf Positive contact, abnormal respiratory signs, abnormal, \npositive Mantoux  \nNote: If the child has clinical signs suggestive of EPTB, refer to \nEPTB diagnostic table*  \nTreatment  Treat for TB as follows:  \n\u25cf All children with bacteriologically confirmed TB \n\u25cf All children with a clinical diagnosis of TB  \nNB: In children who do not have an Xpert result, or their Xpert results is negative, but \nthey have clinical signs and symptoms suggestive of TB they should be treated for TB  \nAll forms of TB (Except TB meningitis, bone and joint TB) Treat for 6 months (2 RH ZE/ \n4 RH)  \nTB meningitis, bone and joint TB: Treat for 12 months ( 2 RHZE/ 10 RH)  \n*Specimen may include: Expectorated sputum (child > 5 years), induced sputum, nasopharyngeal \naspirate and gastric aspirate. Attempt to obtain specimen in every child  \n**Do a cultu re and DST for the following children:  \n1. Rifampicin resistance detected by the Xpert test  \n2. Refugees and children in contact with anyone who has Drug Resistant TB  \n3. Those not responding to TB treatment  \n4. Those with indeterminate Xpert results  \n***This may include IGRA in facilities where it is available  \n#Use IMCI guidelines to classify severity of disease   \n "
+          ],
+          "tool_call_id": "call_Y8VGtosRIGFkexUUsoHhLahz",
+          "metadata": null,
+          "timestamp": "2026-02-11T00:17:55.169385+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": null,
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "The screening protocols for identifying tuberculosis (TB) in people living with HIV in Kenya involve the following key steps:\n\n1. **Intensified Case Finding (ICF)**: TB screening must be performed at every clinical visit for all people living with HIV (PLHIV). The screening should utilize a symptom-based approach with specific questions to identify potential TB cases.\n\n2. **Screening Questions**: The recommended questions for screening include:\n   - Cough of any duration\n   - Fever\n   - Noticeable weight loss or failure to thrive\n   - Night sweats\n   - Contact with a TB case\n   \n   If a patient answers \"Yes\" to any of these questions, they should undergo a detailed history, clinical examination, and sputum examination (e.g., sputum smear or GeneXpert). If they answer \"No,\" they should be assessed for eligibility for TB preventive therapy (TPT) and screened again at subsequent visits.\n\n3. **Diagnostic Tests**: For patients who screen positive (presumptive TB cases), definitive diagnostic pathways should be followed, which typically involve the use of the GeneXpert Ultra MTB/Rif test as the preferred diagnostic tool. In specific cases, TB-LAM may be used as an adjunct test, particularly for those with advanced HIV disease or severe illness.\n\n4. **Counseling and Prevention**: All PLHIV should receive counseling about the risks associated with TB, strategies for reducing exposure, recognizing symptoms, seeking care promptly, and the importance of TB preventive therapy.\n\n5. **Ongoing Monitoring**: Continuous TB screening during each clinic visit is vital, and healthcare settings are encouraged to develop TB infection control guidelines to minimize the risk of TB transmission.\n\nBy adhering to these protocols, the early identification and management of TB among people living with HIV can significantly improve outcomes and reduce morbidity and mortality associated with TB co-infection.\n\nReferences: [Kenya HIV Prevention and Treatment Guidelines, 2022][8-1], [Kenya HIV Prevention and Treatment Guidelines, 2022][8-2].",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 3433,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 416,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2026-02-11T00:17:55+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-D7sDTxP41STy1FCAwiDpRhTaPgkSa",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "ai-generated"
+}
