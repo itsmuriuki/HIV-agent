@@ -1,4 +1,5 @@
 import os
+import time
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -44,30 +45,48 @@ def _check_api_key():
         )
         st.stop()
 
-@st.cache_resource
-def init_agent():
+# Background init state (avoids blocking the WebSocket for minutes; reruns keep connection alive)
+_agent_holder = {}
+_init_thread = None
+_init_lock = threading.Lock()
+
+
+def _heavy_init():
+    """Run indexing and agent init (no Streamlit calls — safe to run in a thread)."""
     import ingest
     import search_agent
-
-    st.write("🔄 Loading and indexing HIV guidelines PDF...")
-    
-    # Index the PDF document
     index = ingest.index_data(PDF_PATH)
-    
-    # Initialize the agent
-    agent = search_agent.init_agent(index, REPO_OWNER, REPO_NAME)
-    
-    st.write("✅ Ready to answer questions!")
-    return agent
+    return search_agent.init_agent(index, REPO_OWNER, REPO_NAME)
 
-_check_api_key()
 
-# Lazy init: do not run init_agent() at import so deployment health checks pass.
-# Agent is created on first use (first message) via get_agent().
+def _run_heavy_init():
+    try:
+        agent = _heavy_init()
+        with _init_lock:
+            _agent_holder["agent"] = agent
+    except Exception as e:
+        with _init_lock:
+            _agent_holder["error"] = e
+
 
 def get_agent():
-    """Return the cached agent, initializing on first call."""
-    return init_agent()
+    """
+    Return the agent when ready. If still loading, returns None so the UI can
+    show a message and rerun (keeps connection alive instead of blocking for minutes).
+    """
+    with _init_lock:
+        if "agent" in _agent_holder:
+            return _agent_holder["agent"]
+        if "error" in _agent_holder:
+            raise _agent_holder["error"]
+        global _init_thread
+        if _init_thread is None:
+            _init_thread = threading.Thread(target=_run_heavy_init, daemon=True)
+            _init_thread.start()
+    return None
+
+
+_check_api_key()
 
 st.title("🏥 HIV Guidelines Assistant")
 st.caption("Ask me anything about HIV/AIDS treatment and ARV guidelines")
@@ -109,39 +128,56 @@ _STREAM_END = object()
 
 def stream_response(prompt: str):
     """Stream tokens in real time: run the async agent in a single task in a background thread, yield chunks via queue."""
-    agent = get_agent()  # Lazy init on first message
+    agent = get_agent()
     chunk_queue = queue.Queue()
     result_holder = {}  # full_text, new_messages (set by background thread)
 
     async def run_stream_and_enqueue():
         full_text = ""
         new_messages = []
-        async with agent.run_stream(user_prompt=prompt) as result:
+        try:
+            async with agent.run_stream(user_prompt=prompt) as result:
+                try:
+                    async for chunk in result.stream_text(delta=True, debounce_by=0.01):
+                        if chunk:
+                            full_text += chunk
+                            try:
+                                chunk_queue.put(chunk)
+                            except Exception:
+                                break
+                except Exception:
+                    pass
+                if not full_text:
+                    try:
+                        output = await result.get_output()
+                        full_text = output if isinstance(output, str) else str(output)
+                        if full_text:
+                            chunk_queue.put(full_text)
+                    except Exception:
+                        full_text = "Sorry, I couldn't generate a response. Please try again."
+                        chunk_queue.put(full_text)
+                new_messages = result.new_messages()
+            result_holder["full_text"] = full_text
+            result_holder["new_messages"] = new_messages
+        except Exception:
+            result_holder["full_text"] = result_holder.get("full_text", "Sorry, something went wrong. Please try again.")
+            result_holder["new_messages"] = result_holder.get("new_messages", [])
+        finally:
             try:
-                async for chunk in result.stream_text(delta=True, debounce_by=0.01):
-                    if chunk:
-                        full_text += chunk
-                        chunk_queue.put(chunk)
+                chunk_queue.put(_STREAM_END)
             except Exception:
                 pass
-            if not full_text:
-                try:
-                    output = await result.get_output()
-                    full_text = output if isinstance(output, str) else str(output)
-                    if full_text:
-                        chunk_queue.put(full_text)
-                except Exception:
-                    full_text = "Sorry, I couldn't generate a response. Please try again."
-                    chunk_queue.put(full_text)
-            new_messages = result.new_messages()
-        result_holder["full_text"] = full_text
-        result_holder["new_messages"] = new_messages
-        chunk_queue.put(_STREAM_END)
 
     def run_in_thread():
-        asyncio.run(run_stream_and_enqueue())
+        try:
+            asyncio.run(run_stream_and_enqueue())
+        except Exception:
+            try:
+                chunk_queue.put(_STREAM_END)
+            except Exception:
+                pass
 
-    thread = threading.Thread(target=run_in_thread)
+    thread = threading.Thread(target=run_in_thread, daemon=True)
     thread.start()
     try:
         while True:
@@ -149,12 +185,16 @@ def stream_response(prompt: str):
             if piece is _STREAM_END:
                 break
             yield piece
+    except GeneratorExit:
+        pass
     finally:
-        thread.join()
-    # Update session and log on main thread after stream is consumed
+        thread.join(timeout=1.0)
     st.session_state._last_response = result_holder.get("full_text", "")
     if result_holder.get("new_messages"):
-        logs.log_interaction_to_file(agent, result_holder["new_messages"])
+        try:
+            logs.log_interaction_to_file(agent, result_holder["new_messages"])
+        except Exception:
+            pass
 
 # --- Sample questions ---
 if len(st.session_state.messages) == 0:
@@ -178,17 +218,29 @@ if len(st.session_state.messages) == 0:
 # --- Chat input or pending sample question ---
 prompt = st.session_state.pop("pending_prompt", None) or st.chat_input("Ask your question about HIV guidelines...")
 if prompt:
+    agent = get_agent()
+    if agent is None:
+        # Keep connection alive with short reruns instead of blocking for minutes
+        st.session_state.pending_prompt = prompt
+        st.info(
+            "**First-time setup:** Loading and indexing 286 pages of HIV guidelines. "
+            "This may take 1–2 minutes. Please keep this tab open."
+        )
+        with st.spinner("Indexing PDF..."):
+            time.sleep(2)
+        st.rerun()
+
     # User message (only append if not already added by sample-question click)
     last = st.session_state.messages[-1] if st.session_state.messages else None
     if not (last and last.get("role") == "user" and last.get("content") == prompt):
         st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
-    
+
     # Assistant message (streamed)
     with st.chat_message("assistant"):
         response_text = st.write_stream(stream_response(prompt))
-    
+
     # Save full response to history (st.write_stream returns None; we store in _last_response)
     final_text = getattr(st.session_state, "_last_response", None) or response_text or ""
     st.session_state.messages.append({"role": "assistant", "content": final_text or "No response generated."})
