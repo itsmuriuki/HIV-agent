@@ -219,14 +219,14 @@ prompt = st.session_state.pop("pending_prompt", None) or st.chat_input("Ask your
 if prompt:
     agent = get_agent()
     if agent is None:
-        st.session_state.pending_prompt = prompt
         st.info(
-            "**First-time setup:** Loading and indexing 286 pages of HIV guidelines. "
-            "This may take 1–2 minutes. Please keep this tab open."
+            "**First-time setup:** Loading and indexing HIV guidelines. "
+            "This may take less than 1 minutes."
         )
         with st.spinner("Indexing PDF..."):
-            time.sleep(2)
-        st.rerun()
+            while get_agent() is None:
+                time.sleep(0.5)
+        agent = get_agent()
 
     # Same for typed prompts and sample questions: append user message, show, stream, save
     st.session_state.messages.append({"role": "user", "content": prompt})

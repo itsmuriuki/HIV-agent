@@ -11,7 +11,7 @@ if not os.environ.get("LANCEDB_CONFIG_DIR"):
     _config_dir = Path.home() / ".config" / "lancedb"
     if not _config_dir.exists() or not os.access(_config_dir, os.W_OK):
         os.environ["LANCEDB_CONFIG_DIR"] = "/tmp"
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional, Tuple
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
@@ -119,7 +119,7 @@ def create_vector_index(guides_chunks: List[Dict[str, Any]], db_path: str = "./l
     Returns:
         Tuple of (vectorstore, table)
     """
-    table_name = "documents"
+    table_name = TABLE_NAME
     
     # Initialize embeddings model (from notebook cell 20)
     embeddings = HuggingFaceEmbeddings(
@@ -170,9 +170,34 @@ def create_vector_index(guides_chunks: List[Dict[str, Any]], db_path: str = "./l
     return vectorstore, table
 
 
+TABLE_NAME = "documents"
+
+
+def _load_existing_index(db_path: str) -> Optional[Tuple]:
+    """
+    If the LanceDB db at db_path already has the documents table, open it and
+    return (vectorstore, table). Otherwise return None so caller does full index.
+    """
+    try:
+        db = lancedb.connect(db_path)
+        if TABLE_NAME not in db.table_names():
+            return None
+        table = db.open_table(TABLE_NAME)
+        embeddings = HuggingFaceEmbeddings(
+            model_name="sentence-transformers/all-MiniLM-L6-v2"
+        )
+        vectorstore = LanceDB(connection=table, embedding=embeddings)
+        print("✓ Loaded existing vector index (skipping PDF processing)")
+        return vectorstore, table
+    except Exception as e:
+        print(f"Could not load existing index: {e}")
+        return None
+
+
 def index_data(pdf_path: str, db_path: str = "./lancedb") -> tuple:
     """
-    Main function to index data from PDF.
+    Main function to index data from PDF. Reuses existing LanceDB index at db_path
+    when present so reruns/new processes don't rebuild from PDF.
     
     Args:
         pdf_path: Path to PDF file
@@ -181,10 +206,14 @@ def index_data(pdf_path: str, db_path: str = "./lancedb") -> tuple:
     Returns:
         Tuple of (vectorstore, table)
     """
+    existing = _load_existing_index(db_path)
+    if existing is not None:
+        return existing
+
     print(f"Processing PDF: {pdf_path}")
     guides_chunks = load_and_chunk_pdf(pdf_path)
-    
+
     print("\nBuilding vector index...")
     vectorstore, table = create_vector_index(guides_chunks, db_path)
-    
+
     return vectorstore, table
