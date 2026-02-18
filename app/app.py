@@ -211,22 +211,15 @@ if len(st.session_state.messages) == 0:
     for i, question in enumerate(sample_questions):
         col = col1 if i % 2 == 0 else col2
         if col.button(question, key=f"sample_{i}"):
-            st.session_state.messages.append({"role": "user", "content": question})
-            st.session_state.pending_prompt = question  # Trigger response on rerun
+            # Same path as chat input: set prompt and let the block below process it this run
+            st.session_state.pending_prompt = question
             st.rerun()
 
-# --- Chat input or pending sample question ---
-# Get prompt: from pending_prompt (set by sample-question click), or chat input, or last user message with no reply yet
+# --- Single path: chat input or sample-question prompt ---
 prompt = st.session_state.pop("pending_prompt", None) or st.chat_input("Ask your question about HIV guidelines...")
-if not prompt and st.session_state.messages:
-    last = st.session_state.messages[-1]
-    if last.get("role") == "user":
-        # No assistant reply after this user message — treat as prompt to answer (e.g. sample question click)
-        prompt = last.get("content") or ""
 if prompt:
     agent = get_agent()
     if agent is None:
-        # Keep connection alive with short reruns instead of blocking for minutes
         st.session_state.pending_prompt = prompt
         st.info(
             "**First-time setup:** Loading and indexing 286 pages of HIV guidelines. "
@@ -236,17 +229,13 @@ if prompt:
             time.sleep(2)
         st.rerun()
 
-    # User message (only append if not already added by sample-question click)
-    last = st.session_state.messages[-1] if st.session_state.messages else None
-    if not (last and last.get("role") == "user" and last.get("content") == prompt):
-        st.session_state.messages.append({"role": "user", "content": prompt})
+    # Same for typed prompts and sample questions: append user message, show, stream, save
+    st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    # Assistant message (streamed)
     with st.chat_message("assistant"):
         response_text = st.write_stream(stream_response(prompt))
 
-    # Save full response to history (st.write_stream returns None; we store in _last_response)
     final_text = getattr(st.session_state, "_last_response", None) or response_text or ""
     st.session_state.messages.append({"role": "assistant", "content": final_text or "No response generated."})
