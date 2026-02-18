@@ -211,9 +211,8 @@ if len(st.session_state.messages) == 0:
     for i, question in enumerate(sample_questions):
         col = col1 if i % 2 == 0 else col2
         if col.button(question, key=f"sample_{i}"):
-            # Same path as chat input: set prompt and let the block below process it this run
+            # Same path as chat input: set prompt; the block below will process it in this run
             st.session_state.pending_prompt = question
-            st.rerun()
 
 # --- Single path: chat input or sample-question prompt ---
 prompt = st.session_state.pop("pending_prompt", None) or st.chat_input("Ask your question about HIV guidelines...")
