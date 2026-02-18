@@ -216,7 +216,13 @@ if len(st.session_state.messages) == 0:
             st.rerun()
 
 # --- Chat input or pending sample question ---
+# Get prompt: from pending_prompt (set by sample-question click), or chat input, or last user message with no reply yet
 prompt = st.session_state.pop("pending_prompt", None) or st.chat_input("Ask your question about HIV guidelines...")
+if not prompt and st.session_state.messages:
+    last = st.session_state.messages[-1]
+    if last.get("role") == "user":
+        # No assistant reply after this user message — treat as prompt to answer (e.g. sample question click)
+        prompt = last.get("content") or ""
 if prompt:
     agent = get_agent()
     if agent is None:
