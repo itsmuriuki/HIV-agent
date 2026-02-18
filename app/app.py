@@ -172,12 +172,16 @@ if len(st.session_state.messages) == 0:
         col = col1 if i % 2 == 0 else col2
         if col.button(question, key=f"sample_{i}"):
             st.session_state.messages.append({"role": "user", "content": question})
+            st.session_state.pending_prompt = question  # Trigger response on rerun
             st.rerun()
 
-# --- Chat input ---
-if prompt := st.chat_input("Ask your question about HIV guidelines..."):
-    # User message
-    st.session_state.messages.append({"role": "user", "content": prompt})
+# --- Chat input or pending sample question ---
+prompt = st.session_state.pop("pending_prompt", None) or st.chat_input("Ask your question about HIV guidelines...")
+if prompt:
+    # User message (only append if not already added by sample-question click)
+    last = st.session_state.messages[-1] if st.session_state.messages else None
+    if not (last and last.get("role") == "user" and last.get("content") == prompt):
+        st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
     
