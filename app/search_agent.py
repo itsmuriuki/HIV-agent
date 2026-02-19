@@ -69,7 +69,8 @@ def init_agent(vectorstore_tuple, repo_owner: str, repo_name: str, model: str = 
     
     # Set up the search tools with the vectorstore
     embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
+        model_name="sentence-transformers/all-MiniLM-L6-v2",
+        model_kwargs={"device": "cpu"},
     )
     search_tools.set_search_index(vectorstore, table, embeddings)
     
