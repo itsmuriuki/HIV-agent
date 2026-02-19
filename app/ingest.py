@@ -125,10 +125,9 @@ def create_vector_index(guides_chunks: List[Dict[str, Any]], db_path: str = "./l
     table_name = TABLE_NAME
     
     # Initialize embeddings model (from notebook cell 20)
-    # low_cpu_mem_usage=False avoids "Cannot copy out of meta tensor" on Streamlit Cloud
     embeddings = HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2",
-        model_kwargs={"device": "cpu", "low_cpu_mem_usage": False},
+        model_kwargs={"device": "cpu"},
     )
     
     # Connect to LanceDB
@@ -190,7 +189,7 @@ def _load_existing_index(db_path: str) -> Optional[Tuple]:
         table = db.open_table(TABLE_NAME)
         embeddings = HuggingFaceEmbeddings(
             model_name="sentence-transformers/all-MiniLM-L6-v2",
-            model_kwargs={"device": "cpu", "low_cpu_mem_usage": False},
+            model_kwargs={"device": "cpu"},
         )
         vectorstore = LanceDB(connection=table, embedding=embeddings)
         print("✓ Loaded existing vector index (skipping PDF processing)")
