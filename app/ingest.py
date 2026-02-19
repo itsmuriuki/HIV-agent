@@ -122,7 +122,6 @@ def create_vector_index(guides_chunks: List[Dict[str, Any]], db_path: str = "./l
     table_name = TABLE_NAME
     
     # Initialize embeddings model (from notebook cell 20)
-    # Force CPU to avoid NotImplementedError on Streamlit Cloud (no GPU/MPS)
     embeddings = HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2",
         model_kwargs={"device": "cpu"},
