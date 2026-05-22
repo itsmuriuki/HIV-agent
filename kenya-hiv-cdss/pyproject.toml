@@ -12,6 +12,7 @@ python = "^3.11"
 
 # App
 streamlit = "^1.31.0"
+python-dotenv = "^1.0.0"
 
 # RAG stack
 langchain = "^0.1.16"
