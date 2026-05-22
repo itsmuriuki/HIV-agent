@@ -32,17 +32,42 @@ def _run_async(coro):
 
 
 def load_env():
-    # Streamlit does not auto-load .env
-    load_dotenv()
+    # Local: .env file. Cloud: Streamlit secrets (dashboard) — not committed to git.
+    load_dotenv(PROJECT_DIR / ".env")
+    _hydrate_env_from_streamlit_secrets()
+
+
+def _hydrate_env_from_streamlit_secrets():
+    """Copy Streamlit Cloud secrets into os.environ for OpenAI/LangChain clients."""
+    for key in (
+        "OPENAI_API_KEY",
+        "ANTHROPIC_API_KEY",
+        "DEEPSEEK_API_KEY",
+        "GEMINI_API_KEY",
+        "GOOGLE_API_KEY",
+        "MODEL",
+        "EMBEDDINGS_BACKEND",
+    ):
+        if os.getenv(key):
+            continue
+        value = _read_streamlit_secret(key)
+        if value:
+            os.environ[key] = value
+
+
+def _read_streamlit_secret(name: str) -> str | None:
+    try:
+        if hasattr(st.secrets, "get"):
+            value = st.secrets.get(name)
+            if value:
+                return str(value)
+        return str(st.secrets[name])
+    except (StreamlitSecretNotFoundError, KeyError, TypeError):
+        return None
 
 
 def _get_secret_or_env(secret_name: str) -> str | None:
-    value = None
-    try:
-        value = st.secrets.get(secret_name)
-    except StreamlitSecretNotFoundError:
-        value = None
-    return value or os.getenv(secret_name)
+    return _read_streamlit_secret(secret_name) or os.getenv(secret_name)
 
 
 def ensure_provider_api_key_or_stop(model: str):
@@ -50,11 +75,14 @@ def ensure_provider_api_key_or_stop(model: str):
         if not _get_secret_or_env("OPENAI_API_KEY"):
             st.error(
                 "Missing OpenAI API key.\n\n"
-                "Set it via an environment variable:\n"
-                "- macOS/Linux: `export OPENAI_API_KEY='...your key...'`\n\n"
-                "Or via Streamlit secrets in `.streamlit/secrets.toml`:\n"
-                "- `OPENAI_API_KEY = \"...your key...\"`\n\n"
-                "Then restart the app."
+                "**On Streamlit Cloud:** open your app at [share.streamlit.io](https://share.streamlit.io) → "
+                "**⚙️ Settings → Secrets** and add:\n\n"
+                "```toml\n"
+                "OPENAI_API_KEY = \"sk-...\"\n"
+                "```\n\n"
+                "Click **Save**, then **Reboot app**.\n\n"
+                "**Locally:** add `OPENAI_API_KEY=...` to `kenya-hiv-cdss/.env` or "
+                "`.streamlit/secrets.toml`, then restart."
             )
             st.stop()
 
