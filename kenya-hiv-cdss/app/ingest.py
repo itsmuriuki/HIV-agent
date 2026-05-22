@@ -14,7 +14,6 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:  # pragma: no cover
     from langchain_community.embeddings import HuggingFaceEmbeddings  # noqa: F401
     from langchain_openai import OpenAIEmbeddings  # noqa: F401
-from langchain_community.vectorstores import LanceDB
 from langchain_core.documents import Document
 import lancedb
 from tqdm.auto import tqdm
@@ -55,29 +54,36 @@ def _resolve_pdf_path(pdf_path: str) -> str:
     )
 
 
+def _embeddings_backend() -> str:
+    """Resolve embeddings backend: openai if key or env set, else hf."""
+    backend = (os.environ.get("EMBEDDINGS_BACKEND") or "").strip().lower()
+    if backend in {"openai", "oai"}:
+        return "openai"
+    if backend in {"hf", "huggingface", "local"}:
+        return "hf"
+    if os.environ.get("OPENAI_API_KEY"):
+        return "openai"
+    return "hf"
+
+
 def get_embeddings():
     """
     Select embeddings backend.
 
-    By default we use local HuggingFace embeddings to avoid unexpected OpenAI quota/billing issues
-    during indexing. To force OpenAI embeddings set:
-
-    - `EMBEDDINGS_BACKEND=openai`
+    Uses OpenAI when OPENAI_API_KEY is set (Streamlit Cloud) or EMBEDDINGS_BACKEND=openai.
+    Otherwise uses local HuggingFace (slower/heavier; needs sentence-transformers).
     """
-    backend = (os.environ.get("EMBEDDINGS_BACKEND") or "hf").strip().lower()
-
-    if backend in {"openai", "oai"}:
+    if _embeddings_backend() == "openai":
         from langchain_openai import OpenAIEmbeddings
 
         return OpenAIEmbeddings(model="text-embedding-3-small")
 
-    # Lazy import to avoid importing torch/sentence-transformers unless needed.
     try:
         from langchain_community.embeddings import HuggingFaceEmbeddings
     except Exception as e:  # pragma: no cover
         raise RuntimeError(
             "Local embeddings backend could not be loaded. "
-            "Set OPENAI_API_KEY to use OpenAI embeddings instead."
+            "Set OPENAI_API_KEY (or EMBEDDINGS_BACKEND=openai) to use OpenAI embeddings."
         ) from e
 
     return HuggingFaceEmbeddings(
@@ -88,10 +94,46 @@ def get_embeddings():
 
 def embeddings_backend_name() -> str:
     """A stable name for the active embeddings backend (used for index folder naming)."""
-    backend = (os.environ.get("EMBEDDINGS_BACKEND") or "hf").strip().lower()
-    if backend in {"openai", "oai"}:
-        return "openai"
-    return "hf"
+    return _embeddings_backend()
+
+
+class LanceVectorStore:
+    """
+    Thin vector store over a LanceDB table.
+
+    Avoids langchain_community.vectorstores.LanceDB, which rejects table types
+    from newer lancedb versions (e.g. on Streamlit Cloud / Python 3.14).
+    """
+
+    def __init__(self, table, embeddings, text_key: str = "text"):
+        self._table = table
+        self._embeddings = embeddings
+        self._text_key = text_key
+
+    def search(self, query: str, k: int = 5, search_type: str = "similarity"):
+        vector = self._embeddings.embed_query(query)
+        if hasattr(vector, "tolist"):
+            vector = vector.tolist()
+        results = self._table.search(vector).limit(k).to_pandas()
+        skip_cols = {self._text_key, "vector"}
+        docs = []
+        for _, row in results.iterrows():
+            metadata = {
+                col: row[col]
+                for col in results.columns
+                if col not in skip_cols
+            }
+            docs.append(
+                Document(
+                    page_content=str(row[self._text_key]),
+                    metadata=metadata,
+                )
+            )
+        return docs
+
+
+def _wrap_table(table, embeddings) -> LanceVectorStore:
+    return LanceVectorStore(table, embeddings)
 
 
 def intelligent_chunking(text: str) -> List[str]:
@@ -221,11 +263,7 @@ def create_vector_index(guides_chunks: List[Dict[str, Any]], db_path: str = "./l
     table = db.create_table(table_name, data=data, mode="overwrite")
     print(f"✓ Created table with {len(data)} records")
     
-    # Now create the LanceDB vectorstore wrapper
-    vectorstore = LanceDB(
-        connection=table,
-        embedding=embeddings
-    )
+    vectorstore = _wrap_table(table, embeddings)
     
     print("✓ Vectorstore created successfully!")
     
@@ -243,6 +281,10 @@ def index_data(pdf_path: str, db_path: str = "./lancedb") -> tuple:
     Returns:
         Tuple of (vectorstore, table)
     """
+    existing = _load_existing_index(db_path)
+    if existing is not None:
+        return existing
+
     print(f"Processing PDF: {pdf_path}")
     guides_chunks = load_and_chunk_pdf(pdf_path)
     
@@ -263,7 +305,7 @@ def _load_existing_index(db_path: str) -> Optional[Tuple]:
             return None
         table = db.open_table(TABLE_NAME)
         embeddings = get_embeddings()
-        vectorstore = LanceDB(connection=table, embedding=embeddings)
+        vectorstore = _wrap_table(table, embeddings)
         print("✓ Loaded existing vector index (skipping PDF processing)")
         return vectorstore, table
     except Exception as e:
