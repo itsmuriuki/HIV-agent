@@ -4,6 +4,7 @@ Adapted directly from the Kenya ARV Guidelines notebook (cells 1, 3, 11, 13, 21)
 """
 
 import os
+import time
 from pathlib import Path
 from typing import List, Dict, Any, Optional, Tuple, Sequence
 
@@ -55,23 +56,55 @@ def _resolve_pdf_path(pdf_path: str) -> str:
 
 
 def _embeddings_backend() -> str:
-    """Resolve embeddings backend: openai if key or env set, else hf."""
+    """
+    Resolve embeddings backend.
+
+    OPENAI_API_KEY is for the chat model only. Indexing uses HuggingFace unless
+    EMBEDDINGS_BACKEND=openai (avoids burning embedding quota on every Cloud cold start).
+    """
     backend = (os.environ.get("EMBEDDINGS_BACKEND") or "").strip().lower()
     if backend in {"openai", "oai"}:
         return "openai"
-    if backend in {"hf", "huggingface", "local"}:
-        return "hf"
-    if os.environ.get("OPENAI_API_KEY"):
-        return "openai"
     return "hf"
+
+
+def _embed_documents_safe(embeddings, texts: List[str]) -> List:
+    """Embed in small batches with backoff (reduces OpenAI RateLimitError on large PDFs)."""
+    if not texts:
+        return []
+
+    batch_size = max(1, int(os.environ.get("EMBEDDINGS_BATCH_SIZE", "12")))
+    pause_s = float(os.environ.get("EMBEDDINGS_BATCH_PAUSE", "1.5"))
+    all_vectors: List = []
+
+    for start in range(0, len(texts), batch_size):
+        batch = texts[start : start + batch_size]
+        for attempt in range(6):
+            try:
+                all_vectors.extend(embeddings.embed_documents(batch))
+                break
+            except Exception as e:
+                err_name = type(e).__name__
+                err_msg = str(e).lower()
+                is_rate = err_name == "RateLimitError" or "rate_limit" in err_msg or "rate limit" in err_msg
+                if is_rate and attempt < 5:
+                    wait = pause_s * (2**attempt)
+                    print(f"Embedding rate limited; waiting {wait:.1f}s before retry...")
+                    time.sleep(wait)
+                    continue
+                raise
+        if start + batch_size < len(texts):
+            time.sleep(pause_s)
+
+    return all_vectors
 
 
 def get_embeddings():
     """
     Select embeddings backend.
 
-    Uses OpenAI when OPENAI_API_KEY is set (Streamlit Cloud) or EMBEDDINGS_BACKEND=openai.
-    Otherwise uses local HuggingFace (slower/heavier; needs sentence-transformers).
+    Default: HuggingFace (local indexing, no OpenAI embedding quota).
+    Set EMBEDDINGS_BACKEND=openai to use OpenAI embeddings (batched + retried).
     """
     if _embeddings_backend() == "openai":
         from langchain_openai import OpenAIEmbeddings
@@ -244,9 +277,9 @@ def create_vector_index(guides_chunks: List[Dict[str, Any]], db_path: str = "./l
     texts = [chunk["section"] for chunk in guides_chunks]
     metadatas = guides_chunks
     
-    # Generate embeddings manually
-    print("Generating embeddings...")
-    vectors = embeddings.embed_documents(texts)
+    # Generate embeddings manually (batched to avoid OpenAI rate limits)
+    print(f"Generating embeddings for {len(texts)} chunks...")
+    vectors = _embed_documents_safe(embeddings, texts)
     
     # Create the table manually with proper schema
     data = []

@@ -18,7 +18,7 @@ HIV_PDF_PATH = str(ui_common.PROJECT_DIR / "Kenya-ARV-Guidelines-2022-Final-1.pd
 
 
 @st.cache_resource
-def _agent():
+def get_agent():
     return ui_common.init_pdf_agent_single(
         model=MODEL,
         pdf_path=HIV_PDF_PATH,
@@ -28,9 +28,6 @@ def _agent():
         loading_text="🔄 Loading and indexing HIV guidelines PDF...",
         ready_text="✅ Ready to answer HIV guideline questions!",
     )
-
-
-agent = _agent()
 
 messages_key = "hiv_messages"
 last_key = "hiv_last_response"
@@ -66,7 +63,7 @@ if prompt := st.chat_input("Ask your question about HIV guidelines...", key="hiv
     with st.chat_message("user"):
         st.markdown(prompt)
     with st.chat_message("assistant"):
-        response_text = st.write_stream(ui_common.stream_response(agent, prompt, last_key))
+        response_text = st.write_stream(ui_common.stream_response(get_agent(), prompt, last_key))
     final_text = st.session_state.get(last_key, response_text)
     st.session_state[messages_key].append({"role": "assistant", "content": final_text})
 

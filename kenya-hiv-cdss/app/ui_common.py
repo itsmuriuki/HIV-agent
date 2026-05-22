@@ -161,6 +161,22 @@ def stream_response(agent, prompt: str, response_key: str):
         raise
 
 
+def _handle_indexing_error(e: Exception) -> None:
+    msg = str(e)
+    if "RateLimitError" in type(e).__name__ or "rate_limit" in msg.lower() or "rate limit" in msg.lower():
+        st.error(
+            "OpenAI embedding rate limit hit while building the search index.\n\n"
+            "**Recommended (Streamlit Cloud Secrets):** remove `EMBEDDINGS_BACKEND=openai` "
+            "or set `EMBEDDINGS_BACKEND = \"hf\"` so indexing uses local embeddings "
+            "(chat still uses your OpenAI key).\n\n"
+            "If you must use OpenAI embeddings, add smaller batches:\n"
+            "`EMBEDDINGS_BATCH_SIZE = \"8\"` and `EMBEDDINGS_BATCH_PAUSE = \"2\"`, then reboot.\n\n"
+            "Also check [OpenAI billing/limits](https://platform.openai.com/account/limits)."
+        )
+        st.stop()
+    raise
+
+
 def init_pdf_agent_single(
     *,
     model: str,
@@ -174,7 +190,10 @@ def init_pdf_agent_single(
     ensure_provider_api_key_or_stop(model)
     st.write(loading_text)
     db_path = str(PROJECT_DIR / "lancedb" / f"{db_prefix}_{ingest.embeddings_backend_name()}")
-    index = ingest.index_data(pdf_path, db_path=db_path)
+    try:
+        index = ingest.index_data(pdf_path, db_path=db_path)
+    except Exception as e:
+        _handle_indexing_error(e)
     agent = search_agent.init_agent(index, repo_owner, repo_name, model=model)
     st.write(ready_text)
     return agent
@@ -193,7 +212,10 @@ def init_pdf_agent_multi(
     ensure_provider_api_key_or_stop(model)
     st.write(loading_text)
     db_path = str(PROJECT_DIR / "lancedb" / f"{db_prefix}_{ingest.embeddings_backend_name()}")
-    index = ingest.index_pdfs(pdf_paths, db_path=db_path)
+    try:
+        index = ingest.index_pdfs(pdf_paths, db_path=db_path)
+    except Exception as e:
+        _handle_indexing_error(e)
     agent = search_agent.init_agent(index, repo_owner, repo_name, model=model)
     st.write(ready_text)
     return agent

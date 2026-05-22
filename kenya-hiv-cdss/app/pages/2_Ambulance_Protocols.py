@@ -23,7 +23,7 @@ AMBULANCE_PDF_PATHS = [
 
 
 @st.cache_resource
-def _agent():
+def get_agent():
     return ui_common.init_pdf_agent_multi(
         model=MODEL,
         pdf_paths=AMBULANCE_PDF_PATHS,
@@ -33,9 +33,6 @@ def _agent():
         loading_text="🔄 Loading and indexing ambulance protocols PDFs...",
         ready_text="✅ Ready to answer ambulance protocol questions!",
     )
-
-
-agent = _agent()
 
 messages_key = "ambulance_messages"
 last_key = "ambulance_last_response"
@@ -71,7 +68,7 @@ if prompt := st.chat_input("Ask your question about ambulance protocols...", key
     with st.chat_message("user"):
         st.markdown(prompt)
     with st.chat_message("assistant"):
-        response_text = st.write_stream(ui_common.stream_response(agent, prompt, last_key))
+        response_text = st.write_stream(ui_common.stream_response(get_agent(), prompt, last_key))
     final_text = st.session_state.get(last_key, response_text)
     st.session_state[messages_key].append({"role": "assistant", "content": final_text})
 
