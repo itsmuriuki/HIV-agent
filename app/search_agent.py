@@ -5,7 +5,7 @@ Adapted from the Kenya ARV Guidelines notebook (cells 43, 47, 67).
 
 from pydantic_ai import Agent
 import search_tools
-from langchain_community.embeddings import HuggingFaceEmbeddings
+import ingest
 
 
 def create_system_prompt(repo_owner: str, repo_name: str) -> str:
@@ -67,11 +67,8 @@ def init_agent(vectorstore_tuple, repo_owner: str, repo_name: str, model: str = 
     # Unpack the vectorstore tuple
     vectorstore, table = vectorstore_tuple
     
-    # Set up the search tools with the vectorstore
-    embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2",
-        model_kwargs={"device": "cpu"},
-    )
+    # Same embeddings as ingest (OpenAI if key set, else HuggingFace)
+    embeddings = ingest.get_embeddings()
     search_tools.set_search_index(vectorstore, table, embeddings)
     
     # Create system prompt

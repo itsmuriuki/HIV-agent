@@ -37,10 +37,24 @@ def _resolve_pdf_path(pdf_path: str) -> str:
         "Ensure the guideline PDF is in the app directory or set the correct path."
     )
 from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import LanceDB
 import lancedb
 from tqdm.auto import tqdm
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+
+def get_embeddings():
+    """
+    Use OpenAI embeddings if OPENAI_API_KEY is set (e.g. Streamlit Cloud), else HuggingFace (local).
+    Index and query must use the same backend; both ingest and search_agent use this.
+    """
+    if os.environ.get("OPENAI_API_KEY"):
+        return OpenAIEmbeddings(model="text-embedding-3-small")
+    return HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2",
+        model_kwargs={"device": "cpu"},
+    )
 
 
 def intelligent_chunking(text: str) -> List[str]:
@@ -124,11 +138,7 @@ def create_vector_index(guides_chunks: List[Dict[str, Any]], db_path: str = "./l
     """
     table_name = TABLE_NAME
     
-    # Initialize embeddings model (from notebook cell 20)
-    embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2",
-        model_kwargs={"device": "cpu"},
-    )
+    embeddings = get_embeddings()
     
     # Connect to LanceDB
     db = lancedb.connect(db_path)
@@ -187,10 +197,7 @@ def _load_existing_index(db_path: str) -> Optional[Tuple]:
         if TABLE_NAME not in db.table_names():
             return None
         table = db.open_table(TABLE_NAME)
-        embeddings = HuggingFaceEmbeddings(
-            model_name="sentence-transformers/all-MiniLM-L6-v2",
-            model_kwargs={"device": "cpu"},
-        )
+        embeddings = get_embeddings()
         vectorstore = LanceDB(connection=table, embedding=embeddings)
         print("✓ Loaded existing vector index (skipping PDF processing)")
         return vectorstore, table

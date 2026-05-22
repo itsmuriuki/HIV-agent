@@ -4,8 +4,10 @@ Adapted from the Kenya ARV Guidelines notebook (cells 43, 47, 67).
 """
 
 from pydantic_ai import Agent
+from pydantic_ai.models.openai import OpenAIChatModel
+from pydantic_ai.models.gemini import GeminiModel
 import search_tools
-from langchain_community.embeddings import HuggingFaceEmbeddings
+import ingest
 
 
 def create_system_prompt(repo_owner: str, repo_name: str) -> str:
@@ -64,22 +66,29 @@ def init_agent(vectorstore_tuple, repo_owner: str, repo_name: str, model: str = 
     # Unpack the vectorstore tuple
     vectorstore, table = vectorstore_tuple
     
-    # Set up the search tools with the vectorstore
-    embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
-    )
-    search_tools.set_search_index(vectorstore, table, embeddings)
-    
     # Create system prompt
     system_prompt = create_system_prompt(repo_owner, repo_name)
     
+    model_for_agent = model
+    if isinstance(model, str) and model.startswith("deepseek:"):
+        # Use pydantic-ai's built-in DeepSeek provider (OpenAI-compatible API).
+        model_name = model.split(":", 1)[1]
+        model_for_agent = OpenAIChatModel(model_name, provider="deepseek")
+    elif isinstance(model, str) and model.startswith("gemini:"):
+        # Use pydantic-ai's built-in Gemini model (Google Generative Language API).
+        model_name = model.split(":", 1)[1]
+        model_for_agent = GeminiModel(model_name, provider="google-gla")
+
+    # Build a tool bound to THIS vectorstore (no globals).
+    text_search_tool = search_tools.build_text_search(vectorstore, k=5)
+
     # Create the agent with the text_search tool
     # From notebook cell 47
     agent = Agent(
-        model,
+        model_for_agent,
         name="document_agent",
         system_prompt=system_prompt,
-        tools=[search_tools.text_search],
+        tools=[text_search_tool],
     )
     
     print(f"Agent initialized with model: {model}")
