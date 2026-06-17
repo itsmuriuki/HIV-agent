@@ -23,7 +23,7 @@ sys.path.insert(0, str(PROJECT_DIR / "app"))
 import ingest
 import search_agent
 
-from .schemas import QueryRequest, QueryResponse
+from .schemas import DispatchRequest, ProtocolResponse, ProtocolsOutput
 
 load_dotenv(PROJECT_DIR / ".env")
 
@@ -44,7 +44,7 @@ async def lifespan(app: FastAPI):
     print(f"Loading ambulance protocols index from: {DB_PATH}")
     index = ingest.index_pdfs(AMBULANCE_PDF_PATHS, db_path=DB_PATH)
     _agent = search_agent.init_agent(
-        index, "Ambulance", "Emergency-Protocols", model=MODEL
+        index, "Ambulance", "Emergency-Protocols", model=MODEL, output_type=ProtocolsOutput
     )
     print("Ambulance agent ready.")
     yield
@@ -69,10 +69,41 @@ async def health():
     return {"status": "ok", "agent_ready": _agent is not None, "model": MODEL}
 
 
-@app.post("/query", response_model=QueryResponse)
-async def query(request: QueryRequest, agent=Depends(get_agent)):
+def _build_query(request: DispatchRequest) -> str:
+    """Build a rich query string from the dispatch payload for the RAG agent."""
+    parts = [request.incidentInfo.description]
+
+    p = request.patientInfo
+    if p:
+        if p.sex:
+            parts.append(f"Sex: {p.sex}")
+        if p.ageGroup:
+            parts.append(f"Age group: {p.ageGroup}")
+        if p.approxAge:
+            parts.append(f"Approximate age: {p.approxAge}")
+
+    i = request.incidentInfo
+    if i.consciousness:
+        parts.append(f"Consciousness: {i.consciousness}")
+    if i.breathing:
+        parts.append(f"Breathing: {i.breathing}")
+    if i.activelyBleeding:
+        parts.append("Actively bleeding: yes")
+    if i.medicalHistory:
+        parts.append(f"Medical history: {i.medicalHistory}")
+
+    return ". ".join(parts)
+
+
+@app.post("/query", response_model=ProtocolResponse)
+async def query(request: DispatchRequest, agent=Depends(get_agent)):
+    query_text = _build_query(request)
     try:
-        result = await agent.run(request.question)
+        result = await agent.run(query_text)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-    return QueryResponse(answer=result.output)
+    return ProtocolResponse(
+        dispatchId=request.dispatchId,
+        incidentDescription=request.incidentInfo.description,
+        protocols=result.output.protocols,
+    )

@@ -49,7 +49,7 @@ Your role is to provide accurate, document-based information to help users find 
 """.strip()
 
 
-def init_agent(vectorstore_tuple, repo_owner: str, repo_name: str, model: str = "openai:gpt-4o-mini"):
+def init_agent(vectorstore_tuple, repo_owner: str, repo_name: str, model: str = "openai:gpt-4o-mini", output_type: type = str):
     """
     Initialize the pydantic-ai agent with search tools.
     From notebook cell 47.
@@ -87,6 +87,7 @@ def init_agent(vectorstore_tuple, repo_owner: str, repo_name: str, model: str = 
     agent = Agent(
         model_for_agent,
         name="document_agent",
+        output_type=output_type,
         system_prompt=system_prompt,
         tools=[text_search_tool],
     )
