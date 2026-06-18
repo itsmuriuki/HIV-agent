@@ -95,15 +95,11 @@ def _build_query(request: DispatchRequest) -> str:
     return ". ".join(parts)
 
 
-@app.post("/query", response_model=ProtocolResponse)
-async def query(request: DispatchRequest, agent=Depends(get_agent)):
+@app.post("/em_protocols_rag", response_model=ProtocolResponse)
+async def em_protocols_rag(request: DispatchRequest, agent=Depends(get_agent)):
     query_text = _build_query(request)
     try:
         result = await agent.run(query_text)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-    return ProtocolResponse(
-        dispatchId=request.dispatchId,
-        incidentDescription=request.incidentInfo.description,
-        protocols=result.output.protocols,
-    )
+    return ProtocolResponse(protocols=result.output.protocols)

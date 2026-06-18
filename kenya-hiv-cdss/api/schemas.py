@@ -43,6 +43,4 @@ class DispatchRequest(BaseModel):
 # --- API response ---
 
 class ProtocolResponse(BaseModel):
-    dispatchId: str
-    incidentDescription: str
     protocols: list[str] = Field(..., description="Ordered list of actionable prehospital protocols")

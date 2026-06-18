@@ -1,0 +1,11 @@
+.env
+venv/
+lancedb/
+logs/
+__pycache__/
+*.pyc
+*.pyo
+*.ipynb
+.git/
+Kenya-ARV-Guidelines-2022-Final-1.pdf
+kenya_arv_guidelines_lancedb/
