@@ -16,8 +16,7 @@ COPY kenya-hiv-cdss/app/ app/
 COPY kenya-hiv-cdss/api/ api/
 
 # Copy ambulance protocol PDFs
-COPY "kenya-hiv-cdss/Ambulensi Emergency Medical Dispatch Protocols (1).pdf" ./
-COPY "kenya-hiv-cdss/Ambulensi Prehospital Emergency Care Clinical Protocols (1).pdf" ./
+COPY kenya-hiv-cdss/Ambulensi*.pdf ./
 
 # LanceDB index is built here on first startup and reused on subsequent starts
 RUN mkdir -p lancedb
