@@ -7,7 +7,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies before copying code (better layer caching)
+# Install CPU-only PyTorch first to avoid the 1.5GB CUDA version
+# being pulled in by sentence-transformers
+RUN pip install --no-cache-dir \
+    torch==2.2.2 \
+    --index-url https://download.pytorch.org/whl/cpu
+
+# Install remaining dependencies
 COPY kenya-hiv-cdss/api/requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
