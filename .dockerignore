@@ -1,0 +1,11 @@
+.env
+venv/
+kenya-hiv-cdss/lancedb/
+kenya-hiv-cdss/logs/
+__pycache__/
+*.pyc
+*.pyo
+*.ipynb
+.git/
+kenya-hiv-cdss/Kenya-ARV-Guidelines-2022-Final-1.pdf
+kenya-hiv-cdss/kenya_arv_guidelines_lancedb/

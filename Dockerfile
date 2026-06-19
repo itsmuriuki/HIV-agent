@@ -8,16 +8,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies before copying code (better layer caching)
-COPY api/requirements.txt requirements.txt
+COPY kenya-hiv-cdss/api/requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
-COPY app/ app/
-COPY api/ api/
+COPY kenya-hiv-cdss/app/ app/
+COPY kenya-hiv-cdss/api/ api/
 
 # Copy ambulance protocol PDFs
-COPY "Ambulensi Emergency Medical Dispatch Protocols (1).pdf" .
-COPY "Ambulensi Prehospital Emergency Care Clinical Protocols (1).pdf" .
+COPY "kenya-hiv-cdss/Ambulensi Emergency Medical Dispatch Protocols (1).pdf" ./
+COPY "kenya-hiv-cdss/Ambulensi Prehospital Emergency Care Clinical Protocols (1).pdf" ./
 
 # LanceDB index is built here on first startup and reused on subsequent starts
 RUN mkdir -p lancedb
