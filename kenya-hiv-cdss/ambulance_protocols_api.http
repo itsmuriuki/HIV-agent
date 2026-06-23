@@ -1,0 +1,716 @@
+### Ambulance Protocols API — REST Client Test File
+### Compatible with: VS Code REST Client extension, JetBrains HTTP Client, IntelliJ IDEA
+### Usage: Click "Send Request" above any request block
+###
+### Prerequisites:
+###   1. OPENAI_API_KEY set in .env (must start with sk-)
+###   2. Server running: uvicorn api.main:app --reload --port 8000
+###   3. Confirm warm: GET /health → agent_ready: true
+###
+### API schema reference:
+###   patientInfo.ageGroup : "infant" | "child" | "adolescent" | "adult" | "elderly"
+###   incidentInfo.priority: "P1" | "P2" | "P3" | "P4"
+###   incidentInfo.consciousness: "alert" | "verbal" | "pain" | "unconscious"
+###   incidentInfo.breathing : "normal" | "laboured" | "absent"
+
+@base_url     = http://127.0.0.1:8000
+@content_type = application/json
+
+
+# =============================================================================
+# SECTION 1 — SYSTEM ENDPOINTS
+# =============================================================================
+
+### 1.1 Health check — confirms agent is initialised and model name is correct
+GET {{base_url}}/health
+Accept: application/json
+
+
+### 1.2 OpenAPI docs (paste URL into browser)
+# GET {{base_url}}/docs
+
+
+# =============================================================================
+# SECTION 2 — P1 IMMEDIATELY LIFE-THREATENING
+# =============================================================================
+
+### 2.1 Cardiac arrest — highest-priority anchor
+# Expected: protocol for CPR, AED, airway management, rapid transport
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-001",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "58",
+    "sex": "male"
+  },
+  "incidentInfo": {
+    "description": "65-year-old male collapsed, not breathing, no pulse, bystander performing CPR",
+    "priority": "P1",
+    "consciousness": "unconscious",
+    "breathing": "absent",
+    "activelyBleeding": false,
+    "medicalHistory": "hypertension"
+  }
+}
+
+
+### 2.2 Gunshot wound — penetrating abdominal trauma
+# Expected: haemorrhage control, IV access, rapid transport protocol
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-002",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "23",
+    "sex": "male"
+  },
+  "incidentInfo": {
+    "description": "23-year-old male, gunshot wound to the abdomen, profuse bleeding, unresponsive",
+    "priority": "P1",
+    "consciousness": "unconscious",
+    "breathing": "laboured",
+    "activelyBleeding": true,
+    "medicalHistory": "none known"
+  }
+}
+
+
+### 2.3 Post-partum haemorrhage — obstetric emergency
+# Expected: PPH protocol, uterine massage, IV fluids, rapid transport
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-003",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "28",
+    "sex": "female"
+  },
+  "incidentInfo": {
+    "description": "28-year-old female, heavy vaginal bleeding after home delivery, unconscious, pale and cold",
+    "priority": "P1",
+    "consciousness": "unconscious",
+    "breathing": "laboured",
+    "activelyBleeding": true,
+    "medicalHistory": "none known"
+  }
+}
+
+
+### 2.4 Severe respiratory distress — anaphylaxis
+# Expected: adrenaline protocol, airway management, oxygen
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-004",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "31",
+    "sex": "female"
+  },
+  "incidentInfo": {
+    "description": "31-year-old female, severe allergic reaction after bee sting, throat swelling, can barely breathe, hives all over body",
+    "priority": "P1",
+    "consciousness": "verbal",
+    "breathing": "laboured",
+    "activelyBleeding": false,
+    "medicalHistory": "known allergy to insect stings"
+  }
+}
+
+
+### 2.5 Stab wound to the chest — tension pneumothorax risk
+# Expected: needle decompression guidance, oxygen, rapid transport
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-005",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "19",
+    "sex": "male"
+  },
+  "incidentInfo": {
+    "description": "19-year-old male, stab wound to the left chest, difficulty breathing, decreased breath sounds on left side, hypotensive",
+    "priority": "P1",
+    "consciousness": "verbal",
+    "breathing": "laboured",
+    "activelyBleeding": true,
+    "medicalHistory": "none known"
+  }
+}
+
+
+### 2.6 Hanging — strangulation, cut down
+# Expected: cervical spine precautions, airway management, CPR if indicated
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-006",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "40",
+    "sex": "male"
+  },
+  "incidentInfo": {
+    "description": "Adult male found hanging from a rope, cut down by family, unconscious, faint carotid pulse, ligature mark on neck",
+    "priority": "P1",
+    "consciousness": "unconscious",
+    "breathing": "absent",
+    "activelyBleeding": false,
+    "medicalHistory": "depression"
+  }
+}
+
+
+### 2.7 Eclampsia — pregnant patient seizing
+# Expected: seizure management, magnesium sulphate protocol, lateral position
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-007",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "34",
+    "sex": "female"
+  },
+  "incidentInfo": {
+    "description": "34-year-old pregnant woman, 36 weeks, actively seizing, high blood pressure, previously had severe headache and visual disturbances",
+    "priority": "P1",
+    "consciousness": "unconscious",
+    "breathing": "laboured",
+    "activelyBleeding": false,
+    "medicalHistory": "gestational hypertension"
+  }
+}
+
+
+# =============================================================================
+# SECTION 3 — P2 SERIOUS BUT STABLE
+# =============================================================================
+
+### 3.1 Road traffic accident — blunt trauma, conscious
+# Expected: spinal immobilisation, fracture management, IV access
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-008",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "45",
+    "sex": "male"
+  },
+  "incidentInfo": {
+    "description": "45-year-old male, motorcycle accident, deformed right leg, suspected femur fracture, alert and talking, no head injury",
+    "priority": "P2",
+    "consciousness": "alert",
+    "breathing": "normal",
+    "activelyBleeding": true,
+    "medicalHistory": "none known"
+  }
+}
+
+
+### 3.2 Burns — cooking gas explosion
+# Expected: burn management protocol, fluid resuscitation, wound covering
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-009",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "35",
+    "sex": "male"
+  },
+  "incidentInfo": {
+    "description": "35-year-old male, severe burns to both arms and chest from a cooking gas cylinder explosion, blistering, in severe pain",
+    "priority": "P2",
+    "consciousness": "alert",
+    "breathing": "normal",
+    "activelyBleeding": false,
+    "medicalHistory": "none known"
+  }
+}
+
+
+### 3.3 Chest pain — possible acute MI
+# Expected: 12-lead ECG guidance, aspirin, oxygen, cardiac monitoring
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-010",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "55",
+    "sex": "male"
+  },
+  "incidentInfo": {
+    "description": "55-year-old male, sudden severe chest pain radiating to the left arm and jaw, sweating profusely, nausea, feels like pressure on chest",
+    "priority": "P2",
+    "consciousness": "alert",
+    "breathing": "laboured",
+    "activelyBleeding": false,
+    "medicalHistory": "hypertension, diabetes"
+  }
+}
+
+
+### 3.4 Stroke — facial droop and slurred speech
+# Expected: stroke assessment protocol, FAST, time-critical transport
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-011",
+  "patientInfo": {
+    "ageGroup": "elderly",
+    "approxAge": "72",
+    "sex": "female"
+  },
+  "incidentInfo": {
+    "description": "72-year-old female, sudden onset facial droop on the right side, slurred speech, left arm weakness, onset 45 minutes ago",
+    "priority": "P2",
+    "consciousness": "verbal",
+    "breathing": "normal",
+    "activelyBleeding": false,
+    "medicalHistory": "atrial fibrillation, warfarin"
+  }
+}
+
+
+# =============================================================================
+# SECTION 4 — PAEDIATRIC CASES
+# =============================================================================
+
+### 4.1 Paediatric cardiac arrest — child, no pulse
+# Expected: paediatric CPR protocol, weight-based doses
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-012",
+  "patientInfo": {
+    "ageGroup": "child",
+    "approxAge": "8",
+    "sex": "male"
+  },
+  "incidentInfo": {
+    "description": "8-year-old boy, collapsed while playing football, not breathing, no pulse, bystander CPR in progress",
+    "priority": "P1",
+    "consciousness": "unconscious",
+    "breathing": "absent",
+    "activelyBleeding": false,
+    "medicalHistory": "none known"
+  }
+}
+
+
+### 4.2 Drowning — child pulled from river
+# Expected: drowning protocol, warming, resuscitation, airway suctioning
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-013",
+  "patientInfo": {
+    "ageGroup": "child",
+    "approxAge": "12",
+    "sex": "male"
+  },
+  "incidentInfo": {
+    "description": "12-year-old boy pulled from a river after submersion for approximately 5 minutes, cyanotic, not breathing, unconscious",
+    "priority": "P1",
+    "consciousness": "unconscious",
+    "breathing": "absent",
+    "activelyBleeding": false,
+    "medicalHistory": "none known"
+  }
+}
+
+
+### 4.3 Febrile seizure — young child
+# Expected: seizure protocol, airway position, temperature management
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-014",
+  "patientInfo": {
+    "ageGroup": "child",
+    "approxAge": "4",
+    "sex": "female"
+  },
+  "incidentInfo": {
+    "description": "4-year-old girl, active seizure lasting approximately 5 minutes, not responding, body is very hot to touch, first seizure ever",
+    "priority": "P1",
+    "consciousness": "unconscious",
+    "breathing": "laboured",
+    "activelyBleeding": false,
+    "medicalHistory": "none known"
+  }
+}
+
+
+### 4.4 Infant — not feeding, lethargic, fever
+# Expected: neonatal/infant assessment, sepsis protocol
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-015",
+  "patientInfo": {
+    "ageGroup": "infant",
+    "approxAge": "3 months",
+    "sex": "female"
+  },
+  "incidentInfo": {
+    "description": "3-month-old infant, not feeding for 12 hours, very lethargic, high fever, bulging fontanelle, crying weakly",
+    "priority": "P2",
+    "consciousness": "verbal",
+    "breathing": "laboured",
+    "activelyBleeding": false,
+    "medicalHistory": "none known"
+  }
+}
+
+
+# =============================================================================
+# SECTION 5 — TRAUMA CASES
+# =============================================================================
+
+### 5.1 Road traffic accident — multi-trauma, unresponsive
+# Expected: MIST handover guidance, trauma protocol, spinal immobilisation
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-016",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "30",
+    "sex": "female"
+  },
+  "incidentInfo": {
+    "description": "Female passenger ejected from vehicle in a high-speed collision, head injury with visible scalp laceration, unresponsive, bleeding from leg",
+    "priority": "P1",
+    "consciousness": "unconscious",
+    "breathing": "laboured",
+    "activelyBleeding": true,
+    "medicalHistory": "none known"
+  }
+}
+
+
+### 5.2 Fall from height — elderly
+# Expected: spinal precautions, fracture assessment, head injury protocol
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-017",
+  "patientInfo": {
+    "ageGroup": "elderly",
+    "approxAge": "78",
+    "sex": "female"
+  },
+  "incidentInfo": {
+    "description": "78-year-old woman fell from a ladder while cleaning, approximately 2 metres, complaining of severe back pain, cannot move her legs",
+    "priority": "P2",
+    "consciousness": "alert",
+    "breathing": "normal",
+    "activelyBleeding": false,
+    "medicalHistory": "osteoporosis, blood thinners"
+  }
+}
+
+
+### 5.3 Crush injury — construction site accident
+# Expected: crush syndrome protocol, fluid resuscitation, tourniquet guidance
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-018",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "27",
+    "sex": "male"
+  },
+  "incidentInfo": {
+    "description": "27-year-old male, trapped under a concrete slab at a construction site for 2 hours, crush injury to both legs, now freed, in pain and confused",
+    "priority": "P1",
+    "consciousness": "verbal",
+    "breathing": "normal",
+    "activelyBleeding": true,
+    "medicalHistory": "none known"
+  }
+}
+
+
+# =============================================================================
+# SECTION 6 — MEDICAL EMERGENCIES (NON-TRAUMA)
+# =============================================================================
+
+### 6.1 Diabetic emergency — hypoglycaemia
+# Expected: blood glucose check, oral glucose / IV dextrose protocol
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-019",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "48",
+    "sex": "male"
+  },
+  "incidentInfo": {
+    "description": "48-year-old known diabetic male, found confused and sweating at home by family, not eating since morning, took his insulin",
+    "priority": "P2",
+    "consciousness": "verbal",
+    "breathing": "normal",
+    "activelyBleeding": false,
+    "medicalHistory": "type 2 diabetes, metformin, insulin"
+  }
+}
+
+
+### 6.2 Poisoning — organophosphate ingestion
+# Expected: decontamination, atropine protocol, airway management
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-020",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "22",
+    "sex": "female"
+  },
+  "incidentInfo": {
+    "description": "22-year-old female, suspected ingestion of organophosphate pesticide, excessive salivation, miosis, vomiting, muscle twitching, drowsy",
+    "priority": "P1",
+    "consciousness": "verbal",
+    "breathing": "laboured",
+    "activelyBleeding": false,
+    "medicalHistory": "none known"
+  }
+}
+
+
+### 6.3 Acute asthma — severe attack
+# Expected: salbutamol protocol, oxygen, positioning, transport
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-021",
+  "patientInfo": {
+    "ageGroup": "adolescent",
+    "approxAge": "16",
+    "sex": "male"
+  },
+  "incidentInfo": {
+    "description": "16-year-old male known asthmatic, severe wheezing, unable to speak in full sentences, not responding to home inhaler, sitting upright and panicking",
+    "priority": "P2",
+    "consciousness": "alert",
+    "breathing": "laboured",
+    "activelyBleeding": false,
+    "medicalHistory": "bronchial asthma"
+  }
+}
+
+
+### 6.4 Snake bite — probable cytotoxic envenomation
+# Expected: immobilisation protocol, anti-venom guidance, transport
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-022",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "33",
+    "sex": "male"
+  },
+  "incidentInfo": {
+    "description": "33-year-old male bitten by a snake on the right foot while farming, fang marks visible, foot swelling rapidly, patient is anxious",
+    "priority": "P2",
+    "consciousness": "alert",
+    "breathing": "normal",
+    "activelyBleeding": false,
+    "medicalHistory": "none known"
+  }
+}
+
+
+# =============================================================================
+# SECTION 7 — EDGE CASES & SPECIAL SCENARIOS
+# =============================================================================
+
+### 7.1 Minimal input — single symptom description
+# Expected: agent still returns a protocol response, no crash
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-023",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "",
+    "sex": ""
+  },
+  "incidentInfo": {
+    "description": "patient unconscious",
+    "priority": "P1",
+    "consciousness": "unconscious",
+    "breathing": "absent",
+    "activelyBleeding": false,
+    "medicalHistory": ""
+  }
+}
+
+
+### 7.2 Bystander language — colloquial Kenyan English
+# Tests how well the RAG handles non-clinical layperson descriptions
+# Expected: agent extracts relevant protocols despite informal language
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-024",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "40",
+    "sex": "male"
+  },
+  "incidentInfo": {
+    "description": "He got shot in the stomach and there is blood everywhere and he has fallen down and we cannot wake him up",
+    "priority": "P1",
+    "consciousness": "unconscious",
+    "breathing": "laboured",
+    "activelyBleeding": true,
+    "medicalHistory": "none known"
+  }
+}
+
+
+### 7.3 Paramedic relay — clinical shorthand
+# Tests abbreviations: GSW, GCS, BP, HR
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-025",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "30",
+    "sex": "male"
+  },
+  "incidentInfo": {
+    "description": "GSW abdomen, unresponsive, GCS 6, BP 70 systolic, HR 140, profuse haemorrhage from entry wound",
+    "priority": "P1",
+    "consciousness": "unconscious",
+    "breathing": "laboured",
+    "activelyBleeding": true,
+    "medicalHistory": "none known"
+  }
+}
+
+
+### 7.4 Mass casualty — primary patient extracted from complex scene description
+# Expected: protocol for the primary patient, no crash on complex text
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-026",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "45",
+    "sex": "male"
+  },
+  "incidentInfo": {
+    "description": "Bus accident on Nairobi-Mombasa highway, multiple casualties. Primary patient: 45-year-old male, unconscious, head trauma, bleeding from scalp, deformed right arm. Bystanders walking wounded.",
+    "priority": "P1",
+    "consciousness": "unconscious",
+    "breathing": "laboured",
+    "activelyBleeding": true,
+    "medicalHistory": "unknown"
+  }
+}
+
+
+### 7.5 Kiswahili terms mixed with English
+# Expected: agent handles mixed language gracefully, no error thrown
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-027",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "35",
+    "sex": "male"
+  },
+  "incidentInfo": {
+    "description": "Mtu amepigwa risasi tumboni, ana damu nyingi, hana fahamu. Shot in the abdomen, profuse bleeding, unconscious.",
+    "priority": "P1",
+    "consciousness": "unconscious",
+    "breathing": "laboured",
+    "activelyBleeding": true,
+    "medicalHistory": "none known"
+  }
+}
+
+
+# =============================================================================
+# SECTION 8 — EXPECTED ERROR RESPONSES (422 VALIDATION)
+# =============================================================================
+
+### 8.1 Missing request body entirely
+# Expected: 422 Unprocessable Entity — Field required: body
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+
+### 8.2 Missing incidentInfo.description (required field)
+# Expected: 422 Unprocessable Entity
+POST {{base_url}}/em_protocols_rag
+Content-Type: {{content_type}}
+
+{
+  "dispatchId": "DISP-ERR-001",
+  "patientInfo": {
+    "ageGroup": "adult",
+    "approxAge": "30",
+    "sex": "male"
+  },
+  "incidentInfo": {
+    "priority": "P1",
+    "consciousness": "unconscious",
+    "breathing": "absent",
+    "activelyBleeding": false,
+    "medicalHistory": ""
+  }
+}
+
+
+### 8.3 Wrong content type — plain text body
+# Expected: 422 Unprocessable Entity
+POST {{base_url}}/em_protocols_rag
+Content-Type: text/plain
+
+Patient collapsed, not breathing, no pulse

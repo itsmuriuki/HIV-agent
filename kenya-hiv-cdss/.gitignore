@@ -12,5 +12,8 @@ __pycache__/
 .venv
 venv/
 
+# LanceDB vector index — rebuilt from PDFs on first startup, never committed
+lancedb/
+
 # OS
 .DS_Store
