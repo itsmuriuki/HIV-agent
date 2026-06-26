@@ -212,7 +212,7 @@ Content-Type: {{content_type}}
     "sex": "male"
   },
   "incidentInfo": {
-    "description": "45-year-old male, motorcycle accident, deformed right leg, suspected femur fracture, alert and talking, no head injury",
+    "description": "young man with blunt trauma from a motorcycle accident, conscious, complaining of severe leg pain, minor abrasions on arms and face",
     "priority": "P2",
     "consciousness": "alert",
     "breathing": "normal",
